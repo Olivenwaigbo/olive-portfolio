@@ -1,0 +1,1221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>AeroCopilot — Olive Chika Nwaigbo</title>
+
+    <link rel="stylesheet" href="../css/style.css">
+
+    <style>
+        .project-hero {
+            padding: 110px 0 80px;
+            border-bottom: 1px solid var(--line);
+        }
+
+        .project-kicker {
+            color: var(--accent);
+            font-size: 0.8rem;
+            font-weight: 700;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            margin-bottom: 22px;
+        }
+
+        .project-hero h1 {
+            max-width: 1000px;
+            font-size: clamp(3rem, 7vw, 6.5rem);
+            line-height: 0.95;
+            letter-spacing: -0.055em;
+            margin-bottom: 30px;
+        }
+
+        .project-hero p {
+            max-width: 780px;
+            font-size: 1.25rem;
+            line-height: 1.7;
+            color: var(--muted);
+        }
+
+        .project-actions {
+            display: flex;
+            gap: 14px;
+            margin-top: 35px;
+            flex-wrap: wrap;
+        }
+
+        .project-button {
+            display: inline-block;
+            padding: 13px 20px;
+            border: 1px solid var(--black);
+            text-decoration: none;
+            color: var(--black);
+            font-weight: 600;
+            transition: 0.2s ease;
+        }
+
+        .project-button.primary {
+            background: var(--black);
+            color: white;
+        }
+
+        .project-button:hover {
+            transform: translateY(-2px);
+        }
+
+        .project-meta {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            border-bottom: 1px solid var(--line);
+        }
+
+        .meta-item {
+            padding: 28px 20px;
+            border-right: 1px solid var(--line);
+        }
+
+        .meta-item:last-child {
+            border-right: none;
+        }
+
+        .meta-label {
+            display: block;
+            color: var(--muted);
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            margin-bottom: 8px;
+        }
+
+        .meta-value {
+            font-weight: 700;
+        }
+
+        .case-section {
+            padding: 90px 0;
+            border-bottom: 1px solid var(--line);
+        }
+
+        .section-number {
+            color: var(--accent);
+            font-size: 0.8rem;
+            font-weight: 700;
+            letter-spacing: 0.12em;
+            margin-bottom: 15px;
+        }
+
+        .case-section h2 {
+            font-size: clamp(2rem, 4vw, 3.5rem);
+            letter-spacing: -0.04em;
+            margin-bottom: 25px;
+        }
+
+        .case-section h3 {
+            margin-top: 35px;
+            margin-bottom: 12px;
+            font-size: 1.15rem;
+        }
+
+        .case-section p {
+            max-width: 780px;
+            line-height: 1.8;
+            color: var(--muted);
+        }
+
+        .two-column {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 70px;
+        }
+
+        .three-column {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .card {
+            border: 1px solid var(--line);
+            padding: 28px;
+            background: var(--white);
+        }
+
+        .card h3 {
+            margin-top: 0;
+        }
+
+        .card p {
+            font-size: 0.95rem;
+        }
+
+        .card ul {
+            padding-left: 18px;
+            color: var(--muted);
+            line-height: 1.8;
+        }
+
+        .metric-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 12px;
+            margin-top: 35px;
+        }
+
+        .metric {
+            padding: 25px 18px;
+            border: 1px solid var(--line);
+            background: var(--white);
+        }
+
+        .metric strong {
+            display: block;
+            font-size: 2rem;
+            letter-spacing: -0.04em;
+            margin-bottom: 7px;
+        }
+
+        .metric span {
+            color: var(--muted);
+            font-size: 0.8rem;
+        }
+
+        .architecture {
+            margin-top: 40px;
+            border: 1px solid var(--line);
+            background: #181818;
+            color: white;
+            padding: 35px;
+        }
+
+        .architecture-title {
+            color: #aaa;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 25px;
+        }
+
+        .architecture-flow {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        .architecture-box {
+            border: 1px solid #555;
+            padding: 18px 22px;
+            text-align: center;
+            min-width: 125px;
+        }
+
+        .architecture-box small {
+            display: block;
+            color: #aaa;
+            margin-top: 5px;
+        }
+
+        .arrow {
+            color: #777;
+            font-size: 1.5rem;
+        }
+
+        .project-note {
+            background: #f0eee9;
+            padding: 30px;
+            margin-top: 35px;
+            border-left: 4px solid var(--accent);
+        }
+
+        .project-note p {
+            margin: 0;
+        }
+
+        .evaluation-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 30px;
+        }
+
+        .evaluation-table th,
+        .evaluation-table td {
+            text-align: left;
+            padding: 16px;
+            border-bottom: 1px solid var(--line);
+        }
+
+        .evaluation-table th {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            color: var(--muted);
+            letter-spacing: 0.08em;
+        }
+
+        .tag {
+            display: inline-block;
+            padding: 5px 9px;
+            font-size: 0.7rem;
+            font-weight: 700;
+            border: 1px solid var(--line);
+        }
+
+        .next-project {
+            padding: 100px 0;
+            text-align: center;
+        }
+
+        .next-project h2 {
+            font-size: clamp(2.5rem, 5vw, 5rem);
+            letter-spacing: -0.05em;
+            margin-bottom: 25px;
+        }
+
+        .next-project p {
+            color: var(--muted);
+            margin-bottom: 30px;
+        }
+
+        @media (max-width: 900px) {
+            .project-meta,
+            .metric-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .two-column,
+            .three-column {
+                grid-template-columns: 1fr;
+            }
+
+            .meta-item:nth-child(2) {
+                border-right: none;
+            }
+
+            .meta-item {
+                border-bottom: 1px solid var(--line);
+            }
+        }
+
+        @media (max-width: 600px) {
+            .project-meta,
+            .metric-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .meta-item {
+                border-right: none;
+            }
+
+            .project-hero {
+                padding-top: 70px;
+            }
+
+            .case-section {
+                padding: 65px 0;
+            }
+
+            .architecture-flow {
+                flex-direction: column;
+            }
+
+            .arrow {
+                transform: rotate(90deg);
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<!-- NAVIGATION -->
+<header class="site-header">
+    <div class="container nav-container">
+        <a href="../index.html" class="logo">OLIVE.</a>
+
+        <nav>
+            <a href="../index.html">Home</a>
+            <a href="../index.html#about">About</a>
+            <a href="../index.html#experience">Experience</a>
+            <a href="../index.html#projects">Projects</a>
+            <a href="../labs/aviation.html">Innovation Labs</a>
+            <a href="../index.html#contact">Contact</a>
+        </nav>
+    </div>
+</header>
+
+
+<main>
+
+<!-- HERO -->
+<section class="project-hero">
+    <div class="container">
+
+        <div class="project-kicker">
+            Olive Aviation Innovation Lab · RAG + GenAI
+        </div>
+
+        <h1>
+            AeroCopilot
+        </h1>
+
+        <p>
+            An AI-powered aviation knowledge assistant designed to help
+            aviation professionals find, understand and retrieve information
+            from complex technical documents faster.
+        </p>
+
+        <div class="project-actions">
+
+            <a
+                href="https://aerocopilot.streamlit.app/"
+                class="project-button primary"
+                target="_blank"
+                rel="noopener noreferrer">
+                Launch AeroCopilot ↗
+            </a>
+
+            <a
+                href="https://github.com/Olivenwaigbo/aerocopilot"
+                class="project-button"
+                target="_blank"
+                rel="noopener noreferrer">
+                View GitHub ↗
+            </a>
+
+            <a
+                href="../labs/aviation.html"
+                class="project-button">
+                Aviation Innovation Lab →
+            </a>
+
+        </div>
+
+    </div>
+</section>
+
+
+<!-- PROJECT META -->
+<section>
+    <div class="container project-meta">
+
+        <div class="meta-item">
+            <span class="meta-label">Role</span>
+            <span class="meta-value">Product + AI + Data</span>
+        </div>
+
+        <div class="meta-item">
+            <span class="meta-label">Domain</span>
+            <span class="meta-value">Aviation Knowledge</span>
+        </div>
+
+        <div class="meta-item">
+            <span class="meta-label">Architecture</span>
+            <span class="meta-value">RAG + Vector Search</span>
+        </div>
+
+        <div class="meta-item">
+            <span class="meta-label">Status</span>
+            <span class="meta-value">Live Prototype</span>
+        </div>
+
+    </div>
+</section>
+
+
+<!-- 01 PROBLEM -->
+<section class="case-section">
+    <div class="container">
+
+        <div class="section-number">01 — THE PROBLEM</div>
+
+        <h2>
+            Aviation knowledge is valuable. Finding it can be slow.
+        </h2>
+
+        <p>
+            Aviation organisations work with large collections of technical
+            manuals, maintenance procedures, operational policies, safety
+            documents, engineering references, training materials and
+            regulatory information.
+        </p>
+
+        <p>
+            When information is buried across hundreds or thousands of pages,
+            finding the right answer can require significant manual searching.
+            Traditional keyword search can also fail when the user's wording
+            differs from the wording used in the source document.
+        </p>
+
+        <div class="project-note">
+            <p>
+                <strong>Product question:</strong>
+                How might we help aviation professionals retrieve relevant
+                technical information faster without forcing them to manually
+                search through large document collections?
+            </p>
+        </div>
+
+    </div>
+</section>
+
+
+<!-- 02 USERS -->
+<section class="case-section">
+    <div class="container">
+
+        <div class="section-number">02 — USERS</div>
+
+        <h2>
+            Designed around people who work with aviation information.
+        </h2>
+
+        <div class="three-column">
+
+            <div class="card">
+                <h3>Maintenance & Engineering</h3>
+                <p>
+                    Primary users who frequently need to locate procedures,
+                    inspection information and technical guidance.
+                </p>
+            </div>
+
+            <div class="card">
+                <h3>Operations & Safety</h3>
+                <p>
+                    Teams that need to quickly retrieve operational policies,
+                    safety procedures and relevant documentation.
+                </p>
+            </div>
+
+            <div class="card">
+                <h3>Analysts & Trainers</h3>
+                <p>
+                    Professionals and learners who need faster access to
+                    structured knowledge across aviation documents.
+                </p>
+            </div>
+
+        </div>
+
+    </div>
+</section>
+
+
+<!-- 03 PRODUCT -->
+<section class="case-section">
+    <div class="container">
+
+        <div class="section-number">03 — PRODUCT CONCEPT</div>
+
+        <h2>
+            Ask a question. Retrieve the evidence. Generate a grounded answer.
+        </h2>
+
+        <div class="two-column">
+
+            <div>
+                <h3>Product hypothesis</h3>
+
+                <p>
+                    If aviation documents can be converted into searchable
+                    semantic representations, professionals may be able to
+                    retrieve relevant information faster than relying only
+                    on traditional keyword search.
+                </p>
+            </div>
+
+            <div>
+                <h3>Core user story</h3>
+
+                <p>
+                    As an aviation professional, I want to ask a natural
+                    language question and receive a concise answer supported
+                    by the relevant source document.
+                </p>
+            </div>
+
+        </div>
+
+    </div>
+</section>
+
+
+<!-- 04 MVP -->
+<section class="case-section">
+    <div class="container">
+
+        <div class="section-number">04 — MVP</div>
+
+        <h2>
+            Five capabilities define the first version.
+        </h2>
+
+        <div class="three-column">
+
+            <div class="card">
+                <h3>01</h3>
+                <h3>Document Ingestion</h3>
+                <p>
+                    Load aviation PDF documents and extract their text
+                    and page-level metadata.
+                </p>
+            </div>
+
+            <div class="card">
+                <h3>02</h3>
+                <h3>Semantic Retrieval</h3>
+                <p>
+                    Convert document content into embeddings and retrieve
+                    semantically relevant information.
+                </p>
+            </div>
+
+            <div class="card">
+                <h3>03</h3>
+                <h3>RAG Generation</h3>
+                <p>
+                    Use retrieved evidence as context for grounded
+                    generative AI responses.
+                </p>
+            </div>
+
+            <div class="card">
+                <h3>04</h3>
+                <h3>Citations</h3>
+                <p>
+                    Return source documents and page references alongside
+                    generated answers.
+                </p>
+            </div>
+
+            <div class="card">
+                <h3>05</h3>
+                <h3>Abstention</h3>
+                <p>
+                    Refuse to provide an unsupported answer when the
+                    available documents do not contain sufficient information.
+                </p>
+            </div>
+
+        </div>
+
+    </div>
+</section>
+
+
+<!-- 05 RAG PIPELINE -->
+<section class="case-section">
+    <div class="container">
+
+        <div class="section-number">05 — RAG PIPELINE</div>
+
+        <h2>
+            Retrieval happens before generation.
+        </h2>
+
+        <p>
+            AeroCopilot uses Retrieval-Augmented Generation rather than asking
+            the language model to answer from its general knowledge alone.
+        </p>
+
+        <div class="architecture">
+
+            <div class="architecture-title">
+                AeroCopilot RAG Architecture
+            </div>
+
+            <div class="architecture-flow">
+
+                <div class="architecture-box">
+                    Aviation Documents
+                    <small>PDF</small>
+                </div>
+
+                <div class="arrow">→</div>
+
+                <div class="architecture-box">
+                    Text Extraction
+                    <small>PyPDF</small>
+                </div>
+
+                <div class="arrow">→</div>
+
+                <div class="architecture-box">
+                    Chunking
+                    <small>LangChain</small>
+                </div>
+
+                <div class="arrow">→</div>
+
+                <div class="architecture-box">
+                    Embeddings
+                    <small>MiniLM</small>
+                </div>
+
+                <div class="arrow">→</div>
+
+                <div class="architecture-box">
+                    ChromaDB
+                    <small>Vector Store</small>
+                </div>
+
+                <div class="arrow">→</div>
+
+                <div class="architecture-box">
+                    Retriever
+                    <small>Semantic Search</small>
+                </div>
+
+                <div class="arrow">→</div>
+
+                <div class="architecture-box">
+                    Groq
+                    <small>LLM</small>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+</section>
+
+
+<!-- 06 DATA -->
+<section class="case-section">
+    <div class="container">
+
+        <div class="section-number">06 — DATA</div>
+
+        <h2>
+            A controlled synthetic aviation document collection.
+        </h2>
+
+        <p>
+            Because aviation technical documentation can contain proprietary,
+            confidential or safety-sensitive information, AeroCopilot uses
+            synthetic documents created specifically for this prototype.
+        </p>
+
+        <div class="metric-grid">
+
+            <div class="metric">
+                <strong>4</strong>
+                <span>Synthetic PDF documents</span>
+            </div>
+
+            <div class="metric">
+                <strong>100%</strong>
+                <span>Controlled test content</span>
+            </div>
+
+            <div class="metric">
+                <strong>8</strong>
+                <span>Evaluation questions</span>
+            </div>
+
+            <div class="metric">
+                <strong>2</strong>
+                <span>Abstention cases</span>
+            </div>
+
+        </div>
+
+        <h3>Document areas</h3>
+
+        <div class="two-column">
+
+            <div class="card">
+                <ul>
+                    <li>Maintenance procedures</li>
+                    <li>Aircraft operations</li>
+                    <li>Safety procedures</li>
+                    <li>Inspection procedures</li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <ul>
+                    <li>Hydraulic system inspection</li>
+                    <li>Hydraulic leakage</li>
+                    <li>Abnormal aircraft conditions</li>
+                    <li>Personal protective equipment</li>
+                </ul>
+            </div>
+
+        </div>
+
+    </div>
+</section>
+
+
+<!-- 07 AI -->
+<section class="case-section">
+    <div class="container">
+
+        <div class="section-number">07 — GENERATIVE AI</div>
+
+        <h2>
+            The LLM is grounded by retrieved evidence.
+        </h2>
+
+        <div class="two-column">
+
+            <div>
+                <h3>Retrieval layer</h3>
+
+                <p>
+                    The retriever searches the vector database for document
+                    chunks that are semantically relevant to the user's
+                    question.
+                </p>
+            </div>
+
+            <div>
+                <h3>Generation layer</h3>
+
+                <p>
+                    The Groq-powered language model receives the retrieved
+                    evidence and generates a concise response grounded in
+                    those documents.
+                </p>
+            </div>
+
+        </div>
+
+        <div class="project-note">
+            <p>
+                AeroCopilot is intentionally instructed not to invent
+                information. When the available documents do not provide
+                enough evidence, the system abstains instead of presenting
+                an unsupported answer as fact.
+            </p>
+        </div>
+
+    </div>
+</section>
+
+
+<!-- 08 EVALUATION -->
+<section class="case-section">
+    <div class="container">
+
+        <div class="section-number">08 — EVALUATION</div>
+
+        <h2>
+            I tested retrieval and answer behaviour separately.
+        </h2>
+
+        <p>
+            The evaluation dataset contains eight questions covering both
+            answerable and intentionally unanswerable scenarios.
+        </p>
+
+        <table class="evaluation-table">
+
+            <thead>
+                <tr>
+                    <th>Evaluation</th>
+                    <th>Result</th>
+                    <th>Meaning</th>
+                </tr>
+            </thead>
+
+            <tbody>
+
+                <tr>
+                    <td>Test cases</td>
+                    <td><span class="tag">8 / 8</span></td>
+                    <td>All evaluation cases passed.</td>
+                </tr>
+
+                <tr>
+                    <td>Retrieval accuracy</td>
+                    <td><span class="tag">100%</span></td>
+                    <td>
+                        Expected document sources were successfully retrieved
+                        in the test set.
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>Behavior accuracy</td>
+                    <td><span class="tag">100%</span></td>
+                    <td>
+                        Answerable questions were answered while unsupported
+                        questions triggered abstention.
+                    </td>
+                </tr>
+
+            </tbody>
+
+        </table>
+
+        <div class="project-note">
+            <p>
+                These results are development-stage evaluation results on a
+                small synthetic dataset. They are not evidence of production
+                reliability or aviation safety performance.
+            </p>
+        </div>
+
+    </div>
+</section>
+
+
+<!-- 09 API -->
+<section class="case-section">
+    <div class="container">
+
+        <div class="section-number">09 — API</div>
+
+        <h2>
+            The intelligence layer is exposed through FastAPI.
+        </h2>
+
+        <p>
+            AeroCopilot includes a REST API that separates the retrieval and
+            question-answering capabilities from the presentation layer.
+            This creates a foundation for future applications and integrations.
+        </p>
+
+        <div class="three-column">
+
+            <div class="card">
+                <h3>/ask</h3>
+                <p>
+                    Submit a natural language question and receive a grounded
+                    answer with citations.
+                </p>
+            </div>
+
+            <div class="card">
+                <h3>/search</h3>
+                <p>
+                    Search the aviation document collection directly without
+                    invoking the language model.
+                </p>
+            </div>
+
+            <div class="card">
+                <h3>/documents</h3>
+                <p>
+                    Return the documents currently available to the
+                    AeroCopilot knowledge base.
+                </p>
+            </div>
+
+        </div>
+
+    </div>
+</section>
+
+
+<!-- 10 PROTOTYPE -->
+<section class="case-section">
+    <div class="container">
+
+        <div class="section-number">10 — PROTOTYPE</div>
+
+        <h2>
+            A conversational interface for aviation knowledge.
+        </h2>
+
+        <p>
+            The Streamlit application provides a simple interface where users
+            can ask aviation-related questions and receive grounded responses
+            supported by retrieved document evidence.
+        </p>
+
+        <div class="three-column">
+
+            <div class="card">
+                <h3>Natural Language</h3>
+                <p>
+                    Users ask questions using everyday language instead of
+                    manually constructing search queries.
+                </p>
+            </div>
+
+            <div class="card">
+                <h3>Grounded Answers</h3>
+                <p>
+                    Responses are generated using relevant retrieved
+                    document content.
+                </p>
+            </div>
+
+            <div class="card">
+                <h3>Evidence</h3>
+                <p>
+                    Retrieved sources and page information are surfaced so
+                    users can understand where the answer came from.
+                </p>
+            </div>
+
+        </div>
+
+        <div class="project-actions">
+            <a
+                href="https://aerocopilot.streamlit.app/"
+                class="project-button primary"
+                target="_blank"
+                rel="noopener noreferrer">
+                Try the Live Prototype ↗
+            </a>
+        </div>
+
+    </div>
+</section>
+
+
+<!-- 11 PRODUCT THINKING -->
+<section class="case-section">
+    <div class="container">
+
+        <div class="section-number">11 — WHAT I BUILT</div>
+
+        <h2>
+            This wasn't just a chatbot.
+        </h2>
+
+        <p>
+            AeroCopilot demonstrates an end-to-end AI product development
+            workflow: identifying a problem, defining users, designing the
+            MVP, creating controlled data, building the retrieval pipeline,
+            integrating generative AI, exposing the system through an API,
+            creating a usable interface and evaluating the resulting system.
+        </p>
+
+        <div class="three-column">
+
+            <div class="card">
+                <h3>Product</h3>
+                <p>
+                    Problem framing, user definition, product hypothesis,
+                    MVP scope and responsible-use boundaries.
+                </p>
+            </div>
+
+            <div class="card">
+                <h3>AI Engineering</h3>
+                <p>
+                    Document ingestion, chunking, embeddings, vector search,
+                    RAG, LLM integration and citation handling.
+                </p>
+            </div>
+
+            <div class="card">
+                <h3>Delivery</h3>
+                <p>
+                    Streamlit prototype, FastAPI backend, automated tests,
+                    evaluation framework, GitHub repository and deployment.
+                </p>
+            </div>
+
+        </div>
+
+    </div>
+</section>
+
+
+<!-- 12 RESPONSIBLE AI -->
+<section class="case-section">
+    <div class="container">
+
+        <div class="section-number">12 — RESPONSIBLE AI</div>
+
+        <h2>
+            Designed with clear boundaries.
+        </h2>
+
+        <div class="two-column">
+
+            <div>
+                <h3>What AeroCopilot does</h3>
+
+                <p>
+                    It demonstrates how retrieval-augmented generation can
+                    help users navigate a controlled collection of aviation
+                    documents and surface relevant information.
+                </p>
+            </div>
+
+            <div>
+                <h3>What AeroCopilot does not do</h3>
+
+                <p>
+                    It does not replace aviation professionals, make autonomous
+                    maintenance decisions, certify aircraft, approve procedures
+                    or provide safety-critical operational authorization.
+                </p>
+            </div>
+
+        </div>
+
+        <div class="project-note">
+            <p>
+                Any future production implementation would require
+                representative governed data, domain-expert validation,
+                cybersecurity controls, model monitoring, auditability,
+                appropriate human oversight and applicable regulatory review.
+            </p>
+        </div>
+
+    </div>
+</section>
+
+
+<!-- 13 TECHNOLOGY -->
+<section class="case-section">
+    <div class="container">
+
+        <div class="section-number">13 — TECHNOLOGY</div>
+
+        <h2>
+            Built across the AI product stack.
+        </h2>
+
+        <div class="three-column">
+
+            <div class="card">
+                <h3>Programming</h3>
+                <p>
+                    Python · Pandas · NumPy
+                </p>
+            </div>
+
+            <div class="card">
+                <h3>RAG</h3>
+                <p>
+                    LangChain · Retrieval-Augmented Generation
+                </p>
+            </div>
+
+            <div class="card">
+                <h3>Embeddings</h3>
+                <p>
+                    Hugging Face · all-MiniLM-L6-v2
+                </p>
+            </div>
+
+            <div class="card">
+                <h3>Vector Database</h3>
+                <p>
+                    ChromaDB · Semantic Search
+                </p>
+            </div>
+
+            <div class="card">
+                <h3>Generative AI</h3>
+                <p>
+                    Groq API · LLM-powered responses
+                </p>
+            </div>
+
+            <div class="card">
+                <h3>Application</h3>
+                <p>
+                    Streamlit · FastAPI · Pytest
+                </p>
+            </div>
+
+        </div>
+
+    </div>
+</section>
+
+
+<!-- 14 FUTURE -->
+<section class="case-section">
+    <div class="container">
+
+        <div class="section-number">14 — NEXT ITERATION</div>
+
+        <h2>
+            From prototype to validated aviation knowledge system.
+        </h2>
+
+        <p>
+            The next stage would focus less on simply adding features and
+            more on validating whether AeroCopilot genuinely improves the
+            speed, accuracy and confidence with which aviation professionals
+            retrieve information.
+        </p>
+
+        <div class="three-column">
+
+            <div class="card">
+                <h3>Better Evaluation</h3>
+                <p>
+                    Expand the evaluation dataset and measure retrieval
+                    precision, groundedness, citation accuracy and answer
+                    quality.
+                </p>
+            </div>
+
+            <div class="card">
+                <h3>Domain Validation</h3>
+                <p>
+                    Conduct structured testing with aviation professionals
+                    using appropriately governed representative documents.
+                </p>
+            </div>
+
+            <div class="card">
+                <h3>Enterprise Integration</h3>
+                <p>
+                    Explore authentication, document permissions, audit
+                    logging and integration with enterprise knowledge systems.
+                </p>
+            </div>
+
+        </div>
+
+    </div>
+</section>
+
+
+<!-- FINAL -->
+<section class="next-project">
+    <div class="container">
+
+        <div class="project-kicker">
+            Olive Aviation Innovation Lab
+        </div>
+
+        <h2>
+            Research first.<br>
+            Prototype second.
+        </h2>
+
+        <p>
+            AeroCopilot is the second project in my exploration of AI,
+            data and intelligent systems for aviation.
+        </p>
+
+        <a
+            href="../labs/aviation.html"
+            class="project-button primary">
+            Explore the Aviation Lab →
+        </a>
+
+    </div>
+</section>
+
+</main>
+
+
+<!-- FOOTER -->
+<footer class="site-footer">
+    <div class="container">
+        <p>
+            © 2026 Olive Chika Nwaigbo. Built as an independent research
+            and prototyping project.
+        </p>
+    </div>
+</footer>
+
+</body>
+</html>

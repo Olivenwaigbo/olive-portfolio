@@ -1,0 +1,1280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>AeroForge — Olive Chika Nwaigbo</title>
+
+    <link rel="stylesheet" href="../css/style.css">
+
+    <style>
+        .project-hero {
+            padding: 110px 0 80px;
+            border-bottom: 1px solid var(--line);
+        }
+
+        .project-kicker {
+            color: var(--accent);
+            font-size: 0.8rem;
+            font-weight: 700;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            margin-bottom: 22px;
+        }
+
+        .project-hero h1 {
+            max-width: 900px;
+            font-size: clamp(3rem, 7vw, 6.5rem);
+            line-height: 0.95;
+            letter-spacing: -0.055em;
+            margin-bottom: 30px;
+        }
+
+        .project-hero p {
+            max-width: 760px;
+            font-size: 1.25rem;
+            line-height: 1.7;
+            color: var(--muted);
+        }
+
+        .project-actions {
+            display: flex;
+            gap: 14px;
+            margin-top: 35px;
+            flex-wrap: wrap;
+        }
+
+        .project-button {
+            display: inline-block;
+            padding: 13px 20px;
+            border: 1px solid var(--black);
+            text-decoration: none;
+            color: var(--black);
+            font-weight: 600;
+            transition: 0.2s ease;
+        }
+
+        .project-button.primary {
+            background: var(--black);
+            color: white;
+        }
+
+        .project-button:hover {
+            transform: translateY(-2px);
+        }
+
+        .project-meta {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            border-bottom: 1px solid var(--line);
+        }
+
+        .meta-item {
+            padding: 28px 20px;
+            border-right: 1px solid var(--line);
+        }
+
+        .meta-item:last-child {
+            border-right: none;
+        }
+
+        .meta-label {
+            display: block;
+            color: var(--muted);
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            margin-bottom: 8px;
+        }
+
+        .meta-value {
+            font-weight: 700;
+        }
+
+        .case-section {
+            padding: 90px 0;
+            border-bottom: 1px solid var(--line);
+        }
+
+        .section-number {
+            color: var(--accent);
+            font-size: 0.8rem;
+            font-weight: 700;
+            letter-spacing: 0.12em;
+            margin-bottom: 15px;
+        }
+
+        .case-section h2 {
+            font-size: clamp(2rem, 4vw, 3.5rem);
+            letter-spacing: -0.04em;
+            margin-bottom: 25px;
+        }
+
+        .case-section h3 {
+            margin-top: 35px;
+            margin-bottom: 12px;
+            font-size: 1.15rem;
+        }
+
+        .case-section p {
+            max-width: 780px;
+            line-height: 1.8;
+            color: var(--muted);
+        }
+
+        .two-column {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 70px;
+        }
+
+        .three-column {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .card {
+            border: 1px solid var(--line);
+            padding: 28px;
+            background: var(--white);
+        }
+
+        .card h3 {
+            margin-top: 0;
+        }
+
+        .card p {
+            font-size: 0.95rem;
+        }
+
+        .card ul {
+            padding-left: 18px;
+            color: var(--muted);
+            line-height: 1.8;
+        }
+
+        .metric-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 12px;
+            margin-top: 35px;
+        }
+
+        .metric {
+            padding: 25px 18px;
+            border: 1px solid var(--line);
+            background: var(--white);
+        }
+
+        .metric strong {
+            display: block;
+            font-size: 2rem;
+            letter-spacing: -0.04em;
+            margin-bottom: 7px;
+        }
+
+        .metric span {
+            color: var(--muted);
+            font-size: 0.8rem;
+        }
+
+        .architecture {
+            margin-top: 40px;
+            border: 1px solid var(--line);
+            background: #181818;
+            color: white;
+            padding: 35px;
+        }
+
+        .architecture-title {
+            color: #aaa;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 25px;
+        }
+
+        .architecture-flow {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        .architecture-box {
+            border: 1px solid #555;
+            padding: 18px 22px;
+            text-align: center;
+            min-width: 130px;
+        }
+
+        .architecture-box small {
+            display: block;
+            color: #aaa;
+            margin-top: 5px;
+        }
+
+        .arrow {
+            color: #777;
+            font-size: 1.5rem;
+        }
+
+        .risk-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 30px;
+        }
+
+        .risk-table th,
+        .risk-table td {
+            text-align: left;
+            padding: 16px;
+            border-bottom: 1px solid var(--line);
+        }
+
+        .risk-table th {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            color: var(--muted);
+            letter-spacing: 0.08em;
+        }
+
+        .tag {
+            display: inline-block;
+            padding: 5px 9px;
+            font-size: 0.7rem;
+            font-weight: 700;
+            border: 1px solid var(--line);
+        }
+
+        .project-note {
+            background: #f0eee9;
+            padding: 30px;
+            margin-top: 35px;
+            border-left: 4px solid var(--accent);
+        }
+
+        .project-note p {
+            margin: 0;
+        }
+
+        .next-project {
+            padding: 100px 0;
+            text-align: center;
+        }
+
+        .next-project h2 {
+            font-size: clamp(2.5rem, 5vw, 5rem);
+            letter-spacing: -0.05em;
+            margin-bottom: 25px;
+        }
+
+        .next-project p {
+            color: var(--muted);
+            margin-bottom: 30px;
+        }
+
+        @media (max-width: 900px) {
+            .project-meta,
+            .metric-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .two-column,
+            .three-column {
+                grid-template-columns: 1fr;
+            }
+
+            .meta-item:nth-child(2) {
+                border-right: none;
+            }
+
+            .meta-item {
+                border-bottom: 1px solid var(--line);
+            }
+        }
+
+        @media (max-width: 600px) {
+            .project-meta,
+            .metric-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .meta-item {
+                border-right: none;
+            }
+
+            .project-hero {
+                padding-top: 70px;
+            }
+
+            .case-section {
+                padding: 65px 0;
+            }
+
+            .architecture-flow {
+                flex-direction: column;
+            }
+
+            .arrow {
+                transform: rotate(90deg);
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<!-- NAVIGATION -->
+<header class="site-header">
+    <div class="container nav-container">
+        <a href="../index.html" class="logo">OLIVE.</a>
+
+        <nav>
+            <a href="../index.html">Home</a>
+            <a href="../index.html#about">About</a>
+            <a href="../index.html#experience">Experience</a>
+            <a href="../index.html#projects">Projects</a>
+            <a href="../labs/aviation.html">Innovation Labs</a>
+            <a href="../index.html#contact">Contact</a>
+        </nav>
+    </div>
+</header>
+
+
+<main>
+
+<!-- HERO -->
+<section class="project-hero">
+    <div class="container">
+
+        <div class="project-kicker">
+            Olive Aviation Innovation Lab · AI + Data
+        </div>
+
+        <h1>
+            AeroForge
+        </h1>
+
+        <p>
+            AI-powered production risk intelligence for aerospace manufacturing.
+            A research-driven prototype designed to help manufacturing teams
+            identify potential production delays before they become costly
+            operational problems.
+        </p>
+
+        <div class="project-actions">
+            <a
+    href="https://aeroforgee.streamlit.app"
+    class="project-button primary"
+    target="_blank"
+    rel="noopener noreferrer">
+    View Live Prototype ↗
+</a>
+
+<a
+    href="https://github.com/Olivenwaigbo/aeroforge"
+    class="project-button"
+    target="_blank"
+    rel="noopener noreferrer">
+    View GitHub ↗
+</a>
+
+            <a href="../labs/aviation.html" class="project-button">
+                Aviation Innovation Lab →
+            </a>
+        </div>
+
+    </div>
+</section>
+
+
+<!-- PROJECT META -->
+<section>
+    <div class="container project-meta">
+
+        <div class="meta-item">
+            <span class="meta-label">Role</span>
+            <span class="meta-value">Product + AI + Data</span>
+        </div>
+
+        <div class="meta-item">
+            <span class="meta-label">Domain</span>
+            <span class="meta-value">Aerospace Manufacturing</span>
+        </div>
+
+        <div class="meta-item">
+            <span class="meta-label">Dataset</span>
+            <span class="meta-value">5,000 Synthetic Records</span>
+        </div>
+
+        <div class="meta-item">
+            <span class="meta-label">Status</span>
+            <span class="meta-value">Working Prototype</span>
+        </div>
+
+    </div>
+</section>
+
+
+<!-- 01 PROBLEM -->
+<section class="case-section">
+    <div class="container">
+
+        <div class="section-number">01 — THE PROBLEM</div>
+
+        <h2>
+            Production risk is often visible in pieces.
+        </h2>
+
+        <p>
+            Aerospace manufacturing involves complex interactions between
+            suppliers, components, production stages, equipment, inspections,
+            rework and workforce capacity.
+        </p>
+
+        <p>
+            The product opportunity I explored was simple:
+            <strong>How might manufacturing teams identify emerging
+            production risks early enough to investigate them?</strong>
+        </p>
+
+        <div class="project-note">
+            <p>
+                AeroForge is an independent research and prototyping project.
+                It does not use confidential aerospace data and is not intended
+                for safety-critical decision-making.
+            </p>
+        </div>
+
+    </div>
+</section>
+
+
+<!-- 02 USERS -->
+<section class="case-section">
+    <div class="container">
+
+        <div class="section-number">02 — USERS</div>
+
+        <h2>
+            Designed around the people making production decisions.
+        </h2>
+
+        <div class="three-column">
+
+            <div class="card">
+                <h3>Production Manager</h3>
+                <p>
+                    Primary user responsible for monitoring production progress
+                    and identifying areas requiring intervention.
+                </p>
+            </div>
+
+            <div class="card">
+                <h3>Quality Manager</h3>
+                <p>
+                    Needs visibility into defects, inspection failures and
+                    rework signals that may affect production.
+                </p>
+            </div>
+
+            <div class="card">
+                <h3>Supply Chain Manager</h3>
+                <p>
+                    Needs visibility into supplier performance, component
+                    shortages and delivery-related risks.
+                </p>
+            </div>
+
+        </div>
+
+    </div>
+</section>
+
+
+<!-- 03 PRODUCT -->
+<section class="case-section">
+    <div class="container">
+
+        <div class="section-number">03 — PRODUCT CONCEPT</div>
+
+        <h2>
+            From fragmented signals to one risk view.
+        </h2>
+
+        <div class="two-column">
+
+            <div>
+                <h3>Product hypothesis</h3>
+
+                <p>
+                    If production, supplier, quality and operational signals
+                    are brought together and converted into transparent risk
+                    estimates, manufacturing teams may be able to identify
+                    areas requiring investigation earlier.
+                </p>
+            </div>
+
+            <div>
+                <h3>Core user story</h3>
+
+                <p>
+                    As a production manager, I want to identify production
+                    units with elevated delay risk so that I can investigate
+                    contributing operational factors earlier.
+                </p>
+            </div>
+
+        </div>
+
+    </div>
+</section>
+
+
+<!-- 04 MVP -->
+<section class="case-section">
+    <div class="container">
+
+        <div class="section-number">04 — MVP</div>
+
+        <h2>
+            Five capabilities form the first version.
+        </h2>
+
+        <div class="three-column">
+
+            <div class="card">
+                <h3>01</h3>
+                <h3>Production Overview</h3>
+                <p>
+                    High-level visibility into production volume,
+                    delay patterns and operational signals.
+                </p>
+            </div>
+
+            <div class="card">
+                <h3>02</h3>
+                <h3>Risk Prediction</h3>
+                <p>
+                    Machine-learning predictions estimate the probability
+                    that a production unit may experience delay.
+                </p>
+            </div>
+
+            <div class="card">
+                <h3>03</h3>
+                <h3>Supplier Intelligence</h3>
+                <p>
+                    Surfaces supplier-related signals associated with
+                    production delays.
+                </p>
+            </div>
+
+            <div class="card">
+                <h3>04</h3>
+                <h3>Quality Intelligence</h3>
+                <p>
+                    Connects defects, failed inspections and rework with
+                    production risk.
+                </p>
+            </div>
+
+            <div class="card">
+                <h3>05</h3>
+                <h3>AI-Assisted Explanation</h3>
+                <p>
+                    Uses an LLM to translate model evidence into
+                    human-readable operational insights.
+                </p>
+            </div>
+
+        </div>
+
+    </div>
+</section>
+
+
+<!-- 05 DATA -->
+<section class="case-section">
+    <div class="container">
+
+        <div class="section-number">05 — DATA</div>
+
+        <h2>
+            A synthetic manufacturing dataset.
+        </h2>
+
+        <p>
+            Because this is an independent portfolio project, I created a
+            synthetic dataset designed to represent production-level signals
+            that could be relevant to manufacturing risk analysis.
+        </p>
+
+        <div class="metric-grid">
+
+            <div class="metric">
+                <strong>5,000</strong>
+                <span>Production records</span>
+            </div>
+
+            <div class="metric">
+                <strong>18</strong>
+                <span>Variables</span>
+            </div>
+
+            <div class="metric">
+                <strong>50</strong>
+                <span>Suppliers</span>
+            </div>
+
+            <div class="metric">
+                <strong>6</strong>
+                <span>Production stages</span>
+            </div>
+
+            <div class="metric">
+                <strong>3</strong>
+                <span>Aircraft models</span>
+            </div>
+
+        </div>
+
+        <h3>Signals represented</h3>
+
+        <div class="two-column">
+
+            <div class="card">
+                <ul>
+                    <li>Supplier delivery performance</li>
+                    <li>Supplier delay days</li>
+                    <li>Component shortages</li>
+                    <li>Machine downtime</li>
+                    <li>Defect counts</li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <ul>
+                    <li>Failed inspections</li>
+                    <li>Rework hours</li>
+                    <li>Workforce load</li>
+                    <li>Planned duration</li>
+                    <li>Actual production duration</li>
+                </ul>
+            </div>
+
+        </div>
+
+    </div>
+</section>
+
+
+<!-- 06 ML -->
+<section class="case-section">
+    <div class="container">
+
+        <div class="section-number">06 — MACHINE LEARNING</div>
+
+        <h2>
+            Predicting production delay risk.
+        </h2>
+
+        <p>
+            I built a classification pipeline using Logistic Regression.
+            Categorical variables are one-hot encoded while numerical
+            variables are standardized through a preprocessing pipeline.
+        </p>
+
+        <p>
+            The target variable is <strong>production_delayed</strong>.
+            The dataset was split into training and testing sets using a
+            stratified 80/20 split.
+        </p>
+
+        <div class="metric-grid">
+
+            <div class="metric">
+                <strong>77.5%</strong>
+                <span>Accuracy</span>
+            </div>
+
+            <div class="metric">
+                <strong>82.4%</strong>
+                <span>Precision</span>
+            </div>
+
+            <div class="metric">
+                <strong>85.0%</strong>
+                <span>Recall</span>
+            </div>
+
+            <div class="metric">
+                <strong>83.7%</strong>
+                <span>F1 Score</span>
+            </div>
+
+            <div class="metric">
+                <strong>84.9%</strong>
+                <span>ROC-AUC</span>
+            </div>
+
+        </div>
+
+        <div class="project-note">
+            <p>
+                <strong>Important:</strong> these performance metrics are
+                calculated on synthetic data created for this prototype.
+                They should not be interpreted as evidence of performance
+                on real aerospace manufacturing operations.
+            </p>
+        </div>
+
+    </div>
+</section>
+
+
+<!-- 07 RISK ENGINE -->
+<section class="case-section">
+    <div class="container">
+
+        <div class="section-number">07 — RISK ENGINE</div>
+
+        <h2>
+            Predictions become operationally understandable.
+        </h2>
+
+        <p>
+            Rather than displaying only a probability score, AeroForge
+            translates model output into three risk categories.
+        </p>
+
+        <table class="risk-table">
+
+            <thead>
+                <tr>
+                    <th>Risk Level</th>
+                    <th>Probability</th>
+                    <th>Interpretation</th>
+                </tr>
+            </thead>
+
+            <tbody>
+
+                <tr>
+                    <td><span class="tag">LOW</span></td>
+                    <td>&lt; 45%</td>
+                    <td>Low predicted likelihood of production delay.</td>
+                </tr>
+
+                <tr>
+                    <td><span class="tag">MEDIUM</span></td>
+                    <td>45% – 74%</td>
+                    <td>Monitor contributing production signals.</td>
+                </tr>
+
+                <tr>
+                    <td><span class="tag">HIGH</span></td>
+                    <td>≥ 75%</td>
+                    <td>Investigation recommended.</td>
+                </tr>
+
+            </tbody>
+
+        </table>
+
+    </div>
+</section>
+
+
+<!-- 08 AI -->
+<section class="case-section">
+    <div class="container">
+
+        <div class="section-number">08 — AI LAYER</div>
+
+        <h2>
+            The model predicts. AI helps explain.
+        </h2>
+
+        <div class="two-column">
+
+            <div>
+                <h3>Machine Learning</h3>
+
+                <p>
+                    The ML model calculates the probability of production
+                    delay from structured production signals.
+                </p>
+            </div>
+
+            <div>
+                <h3>Generative AI</h3>
+
+                <p>
+                    Groq-powered LLM capabilities convert structured model
+                    evidence and identified risk factors into concise,
+                    human-readable explanations.
+                </p>
+            </div>
+
+        </div>
+
+        <div class="architecture">
+
+            <div class="architecture-title">
+                AeroForge System Architecture
+            </div>
+
+            <div class="architecture-flow">
+
+                <div class="architecture-box">
+                    Synthetic Data
+                    <small>CSV / Pandas</small>
+                </div>
+
+                <div class="arrow">→</div>
+
+                <div class="architecture-box">
+                    Feature Engineering
+                    <small>Python</small>
+                </div>
+
+                <div class="arrow">→</div>
+
+                <div class="architecture-box">
+                    ML Model
+                    <small>Scikit-learn</small>
+                </div>
+
+                <div class="arrow">→</div>
+
+                <div class="architecture-box">
+                    Risk Engine
+                    <small>Python</small>
+                </div>
+
+                <div class="arrow">→</div>
+
+                <div class="architecture-box">
+                    AI Explanation
+                    <small>Groq</small>
+                </div>
+
+                <div class="arrow">→</div>
+
+                <div class="architecture-box">
+                    User Interface
+                    <small>Streamlit</small>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+</section>
+
+
+<!-- 09 API -->
+<section class="case-section">
+    <div class="container">
+
+        <div class="section-number">09 — API</div>
+
+        <h2>
+            The intelligence is exposed as a service.
+        </h2>
+
+        <p>
+            AeroForge also includes a FastAPI backend, separating the
+            intelligence layer from the dashboard interface and creating
+            a foundation for future integrations.
+        </p>
+
+        <div class="three-column">
+
+            <div class="card">
+                <h3>FastAPI</h3>
+                <p>
+                    Backend API layer for serving AeroForge intelligence.
+                </p>
+            </div>
+
+            <div class="card">
+                <h3>Swagger</h3>
+                <p>
+                    Interactive API documentation used to verify backend
+                    functionality.
+                </p>
+            </div>
+
+            <div class="card">
+                <h3>Future Integrations</h3>
+                <p>
+                    The API architecture creates a path toward integration
+                    with manufacturing applications and enterprise systems.
+                </p>
+            </div>
+
+        </div>
+
+    </div>
+</section>
+
+
+<!-- 10 DASHBOARD -->
+<section class="case-section">
+    <div class="container">
+
+        <div class="section-number">10 — PROTOTYPE</div>
+
+        <h2>
+            A decision-support dashboard.
+        </h2>
+
+        <p>
+            The Streamlit prototype brings the intelligence together into
+            a single interface for exploring production risk, supplier
+            performance, quality signals and model performance.
+        </p>
+
+        <div class="three-column">
+
+            <div class="card">
+                <h3>Production Risk</h3>
+                <p>
+                    Identify production units with elevated predicted delay
+                    probability.
+                </p>
+            </div>
+
+            <div class="card">
+                <h3>Supplier Intelligence</h3>
+                <p>
+                    Explore supplier-level patterns associated with delay.
+                </p>
+            </div>
+
+            <div class="card">
+                <h3>Quality Intelligence</h3>
+                <p>
+                    Explore relationships between defects, inspections,
+                    rework and delay.
+                </p>
+            </div>
+
+            <div class="card">
+                <h3>Model Performance</h3>
+                <p>
+                    Review accuracy, precision, recall, F1 and ROC-AUC.
+                </p>
+            </div>
+
+            <div class="card">
+                <h3>AI-Assisted Insight</h3>
+                <p>
+                    Receive a plain-language explanation of identified
+                    production risk factors.
+                </p>
+            </div>
+
+        </div>
+
+        <div class="project-note">
+            <p>
+                The dashboard is a prototype for demonstrating product
+                thinking, data analysis and AI integration. It is not a
+                certified aerospace manufacturing system.
+            </p>
+        </div>
+
+    </div>
+</section>
+
+
+<!-- 11 BUSINESS VALUE -->
+<section class="case-section">
+    <div class="container">
+
+        <div class="section-number">11 — BUSINESS VALUE</div>
+
+        <h2>
+            The value is earlier visibility.
+        </h2>
+
+        <div class="two-column">
+
+            <div class="card">
+                <h3>For Production Teams</h3>
+                <ul>
+                    <li>Prioritize units requiring investigation.</li>
+                    <li>Move from reactive reporting toward proactive monitoring.</li>
+                    <li>Bring multiple operational signals into one view.</li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <h3>For Management</h3>
+                <ul>
+                    <li>Improve visibility into production health.</li>
+                    <li>Identify recurring operational patterns.</li>
+                    <li>Create a foundation for future predictive operations.</li>
+                </ul>
+            </div>
+
+        </div>
+
+    </div>
+</section>
+
+
+<!-- 12 PRODUCT THINKING -->
+<section class="case-section">
+    <div class="container">
+
+        <div class="section-number">12 — WHAT I BUILT</div>
+
+        <h2>
+            This wasn't just a model.
+        </h2>
+
+        <p>
+            AeroForge demonstrates my approach to AI product development:
+            start with a real operational problem, define the user,
+            understand the data, prototype the intelligence, expose it
+            through an API, and turn the output into something a decision
+            maker can actually use.
+        </p>
+
+        <div class="three-column">
+
+            <div class="card">
+                <h3>Product</h3>
+                <p>
+                    Problem framing, user definition, MVP scope,
+                    product hypothesis and business value.
+                </p>
+            </div>
+
+            <div class="card">
+                <h3>Data</h3>
+                <p>
+                    Synthetic data generation, validation,
+                    feature engineering and exploratory analysis.
+                </p>
+            </div>
+
+            <div class="card">
+                <h3>AI Engineering</h3>
+                <p>
+                    Machine learning, risk scoring, explainability,
+                    generative AI, API development and testing.
+                </p>
+            </div>
+
+        </div>
+
+    </div>
+</section>
+
+
+<!-- 13 RESPONSIBLE AI -->
+<section class="case-section">
+    <div class="container">
+
+        <div class="section-number">13 — RESPONSIBLE AI</div>
+
+        <h2>
+            Designed with clear boundaries.
+        </h2>
+
+        <div class="two-column">
+
+            <div>
+                <h3>What AeroForge does</h3>
+
+                <p>
+                    It demonstrates how structured manufacturing signals
+                    could be used to create an experimental production-risk
+                    intelligence workflow.
+                </p>
+            </div>
+
+            <div>
+                <h3>What AeroForge does not do</h3>
+
+                <p>
+                    It does not control equipment, make autonomous production
+                    decisions, replace manufacturing experts, certify aircraft,
+                    or make safety-critical decisions.
+                </p>
+            </div>
+
+        </div>
+
+        <div class="project-note">
+            <p>
+                Any future production implementation would require
+                representative operational data, rigorous validation,
+                domain-expert review, cybersecurity controls, model
+                monitoring and appropriate regulatory and organizational
+                governance.
+            </p>
+        </div>
+
+    </div>
+</section>
+
+
+<!-- 14 STACK -->
+<section class="case-section">
+    <div class="container">
+
+        <div class="section-number">14 — TECHNOLOGY</div>
+
+        <h2>
+            Built across the product and technical stack.
+        </h2>
+
+        <div class="three-column">
+
+            <div class="card">
+                <h3>Programming</h3>
+                <p>
+                    Python · Pandas · NumPy
+                </p>
+            </div>
+
+            <div class="card">
+                <h3>Machine Learning</h3>
+                <p>
+                    Scikit-learn · Logistic Regression · Feature Engineering
+                </p>
+            </div>
+
+            <div class="card">
+                <h3>AI</h3>
+                <p>
+                    Groq API · Generative AI · AI-assisted explanations
+                </p>
+            </div>
+
+            <div class="card">
+                <h3>Backend</h3>
+                <p>
+                    FastAPI · Uvicorn · REST API
+                </p>
+            </div>
+
+            <div class="card">
+                <h3>Frontend / Prototype</h3>
+                <p>
+                    Streamlit · Plotly
+                </p>
+            </div>
+
+            <div class="card">
+                <h3>Quality</h3>
+                <p>
+                    Pytest · Model evaluation · Data validation
+                </p>
+            </div>
+
+        </div>
+
+    </div>
+</section>
+
+
+<!-- 15 FUTURE -->
+<section class="case-section">
+    <div class="container">
+
+        <div class="section-number">15 — NEXT ITERATION</div>
+
+        <h2>
+            From prototype to production research.
+        </h2>
+
+        <p>
+            The next stage would focus on validating the concept against
+            real-world manufacturing workflows rather than simply improving
+            the model score.
+        </p>
+
+        <div class="three-column">
+
+            <div class="card">
+                <h3>Real Data</h3>
+                <p>
+                    Evaluate the approach using representative,
+                    appropriately governed manufacturing data.
+                </p>
+            </div>
+
+            <div class="card">
+                <h3>Model Validation</h3>
+                <p>
+                    Test calibration, generalization, drift and performance
+                    across different production environments.
+                </p>
+            </div>
+
+            <div class="card">
+                <h3>Human-in-the-Loop</h3>
+                <p>
+                    Study whether risk explanations actually help production
+                    teams make better investigation and prioritization decisions.
+                </p>
+            </div>
+
+        </div>
+
+    </div>
+</section>
+
+
+<!-- FINAL -->
+<section class="next-project">
+    <div class="container">
+
+        <div class="project-kicker">
+            Olive Aviation Innovation Lab
+        </div>
+
+        <h2>
+            Research first.<br>
+            Prototype second.
+        </h2>
+
+        <p>
+            AeroForge is the first project in my exploration of AI,
+            data and intelligent systems for aviation.
+        </p>
+
+        <a href="../labs/aviation.html" class="project-button primary">
+            Explore the Aviation Lab →
+        </a>
+
+    </div>
+</section>
+
+</main>
+
+
+<!-- FOOTER -->
+<footer class="site-footer">
+    <div class="container">
+        <p>
+            © 2026 Olive Chika Nwaigbo. Built as an independent research
+            and prototyping project.
+        </p>
+    </div>
+</footer>
+
+</body>
+</html>

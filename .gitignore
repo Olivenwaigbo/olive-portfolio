@@ -1,0 +1,38 @@
+# Python environments
+venv/
+.venv/
+**/venv/
+**/.venv/
+
+# Environment variables / secrets
+.env
+**/.env
+.streamlit/secrets.toml
+**/.streamlit/secrets.toml
+
+# Python cache
+__pycache__/
+**/__pycache__/
+*.pyc
+.pytest_cache/
+**/.pytest_cache/
+
+# Machine learning models
+*.pkl
+*.joblib
+**/models/
+
+# Large/generated project data
+projects/aeroforge/data/
+projects/aeropulse/data/
+projects/aerocopilot/data/
+
+# Aviation project source folders
+# The projects have their own GitHub repositories.
+projects/aeroforge/
+projects/aerocopilot/
+projects/aeropulse/
+
+# OS files
+.DS_Store
+Thumbs.db
