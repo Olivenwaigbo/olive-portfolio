@@ -3440,6 +3440,49 @@ p {
         #e0d5ff;
 }
 
+.contact-email-address {
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 8px;
+
+    margin-top: 14px;
+
+    color:
+        rgba(255, 255, 255, .8);
+
+    font-size: 14px;
+    font-weight: 600;
+
+    transition:
+        color .25s ease,
+        transform .25s ease;
+}
+
+.contact-email-address:hover {
+    color: var(--white);
+
+    transform:
+        translateX(3px);
+}
+
+.contact-email-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 22px;
+    height: 22px;
+
+    border-radius: 50%;
+
+    background:
+        rgba(255, 255, 255, .15);
+
+    font-size: 11px;
+}
+
 .contact-socials {
     display: flex;
 
@@ -3662,20 +3705,100 @@ p {
             8px 10px;
     }
 
+    .industry-orbit,
+    .orbit-dot {
+        offset-path: none;
+
+        top: auto;
+        left: auto;
+    }
+
+    .industry-orbit {
+        animation:
+            floatIndustry
+            5s
+            ease-in-out
+            infinite,
+            orbitHighlightCycle
+            10s
+            ease-in-out
+            infinite;
+    }
+
+    .orbit-dot {
+        animation:
+            dotPulse
+            2.5s
+            ease-in-out
+            infinite;
+    }
+
     .orbit-telecom {
         top: 15px;
+        left: 50%;
+
+        transform:
+            translateX(-50%);
+
+        animation-delay:
+            -.5s,
+            0s;
     }
 
     .orbit-public {
         right: -4px;
+        top: 47%;
+
+        animation-delay:
+            -1.5s,
+            -2.5s;
     }
 
     .orbit-agriculture {
         bottom: 15px;
+        left: 50%;
+
+        transform:
+            translateX(-50%);
+
+        animation-delay:
+            -2.5s,
+            -5s;
     }
 
     .orbit-data {
         left: -5px;
+        top: 43%;
+
+        animation-delay:
+            -3.5s,
+            -7.5s;
+    }
+
+    .orbit-dot-one {
+        top: 18%;
+        right: 18%;
+    }
+
+    .orbit-dot-two {
+        top: 72%;
+        right: 15%;
+
+        animation-delay: -.6s;
+    }
+
+    .orbit-dot-three {
+        left: 17%;
+        bottom: 18%;
+
+        animation-delay: -1.2s;
+    }
+
+    .orbit-dot-four {
+        top: 24%;
+        left: 15%;
+
+        animation-delay: -1.8s;
     }
 
     .stats-grid {
