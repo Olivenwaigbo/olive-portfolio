@@ -13,8 +13,9 @@
 
     <title>Olive Aviation Innovation Lab</title>
 
+    <!-- LAB-SPECIFIC CSS -->
     <link rel="stylesheet"
-          href="../css/style.css">
+          href="aviation.css">
 
 </head>
 
@@ -22,34 +23,37 @@
 <body>
 
 
-<header class="navbar">
+<!-- =========================================================
+     NAVIGATION
+========================================================= -->
 
-    <div class="container nav-container">
+<header class="lab-nav">
+
+    <div class="lab-container nav-inner">
 
         <a href="../index.html"
-           class="logo">
-            OLIVE.
+           class="lab-logo">
+            OLIVE<span>.</span>
         </a>
 
-        <nav class="nav-links">
 
-            <a href="../index.html">
-                Portfolio
-            </a>
+        <div class="lab-nav-center">
 
-            <a href="#research">
-                Research
-            </a>
+            <span class="nav-status-dot"></span>
 
-            <a href="#projects">
-                Projects
-            </a>
+            <span>
+                AVIATION INNOVATION LAB
+            </span>
 
-            <a href="#about-lab">
-                About the Lab
-            </a>
+        </div>
 
-        </nav>
+
+        <a href="../index.html"
+           class="back-link">
+
+            ← Portfolio
+
+        </a>
 
     </div>
 
@@ -60,31 +64,233 @@
 <main>
 
 
-<!-- =========================
-     LAB HERO
-========================== -->
+<!-- =========================================================
+     HERO
+========================================================= -->
 
-<section class="hero">
+<section class="lab-hero">
 
-    <div class="container">
+    <!-- Decorative grid -->
 
-        <p class="eyebrow">
-            OLIVE AVIATION INNOVATION LAB
-        </p>
+    <div class="hero-grid"></div>
 
-        <h1>
-            Exploring the future of
-            <span>aviation through AI & data.</span>
-        </h1>
+    <div class="hero-glow"></div>
 
-        <p class="hero-description">
 
-            An independent research and prototyping initiative
-            exploring how artificial intelligence, data analytics
-            and digital products can solve complex problems across
-            aviation and aerospace.
+    <div class="lab-container hero-layout">
 
-        </p>
+
+        <!-- LEFT -->
+
+        <div class="hero-copy">
+
+            <div class="lab-eyebrow">
+
+                <span class="eyebrow-line"></span>
+
+                <span>
+                    OLIVE AVIATION INNOVATION LAB
+                </span>
+
+            </div>
+
+
+            <h1>
+
+                Exploring aviation problems.
+                
+                <span>
+                    Building digital possibilities.
+                </span>
+
+            </h1>
+
+
+            <p class="hero-text">
+
+                A personal research and prototyping lab exploring
+                how <strong>product thinking, data, artificial intelligence
+                and rapid prototyping</strong> can solve problems across
+                aviation and aerospace.
+
+            </p>
+
+
+            <div class="hero-actions">
+
+                <a href="#projects"
+                   class="lab-button primary-button">
+
+                    Explore Projects
+
+                    <span>↓</span>
+
+                </a>
+
+
+                <a href="#about-lab"
+                   class="lab-button secondary-button">
+
+                    About the Lab
+
+                </a>
+
+            </div>
+
+
+            <div class="hero-meta">
+
+                <div>
+
+                    <span class="meta-label">
+                        FOCUS
+                    </span>
+
+                    <span>
+                        AI · DATA · PRODUCT
+                    </span>
+
+                </div>
+
+
+                <div>
+
+                    <span class="meta-label">
+                        STATUS
+                    </span>
+
+                    <span>
+                        ACTIVE RESEARCH
+                    </span>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- RIGHT — AVIATION RADAR -->
+
+        <div class="hero-visual">
+
+
+            <div class="radar-wrapper">
+
+
+                <div class="radar-ring ring-one"></div>
+
+                <div class="radar-ring ring-two"></div>
+
+                <div class="radar-ring ring-three"></div>
+
+
+                <div class="radar-cross horizontal"></div>
+
+                <div class="radar-cross vertical"></div>
+
+
+                <div class="radar-sweep"></div>
+
+
+                <!-- Center -->
+
+                <div class="radar-center">
+
+                    <div class="plane-icon">
+                        ✈
+                    </div>
+
+                </div>
+
+
+                <!-- Project nodes -->
+
+                <a href="../projects/aeroforge.html"
+                   class="radar-node node-one">
+
+                    <span class="node-dot"></span>
+
+                    <div>
+
+                        <strong>
+                            AEROFORGE
+                        </strong>
+
+                        <small>
+                            MANUFACTURING
+                        </small>
+
+                    </div>
+
+                </a>
+
+
+                <a href="../projects/aerocopilot.html"
+                   class="radar-node node-two">
+
+                    <span class="node-dot"></span>
+
+                    <div>
+
+                        <strong>
+                            AEROCOPILOT
+                        </strong>
+
+                        <small>
+                            AI · KNOWLEDGE
+                        </small>
+
+                    </div>
+
+                </a>
+
+
+                <a href="../projects/aeropulse.html"
+                   class="radar-node node-three">
+
+                    <span class="node-dot"></span>
+
+                    <div>
+
+                        <strong>
+                            AEROPULSE
+                        </strong>
+
+                        <small>
+                            OPERATIONS · DATA
+                        </small>
+
+                    </div>
+
+                </a>
+
+
+            </div>
+
+
+            <div class="visual-label label-top">
+                SYSTEMS
+            </div>
+
+            <div class="visual-label label-bottom">
+                EXPLORING → PROTOTYPING
+            </div>
+
+
+        </div>
+
+    </div>
+
+
+    <!-- Scroll -->
+
+    <div class="hero-scroll">
+
+        <span>SCROLL TO EXPLORE</span>
+
+        <span class="scroll-line"></span>
 
     </div>
 
@@ -92,60 +298,70 @@
 
 
 
-<!-- =========================
-     ABOUT LAB
-========================== -->
+<!-- =========================================================
+     LAB THESIS
+========================================================= -->
 
 <section id="about-lab"
-         class="section">
+         class="lab-section thesis-section">
 
-    <div class="container">
+    <div class="lab-container">
 
-        <div class="section-heading">
 
-            <p class="eyebrow">
-                WHY THIS LAB EXISTS
-            </p>
+        <div class="section-label">
 
-            <h2>
-                Aviation is a complex system.
-                I want to understand it.
-            </h2>
+            <span>
+                01
+            </span>
+
+            <span>
+                THE LAB THESIS
+            </span>
 
         </div>
 
 
-        <div class="about-grid">
+        <div class="thesis-grid">
+
 
             <div>
 
-                <p class="large-text">
+                <h2>
 
-                    I am exploring aviation from
-                    the perspective of a
-                    <strong>Product, Data and AI professional.</strong>
+                    Aviation is a
+                    <span>complex system.</span>
 
-                </p>
+                    I want to understand it.
+
+                </h2>
 
             </div>
 
 
-            <div>
+            <div class="thesis-copy">
 
-                <p>
+                <p class="large-copy">
 
-                    The aviation ecosystem brings together
-                    aircraft manufacturers, airlines, airports,
-                    maintenance organisations, regulators,
-                    suppliers and millions of passengers.
+                    I am exploring aviation from the perspective
+                    of a <strong>Product, Data and AI professional.</strong>
 
                 </p>
 
 
                 <p>
 
-                    The lab exists to research the problems
-                    within these systems and prototype practical
+                    The aviation ecosystem brings together aircraft
+                    manufacturers, airlines, airports, maintenance
+                    organisations, regulators, suppliers and millions
+                    of passengers.
+
+                </p>
+
+
+                <p>
+
+                    The lab exists to understand the problems within
+                    these systems and prototype practical,
                     technology-driven solutions.
 
                 </p>
@@ -154,38 +370,85 @@
 
         </div>
 
+
+        <div class="thesis-statement">
+
+            <span class="statement-mark">
+                "
+            </span>
+
+            <p>
+
+                What happens when we approach aviation problems
+                not only as engineering problems, but also as
+                <strong>product, data and intelligence problems?</strong>
+
+            </p>
+
+        </div>
+
     </div>
 
 </section>
 
 
 
-<!-- =========================
+<!-- =========================================================
      RESEARCH AREAS
-========================== -->
+========================================================= -->
 
 <section id="research"
-         class="section section-dark">
+         class="lab-section research-section">
 
-    <div class="container">
+    <div class="lab-container">
 
-        <div class="section-heading">
 
-            <p class="eyebrow">
-                RESEARCH AREAS
-            </p>
+        <div class="section-header-dark">
+
+            <div class="section-label light-label">
+
+                <span>
+                    02
+                </span>
+
+                <span>
+                    RESEARCH AREAS
+                </span>
+
+            </div>
+
 
             <h2>
-                Four areas I'm exploring.
+
+                Four systems.
+                <span>One curiosity.</span>
+
             </h2>
+
+
+            <p>
+
+                The lab explores where aviation operations,
+                technology and data intersect.
+
+            </p>
 
         </div>
 
 
-        <div class="skills-grid">
+
+        <div class="research-grid">
 
 
-            <div class="skill">
+            <article class="research-card">
+
+                <div class="research-number">
+                    01
+                </div>
+
+                <div class="research-icon">
+                    ◇
+                </div>
 
                 <h3>
                     Aerospace Manufacturing
@@ -199,10 +462,23 @@
 
                 </p>
 
-            </div>
+                <div class="research-tag">
+                    MANUFACTURING
+                </div>
+
+            </article>
 
 
-            <div class="skill">
+
+            <article class="research-card">
+
+                <div class="research-number">
+                    02
+                </div>
+
+                <div class="research-icon">
+                    ◎
+                </div>
 
                 <h3>
                     AI & Intelligent Systems
@@ -216,10 +492,23 @@
 
                 </p>
 
-            </div>
+                <div class="research-tag">
+                    INTELLIGENCE
+                </div>
+
+            </article>
 
 
-            <div class="skill">
+
+            <article class="research-card">
+
+                <div class="research-number">
+                    03
+                </div>
+
+                <div class="research-icon">
+                    △
+                </div>
 
                 <h3>
                     Airline & Airport Operations
@@ -233,10 +522,23 @@
 
                 </p>
 
-            </div>
+                <div class="research-tag">
+                    OPERATIONS
+                </div>
+
+            </article>
 
 
-            <div class="skill">
+
+            <article class="research-card">
+
+                <div class="research-number">
+                    04
+                </div>
+
+                <div class="research-icon">
+                    ⌁
+                </div>
 
                 <h3>
                     Aviation Data Intelligence
@@ -250,7 +552,11 @@
 
                 </p>
 
-            </div>
+                <div class="research-tag">
+                    DATA
+                </div>
+
+            </article>
 
 
         </div>
@@ -261,62 +567,146 @@
 
 
 
-<!-- =========================
+<!-- =========================================================
      PROJECTS
-========================== -->
+========================================================= -->
 
 <section id="projects"
-         class="section">
+         class="lab-section projects-section">
 
-    <div class="container">
+    <div class="lab-container">
 
-        <div class="section-heading">
 
-            <p class="eyebrow">
+        <div class="section-label">
+
+            <span>
+                03
+            </span>
+
+            <span>
                 CURRENT PROJECTS
-            </p>
-
-            <h2>
-                From research to prototypes.
-            </h2>
+            </span>
 
         </div>
 
 
-        <div class="project-grid">
+        <div class="projects-heading">
+
+            <div>
+
+                <h2>
+
+                    From research
+                    <span>to prototypes.</span>
+
+                </h2>
+
+            </div>
+
+
+            <p>
+
+                Three explorations across manufacturing,
+                aviation knowledge and operational intelligence.
+
+            </p>
+
+        </div>
+
+
+
+        <div class="lab-projects">
 
 
             <!-- AEROFORGE -->
 
-            <article class="project-card">
+            <article class="lab-project project-aeroforge">
 
-                <span class="project-number">
-                    01
-                </span>
+                <div class="project-top">
 
-                <p class="project-category">
-                    AEROSPACE MANUFACTURING
-                </p>
+                    <span class="project-index">
+                        01
+                    </span>
 
-                <h3>
-                    AeroForge
-                </h3>
+                    <span class="project-type">
+                        AEROSPACE MANUFACTURING
+                    </span>
 
-                <p>
+                </div>
 
-                    An AI-powered manufacturing intelligence
-                    platform designed to identify production
-                    risks, quality issues and supply-chain
-                    bottlenecks.
 
-                </p>
+                <div class="project-body">
 
-                <a href="../projects/aeroforge.html"
-                   class="project-link">
+                    <div class="project-info">
 
-                    Explore AeroForge →
+                        <h3>
+                            AeroForge
+                        </h3>
 
-                </a>
+                        <p>
+
+                            An AI-powered manufacturing intelligence
+                            platform designed to identify production
+                            risks, quality issues and supply-chain
+                            bottlenecks.
+
+                        </p>
+
+
+                        <div class="tech-list">
+
+                            <span>PYTHON</span>
+
+                            <span>STREAMLIT</span>
+
+                            <span>MACHINE LEARNING</span>
+
+                            <span>AI</span>
+
+                        </div>
+
+
+                        <a href="../projects/aeroforge.html"
+                           class="project-button">
+
+                            Explore AeroForge
+
+                            <span>↗</span>
+
+                        </a>
+
+                    </div>
+
+
+                    <div class="project-visual forge-visual">
+
+                        <div class="factory-grid">
+
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                            <div></div>
+
+                        </div>
+
+                        <div class="visual-machine">
+
+                            <span></span>
+                            <span></span>
+                            <span></span>
+
+                        </div>
+
+                        <div class="risk-pulse"></div>
+
+                    </div>
+
+                </div>
 
             </article>
 
@@ -324,35 +714,97 @@
 
             <!-- AEROCOPILOT -->
 
-            <article class="project-card">
+            <article class="lab-project project-aerocopilot">
 
-                <span class="project-number">
-                    02
-                </span>
+                <div class="project-top">
 
-                <p class="project-category">
-                    AI • KNOWLEDGE MANAGEMENT
-                </p>
+                    <span class="project-index">
+                        02
+                    </span>
 
-                <h3>
-                    AeroCopilot
-                </h3>
+                    <span class="project-type">
+                        AI · KNOWLEDGE MANAGEMENT
+                    </span>
 
-                <p>
+                </div>
 
-                    A retrieval-augmented AI assistant
-                    designed to help aviation teams find
-                    information from approved technical
-                    documentation.
 
-                </p>
+                <div class="project-body">
 
-                <a href="../projects/aerocopilot.html"
-                   class="project-link">
+                    <div class="project-info">
 
-                    Explore AeroCopilot →
+                        <h3>
+                            AeroCopilot
+                        </h3>
 
-                </a>
+                        <p>
+
+                            A retrieval-augmented AI assistant designed
+                            to help aviation teams find information
+                            from approved technical documentation.
+
+                        </p>
+
+
+                        <div class="tech-list">
+
+                            <span>PYTHON</span>
+
+                            <span>RAG</span>
+
+                            <span>LLM</span>
+
+                            <span>STREAMLIT</span>
+
+                        </div>
+
+
+                        <a href="../projects/aerocopilot.html"
+                           class="project-button">
+
+                            Explore AeroCopilot
+
+                            <span>↗</span>
+
+                        </a>
+
+                    </div>
+
+
+                    <div class="project-visual copilot-visual">
+
+                        <div class="document-stack">
+
+                            <div class="document">
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                            </div>
+
+                            <div class="document">
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                            </div>
+
+                            <div class="document active-document">
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                            </div>
+
+                        </div>
+
+
+                        <div class="ai-orbit">
+
+                            <span></span>
+
+                        </div>
+
+                    </div>
+
+                </div>
 
             </article>
 
@@ -360,34 +812,89 @@
 
             <!-- AEROPULSE -->
 
-            <article class="project-card">
+            <article class="lab-project project-aeropulse">
 
-                <span class="project-number">
-                    03
-                </span>
+                <div class="project-top">
 
-                <p class="project-category">
-                    AIRLINE • DATA • AI
-                </p>
+                    <span class="project-index">
+                        03
+                    </span>
 
-                <h3>
-                    AeroPulse
-                </h3>
+                    <span class="project-type">
+                        AIRLINE · DATA · AI
+                    </span>
 
-                <p>
+                </div>
 
-                    An aviation operations intelligence
-                    platform exploring flight disruption,
-                    passenger and operational analytics.
 
-                </p>
+                <div class="project-body">
 
-                <a href="../projects/aeropulse.html"
-                   class="project-link">
+                    <div class="project-info">
 
-                    Explore AeroPulse →
+                        <h3>
+                            AeroPulse
+                        </h3>
 
-                </a>
+                        <p>
+
+                            An aviation operations intelligence platform
+                            exploring flight disruption, passenger
+                            and operational analytics.
+
+                        </p>
+
+
+                        <div class="tech-list">
+
+                            <span>PYTHON</span>
+
+                            <span>DATA ANALYTICS</span>
+
+                            <span>STREAMLIT</span>
+
+                            <span>AI</span>
+
+                        </div>
+
+
+                        <a href="../projects/aeropulse.html"
+                           class="project-button">
+
+                            Explore AeroPulse
+
+                            <span>↗</span>
+
+                        </a>
+
+                    </div>
+
+
+                    <div class="project-visual pulse-visual">
+
+                        <div class="flight-chart">
+
+                            <div class="chart-line"></div>
+
+                            <div class="chart-point p1"></div>
+                            <div class="chart-point p2"></div>
+                            <div class="chart-point p3"></div>
+                            <div class="chart-point p4"></div>
+                            <div class="chart-point p5"></div>
+
+                        </div>
+
+
+                        <div class="flight-data">
+
+                            <span>ON TIME</span>
+
+                            <strong>87.4%</strong>
+
+                        </div>
+
+                    </div>
+
+                </div>
 
             </article>
 
@@ -400,60 +907,254 @@
 
 
 
-<!-- =========================
-     LAB PRINCIPLES
-========================== -->
+<!-- =========================================================
+     PROCESS
+========================================================= -->
 
-<section class="section labs-section">
+<section class="lab-section process-section">
 
-    <div class="container">
+    <div class="lab-container">
 
-        <div class="section-heading">
 
-            <p class="eyebrow">
-                MY APPROACH
-            </p>
+        <div class="section-label">
+
+            <span>
+                04
+            </span>
+
+            <span>
+                HOW THE LAB WORKS
+            </span>
+
+        </div>
+
+
+        <div class="process-heading">
 
             <h2>
-                Research first.
-                Prototype second.
+
+                Explore.
+                <span>Model.</span>
+                Prototype.
+                Learn.
+
             </h2>
 
         </div>
 
 
-        <div class="about-grid">
+        <div class="process-grid">
 
-            <div>
 
-                <p class="large-text">
+            <div class="process-step">
 
-                    I don't want to build technology
-                    simply because AI makes it possible.
+                <span class="step-number">
+                    01
+                </span>
+
+                <div class="step-line"></div>
+
+                <h3>
+                    Explore
+                </h3>
+
+                <p>
+
+                    Research the industry, users,
+                    workflows and underlying problem.
 
                 </p>
 
             </div>
 
 
+            <div class="process-step">
+
+                <span class="step-number">
+                    02
+                </span>
+
+                <div class="step-line"></div>
+
+                <h3>
+                    Model
+                </h3>
+
+                <p>
+
+                    Understand the available data,
+                    assumptions and potential solution.
+
+                </p>
+
+            </div>
+
+
+            <div class="process-step">
+
+                <span class="step-number">
+                    03
+                </span>
+
+                <div class="step-line"></div>
+
+                <h3>
+                    Prototype
+                </h3>
+
+                <p>
+
+                    Turn the concept into a working
+                    digital prototype.
+
+                </p>
+
+            </div>
+
+
+            <div class="process-step">
+
+                <span class="step-number">
+                    04
+                </span>
+
+                <div class="step-line"></div>
+
+                <h3>
+                    Learn
+                </h3>
+
+                <p>
+
+                    Test the idea, document limitations
+                    and identify what should happen next.
+
+                </p>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================================
+     NEXT EXPLORATIONS
+========================================================= -->
+
+<section class="lab-section future-section">
+
+    <div class="lab-container">
+
+
+        <div class="section-label">
+
+            <span>
+                05
+            </span>
+
+            <span>
+                NEXT EXPLORATIONS
+            </span>
+
+        </div>
+
+
+        <div class="future-layout">
+
+
             <div>
 
-                <p>
-                    Each project begins with a problem.
-                </p>
+                <h2>
+
+                    The lab is
+                    <span>still evolving.</span>
+
+                </h2>
 
                 <p>
-                    I research the users, understand the
-                    operational context, analyse available
-                    data, define the product and then build
-                    a prototype.
+
+                    These are some of the questions I want
+                    to explore next.
+
                 </p>
 
+            </div>
+
+
+            <div class="future-list">
+
+                <div>
+
+                    <span>01</span>
+
+                    <strong>
+                        Operational Intelligence
+                    </strong>
+
+                </div>
+
+
+                <div>
+
+                    <span>02</span>
+
+                    <strong>
+                        AI Copilots for Aviation Teams
+                    </strong>
+
+                </div>
+
+
+                <div>
+
+                    <span>03</span>
+
+                    <strong>
+                        Predictive Aviation Systems
+                    </strong>
+
+                </div>
+
+
+                <div>
+
+                    <span>04</span>
+
+                    <strong>
+                        Decision-Support Products
+                    </strong>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="responsible-ai">
+
+            <span class="ai-symbol">
+                ◉
+            </span>
+
+            <div>
+
+                <strong>
+                    Responsible experimentation
+                </strong>
+
                 <p>
-                    The goal is to demonstrate what could
-                    be possible — while being honest about
-                    assumptions, limitations and data
-                    constraints.
+
+                    These projects are exploratory prototypes.
+                    They are not safety-critical systems and should
+                    not be treated as autonomous aviation or
+                    regulatory decision-making tools.
+
                 </p>
 
             </div>
@@ -466,36 +1167,63 @@
 
 
 
-<!-- =========================
+<!-- =========================================================
      CTA
-========================== -->
+========================================================= -->
 
-<section class="section contact-section">
+<section class="lab-cta">
 
-    <div class="container contact-content">
+    <div class="cta-grid"></div>
 
-        <p class="eyebrow">
-            COLLABORATION
+
+    <div class="lab-container cta-content">
+
+        <p class="lab-eyebrow">
+
+            <span class="eyebrow-line"></span>
+
+            KEEP EXPLORING
+
         </p>
+
 
         <h2>
-            Interested in aviation,
-            AI or digital transformation?
+
+            Curious about what
+            <span>comes next?</span>
+
         </h2>
 
+
         <p>
-            I'm open to conversations, research
-            collaborations, internships and opportunities
-            to learn from teams solving complex aviation
-            and aerospace problems.
+
+            I'm open to conversations, research collaborations,
+            internships and opportunities to learn from teams
+            solving complex aviation and aerospace problems.
+
         </p>
 
-        <a href="../index.html#contact"
-           class="btn btn-primary">
 
-            Connect With Me
+        <div class="cta-actions">
 
-        </a>
+            <a href="../index.html#contact"
+               class="lab-button primary-button">
+
+                Connect With Me
+
+                <span>↗</span>
+
+            </a>
+
+
+            <a href="../index.html"
+               class="lab-button secondary-button">
+
+                Return to Portfolio
+
+            </a>
+
+        </div>
 
     </div>
 
@@ -506,25 +1234,45 @@
 
 
 
-<footer>
+<!-- =========================================================
+     FOOTER
+========================================================= -->
 
-    <div class="container footer-content">
+<footer class="lab-footer">
 
-        <p>
-            © 2026 Olive Chika Nwaigbo
-        </p>
+    <div class="lab-container footer-inner">
 
-        <p>
-            Olive Aviation Innovation Lab
-        </p>
+        <div>
+
+            <a href="../index.html"
+               class="lab-logo">
+                OLIVE<span>.</span>
+            </a>
+
+            <p>
+                Aviation Innovation Lab
+            </p>
+
+        </div>
+
+
+        <div class="footer-right">
+
+            <span>
+                AI · DATA · PRODUCT
+            </span>
+
+            <span>
+                © 2026 Olive Chika Nwaigbo
+            </span>
+
+        </div>
 
     </div>
 
 </footer>
 
 
-
-<script src="../js/script.js"></script>
 
 </body>
 
