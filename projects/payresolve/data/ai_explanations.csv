@@ -10084,22 +10084,36 @@ TXN-00EC619FAE-DUP,CUST-724280,MER-5285,Healthcare,Provider A,Bank Alpha,Card,NG
 TXN-617AC18133,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,"**INVESTIGATION SUMMARY**  
 The transaction was initiated and processed by Provider B, but it failed after a timeout event. The final status is **FAILED** and the reconciliation status is **EXCEPTION**"
 TXN-14BDB52C27,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,"**INVESTIGATION SUMMARY**  
-The transaction was initiated, processed, succeeded, and settled within the same minute. All four recorded events were confirmed by Provider B, and the overall status is marked as SUCCESS with a reconciled state. No incident or anomaly was flagged.
-
----
+The transaction was initiated, processed, confirmed as successful, and settled within the same day. All four recorded events were received and confirmed by Provider B, and the overall status is marked “SUCCESS” with a reconciled reconciliation status. No incident or anomaly was flagged.
 
 **EVIDENCE**  
 - Transaction ID: TXN‑14BDB52C27  
-- Customer: CUST‑388389  
-- Merchant: MER‑5012 (Utilities)  
-- Provider: Provider B, Bank: Bank Alpha  
-- Payment method: Bank Transfer, Currency: NGN, Amount: 11 952.00  
-- Created at: 2026‑08‑25 18:52:32.732297  
-- Status: SUCCESS, Reconciliation: RECONCILED  
-- Event sequence:  
-  1. INITIATED – RECEIVED (18:52:32.732297)  
-  2. PROCESSING – RECEIVED (18:52:37.732297)  
-  3. SUCCESS – CONFIRMED (18:52:47.732297)  
-  4. SETTLEMENT – CONFIRMED (18:52:48.732297)  
-- Incident type: NONE, Incident category: NO_INCIDENT  
-- Anomaly prediction: NORMAL (score 2.91, level"
+- Customer: CUST‑388389, Merchant: MER‑5012 (Utilities)  
+- Payment method: Bank Transfer, Currency: NGN, Amount: 11,952.00  
+- Provider: Provider B, Bank: Bank Alpha  
+- Event sequence: INITIATED → PROCESSING → SUCCESS → SETTLEMENT (all CONFIRMED)  
+- Event timestamps: 18:52:32 → 18:52:37 → 18:52:47 → 18:52:48 (2026‑08‑25)  
+- Reconciliation status: RECONCILED  
+- Incident type/category: NONE / NO_INCIDENT  
+- Anomaly prediction: NORMAL (score 2.91, level LOW)  
+- Potential duplicate: false  
+
+**WHAT IS UNKNOWN**  
+- The specific bank account details or routing information used for the transfer.  
+- Whether any intermediate authorisation steps (e.g., card‑holder verification) occurred outside the recorded events.  
+- The exact amount debited from the customer’s account (though the transaction amount is 11,952 NGN).  
+- Any post‑settlement actions taken by the merchant or bank beyond the confirmed settlement event.  
+
+**RECOMMENDED NEXT STEP**  
+No further investigation is required; the transaction is complete, reconciled, and flagged as normal. Monitor for any future anomalies but no operational action is needed for this transaction.
+
+**TRANSACTION EVIDENCE**  
+- Transaction ID: TXN‑14BDB52C27  
+- Customer ID: CUST‑388389  
+- Merchant ID: MER‑5012 (Utilities)  
+- Amount: 11,952 NGN  
+- Status: SUCCESS  
+- Event count: 4 (INITIATED, PROCESSING, SUCCESS, SETTLEMENT)  
+- Reconciliation status: RECONCILED  
+- Provider: Provider B, Bank: Bank Alpha  
+- No incident or anomaly detected."

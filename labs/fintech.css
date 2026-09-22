@@ -1,0 +1,1942 @@
+/* =========================================================
+   FINTECH & PAYMENTS LAB
+   (animated version — your original styles are kept; the
+   diagram motion lives in the MOTION section at the bottom.
+   Original rules I edited are marked with the word MOTION.)
+========================================================= */
+
+:root {
+    --bg: #08080a;
+    --surface: #101014;
+    --surface-2: #15151a;
+    --line: #29292f;
+    --text: #f4f4f1;
+    --muted: #929298;
+    --accent: #9b6cff;
+    --accent-soft: rgba(155, 108, 255, 0.14);
+    --white: #ffffff;
+    --ease-out: cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+html {
+    scroll-behavior: smooth;
+}
+
+
+body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: Arial, Helvetica, sans-serif;
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+
+.lab-nav {
+    position: relative;
+    z-index: 20;
+
+    width: 100%;
+
+    padding: 28px 6%;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+
+
+.lab-logo {
+    font-size: 1.05rem;
+    font-weight: 800;
+    letter-spacing: 0.15em;
+}
+
+
+.lab-logo span {
+    color: var(--accent);
+}
+
+
+.lab-nav-center {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    font-size: 0.7rem;
+    letter-spacing: 0.16em;
+    color: #b7b7bd;
+}
+
+
+.status-dot {
+    width: 7px;
+    height: 7px;
+
+    border-radius: 50%;
+
+    background: var(--accent);
+
+    box-shadow:
+        0 0 0 5px rgba(155,108,255,0.08),
+        0 0 20px rgba(155,108,255,0.8);
+}
+
+
+.back-link {
+    font-size: 0.8rem;
+    color: var(--muted);
+
+    transition: 0.25s ease;
+}
+
+
+.back-link:hover {
+    color: var(--white);
+}
+
+
+.back-link span {
+    display: inline-block; /* MOTION: lets the arrow move on hover */
+    margin-left: 8px;
+    color: var(--accent);
+
+    transition: transform 0.3s var(--ease-out);
+}
+
+
+/* =========================================================
+   COMMON
+========================================================= */
+
+.section-label {
+    color: var(--accent);
+
+    font-size: 0.68rem;
+    font-weight: 700;
+
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+}
+
+
+.section-number {
+    color: #45454d;
+
+    font-size: 0.75rem;
+    letter-spacing: 0.15em;
+
+    margin-bottom: 40px;
+}
+
+
+.section-heading {
+    max-width: 850px;
+    margin-bottom: 65px;
+}
+
+
+.section-heading h2 {
+    margin-top: 18px;
+
+    font-size: clamp(2.5rem, 5vw, 5rem);
+    line-height: 0.98;
+
+    letter-spacing: -0.05em;
+}
+
+
+.section-heading p:not(.section-label) {
+    margin-top: 25px;
+
+    max-width: 680px;
+
+    color: var(--muted);
+}
+
+
+/* =========================================================
+   BUTTONS
+========================================================= */
+
+.button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+
+    padding: 14px 22px;
+
+    border: 1px solid var(--line);
+
+    font-size: 0.78rem;
+    font-weight: 700;
+
+    letter-spacing: 0.04em;
+
+    transition: 0.25s ease;
+}
+
+
+.button:focus-visible,
+.back-link:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 3px;
+}
+
+
+.button-primary {
+    background: var(--white);
+    color: #09090b;
+    border-color: var(--white);
+}
+
+
+.button-primary:hover {
+    background: var(--accent);
+    color: white;
+    border-color: var(--accent);
+}
+
+
+.button-outline {
+    color: white;
+}
+
+
+.button-outline:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+}
+
+
+.button span {
+    display: inline-block; /* MOTION */
+    color: var(--accent);
+
+    transition: transform 0.3s var(--ease-out);
+}
+
+
+/* =========================================================
+   HERO
+========================================================= */
+
+.fintech-hero {
+    min-height: 88vh;
+
+    padding: 100px 6% 110px;
+
+    position: relative;
+
+    border-bottom: 1px solid var(--line);
+
+    background:
+        radial-gradient(
+            circle at 75% 45%,
+            rgba(155,108,255,0.09),
+            transparent 32%
+        );
+}
+
+
+.hero-grid {
+    max-width: 1400px;
+    margin: auto;
+
+    display: grid;
+    grid-template-columns: 1fr 0.9fr;
+
+    align-items: center;
+
+    gap: 80px;
+}
+
+
+.hero-copy {
+    position: relative;
+    z-index: 2;
+}
+
+
+.lab-eyebrow {
+    margin-bottom: 30px;
+
+    color: var(--accent);
+
+    font-size: 0.7rem;
+    font-weight: 700;
+
+    letter-spacing: 0.2em;
+}
+
+
+.hero-copy h1 {
+    max-width: 850px;
+
+    font-size: clamp(3.8rem, 7vw, 7.8rem);
+
+    line-height: 0.9;
+
+    letter-spacing: -0.065em;
+}
+
+
+.hero-copy h1 span {
+    display: block;
+    color: #74747c;
+}
+
+
+.hero-description {
+    max-width: 650px;
+
+    margin-top: 40px;
+
+    color: var(--muted);
+
+    font-size: 1.05rem;
+}
+
+
+.hero-meta {
+    display: flex;
+    flex-wrap: wrap;
+
+    gap: 10px;
+
+    margin-top: 35px;
+}
+
+
+.hero-meta span {
+    padding: 8px 12px;
+
+    border: 1px solid var(--line);
+
+    color: #aaaab1;
+
+    font-size: 0.63rem;
+
+    letter-spacing: 0.12em;
+}
+
+
+/* =========================================================
+   PAYMENT SYSTEM VISUAL
+========================================================= */
+
+.payment-system {
+    position: relative;
+
+    width: min(520px, 90vw);
+    aspect-ratio: 1 / 1;
+
+    margin: auto;
+}
+
+
+.system-glow {
+    position: absolute;
+
+    width: 55%;
+    height: 55%;
+
+    left: 22.5%;
+    top: 22.5%;
+
+    border-radius: 50%;
+
+    background: rgba(155,108,255,0.12);
+
+    filter: blur(45px);
+}
+
+
+.orbit {
+    position: absolute;
+
+    border: 1px solid rgba(155,108,255,0.2);
+
+    border-radius: 50%;
+
+    left: 50%;
+    top: 50%;
+
+    transform: translate(-50%, -50%);
+}
+
+
+.orbit-one {
+    width: 48%;
+    height: 48%;
+}
+
+
+.orbit-two {
+    width: 70%;
+    height: 70%;
+}
+
+
+.orbit-three {
+    width: 92%;
+    height: 92%;
+}
+
+
+.system-core {
+    position: absolute;
+
+    left: 50%;
+    top: 50%;
+
+    transform: translate(-50%, -50%);
+
+    width: 190px;
+    height: 190px;
+
+    border: 1px solid rgba(155,108,255,0.6);
+
+    border-radius: 50%;
+
+    background: rgba(15,15,19,0.95);
+
+    box-shadow:
+        0 0 50px rgba(155,108,255,0.15),
+        inset 0 0 40px rgba(155,108,255,0.08);
+
+    display: flex;
+    flex-direction: column;
+
+    align-items: center;
+    justify-content: center;
+
+    text-align: center;
+}
+
+
+.core-label {
+    color: var(--muted);
+
+    font-size: 0.55rem;
+    letter-spacing: 0.2em;
+}
+
+
+.system-core strong {
+    margin: 5px 0;
+
+    font-size: 1.15rem;
+    letter-spacing: 0.08em;
+}
+
+
+.system-core small {
+    color: var(--accent);
+
+    font-size: 0.48rem;
+    letter-spacing: 0.14em;
+}
+
+
+.system-node {
+    position: absolute;
+
+    padding: 11px 14px;
+
+    border: 1px solid #35353c;
+
+    background: rgba(12,12,15,0.94);
+
+    color: #cfcfd4;
+
+    font-size: 0.58rem;
+    letter-spacing: 0.12em;
+
+    box-shadow: 0 15px 35px rgba(0,0,0,0.3);
+}
+
+
+.node-number {
+    color: var(--accent);
+    margin-right: 8px;
+}
+
+
+.node-transaction {
+    top: 8%;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+
+.node-reconciliation {
+    right: 1%;
+    top: 48%;
+}
+
+
+.node-incident {
+    bottom: 8%;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+
+.node-ai {
+    left: 1%;
+    top: 48%;
+}
+
+
+/* =========================================================
+   THESIS
+========================================================= */
+
+.thesis-section {
+    max-width: 1250px;
+
+    margin: auto;
+
+    padding: 140px 6%;
+
+    display: grid;
+
+    grid-template-columns: 80px 1fr;
+
+    gap: 50px;
+}
+
+
+.thesis-content {
+    max-width: 900px;
+}
+
+
+.thesis-content h2 {
+    margin-top: 20px;
+
+    font-size: clamp(2.5rem, 5vw, 5rem);
+
+    line-height: 1;
+
+    letter-spacing: -0.05em;
+}
+
+
+.thesis-content h2 span {
+    color: var(--accent);
+}
+
+
+.thesis-content p:not(.section-label) {
+    max-width: 720px;
+
+    margin-top: 30px;
+
+    color: var(--muted);
+}
+
+
+/* =========================================================
+   RESEARCH
+========================================================= */
+
+.research-section {
+    padding: 130px 6%;
+
+    background: #0d0d10;
+
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+}
+
+
+.research-grid {
+    max-width: 1400px;
+
+    margin: auto;
+
+    display: grid;
+
+    grid-template-columns: repeat(4, 1fr);
+
+    border-top: 1px solid var(--line);
+}
+
+
+.research-card {
+    position: relative;
+
+    min-height: 390px;
+
+    padding: 35px;
+
+    border-right: 1px solid var(--line);
+
+    overflow: hidden;
+
+    transition: 0.3s ease;
+}
+
+
+.research-card:last-child {
+    border-right: none;
+}
+
+
+.research-card:hover {
+    background: rgba(155,108,255,0.04);
+}
+
+
+.research-number {
+    color: #4b4b53;
+
+    font-size: 0.7rem;
+
+    letter-spacing: 0.15em;
+}
+
+
+.research-icon {
+    display: block;      /* MOTION: box hugs the glyph so it rotates on its own centre */
+    width: fit-content;
+
+    margin: 70px 0 25px;
+
+    font-size: 2rem;
+
+    color: var(--accent);
+}
+
+
+.research-card h3 {
+    font-size: 1.4rem;
+
+    letter-spacing: -0.03em;
+}
+
+
+.research-card p {
+    margin-top: 15px;
+
+    color: var(--muted);
+
+    font-size: 0.9rem;
+}
+
+
+.research-line {
+    position: absolute;
+
+    left: 35px;
+    right: 35px;
+    bottom: 35px;
+
+    height: 1px;
+
+    background: linear-gradient(
+        90deg,
+        var(--accent),
+        transparent
+    );
+
+    opacity: 0.5;
+}
+
+
+/* =========================================================
+   FEATURED PROJECT
+========================================================= */
+
+.featured-project {
+    padding: 140px 6%;
+
+    max-width: 1500px;
+
+    margin: auto;
+}
+
+
+.featured-inner {
+    display: grid;
+
+    grid-template-columns: 0.8fr 1.2fr;
+
+    gap: 90px;
+
+    align-items: center;
+}
+
+
+.project-category {
+    margin-top: 18px;
+
+    color: #777780;
+
+    font-size: 0.65rem;
+
+    letter-spacing: 0.15em;
+}
+
+
+.featured-copy h2 {
+    margin-top: 20px;
+
+    font-size: clamp(3.5rem, 7vw, 7rem);
+
+    line-height: 0.9;
+
+    letter-spacing: -0.07em;
+}
+
+
+.project-tagline {
+    margin-top: 15px;
+
+    color: var(--accent);
+
+    font-size: 1.05rem;
+}
+
+
+.featured-copy > p:not(.section-label):not(.project-category):not(.project-tagline) {
+    max-width: 600px;
+
+    margin-top: 25px;
+
+    color: var(--muted);
+}
+
+
+.project-tags {
+    display: flex;
+    flex-wrap: wrap;
+
+    gap: 8px;
+
+    margin-top: 30px;
+}
+
+
+.project-tags span {
+    padding: 7px 11px;
+
+    border: 1px solid var(--line);
+
+    color: #aaaab1;
+
+    font-size: 0.62rem;
+}
+
+
+.project-buttons {
+    display: flex;
+    flex-wrap: wrap;
+
+    gap: 12px;
+
+    margin-top: 35px;
+}
+
+
+/* =========================================================
+   RESOLVE SYSTEM
+========================================================= */
+
+.resolve-system {
+    padding: 30px;
+
+    border: 1px solid #34343b;
+
+    background:
+        linear-gradient(
+            145deg,
+            #111116,
+            #0b0b0e
+        );
+
+    box-shadow:
+        0 30px 80px rgba(0,0,0,0.35);
+}
+
+
+.resolve-header {
+    display: flex;
+
+    justify-content: space-between;
+
+    padding-bottom: 22px;
+
+    border-bottom: 1px solid var(--line);
+
+    color: #6e6e76;
+
+    font-size: 0.6rem;
+
+    letter-spacing: 0.15em;
+}
+
+
+.resolve-flow {
+    padding: 50px 0;
+
+    display: grid;
+
+    grid-template-columns:
+        1fr
+        auto
+        1fr
+        auto
+        1fr
+        auto
+        1fr;
+
+    align-items: center;
+
+    gap: 15px;
+}
+
+
+.flow-step {
+    position: relative;   /* MOTION: for the progress bar */
+    overflow: hidden;
+
+    min-height: 130px;
+
+    padding: 18px;
+
+    border: 1px solid #2c2c33;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: space-between;
+}
+
+
+.flow-step > span {
+    color: var(--accent);
+
+    font-size: 0.6rem;
+}
+
+
+.flow-step strong {
+    font-size: 0.75rem;
+
+    letter-spacing: 0.1em;
+}
+
+
+.flow-step small {
+    color: #707078;
+
+    font-size: 0.63rem;
+}
+
+
+.flow-step.active,
+.ai-step {
+    border-color: rgba(155,108,255,0.55);
+
+    background: rgba(155,108,255,0.06);
+}
+
+
+.flow-arrow {
+    color: #55555d;
+
+    font-size: 1.2rem;
+}
+
+
+.resolve-bottom {
+    display: flex;
+    flex-wrap: wrap;
+
+    gap: 20px;
+
+    padding-top: 20px;
+
+    border-top: 1px solid var(--line);
+
+    color: #777780;
+
+    font-size: 0.6rem;
+
+    letter-spacing: 0.12em;
+}
+
+
+/* =========================================================
+   LOGIC
+========================================================= */
+
+.logic-section {
+    padding: 140px 6%;
+
+    background: #0d0d10;
+
+    border-top: 1px solid var(--line);
+}
+
+
+.logic-architecture {
+    max-width: 1250px;
+
+    margin: auto;
+
+    display: grid;
+
+    grid-template-columns:
+        1fr
+        40px
+        1fr
+        40px
+        1fr
+        40px
+        1fr;
+
+    align-items: stretch;
+}
+
+
+.logic-column {
+    position: relative;   /* MOTION: for the progress bar */
+    overflow: hidden;
+
+    padding: 30px;
+
+    border: 1px solid var(--line);
+
+    background: #101014;
+}
+
+
+.logic-index {
+    color: var(--accent);
+
+    font-size: 0.65rem;
+
+    letter-spacing: 0.15em;
+}
+
+
+.logic-column h3 {
+    margin-top: 50px;
+
+    font-size: 1.15rem;
+}
+
+
+.logic-column p {
+    margin-top: 15px;
+
+    color: var(--muted);
+
+    font-size: 0.83rem;
+}
+
+
+.logic-connector {
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    color: var(--accent);
+
+    /* MOTION: the arrows in your HTML are "↓". On desktop the columns sit
+       side by side, so they now point → in the direction of the flow. */
+    rotate: -90deg;
+}
+
+
+/* =========================================================
+   PRINCIPLES
+========================================================= */
+
+.principles-section {
+    padding: 140px 6%;
+}
+
+
+.principles-grid {
+    max-width: 1400px;
+
+    margin: auto;
+
+    display: grid;
+
+    grid-template-columns: repeat(4, 1fr);
+}
+
+
+.principle {
+    padding: 35px;
+
+    min-height: 280px;
+
+    border-top: 1px solid var(--line);
+
+    border-right: 1px solid var(--line);
+}
+
+
+.principle:last-child {
+    border-right: none;
+}
+
+
+.principle > span {
+    color: var(--accent);
+
+    font-size: 0.7rem;
+}
+
+
+.principle h3 {
+    margin-top: 70px;
+
+    font-size: 1.25rem;
+}
+
+
+.principle p {
+    margin-top: 15px;
+
+    color: var(--muted);
+
+    font-size: 0.85rem;
+}
+
+
+/* =========================================================
+   NEXT EXPLORATIONS
+========================================================= */
+
+.next-section {
+    padding: 140px 6%;
+
+    background: #0d0d10;
+
+    border-top: 1px solid var(--line);
+}
+
+
+.next-content {
+    max-width: 1250px;
+
+    margin: auto;
+}
+
+
+.next-content h2 {
+    max-width: 850px;
+
+    margin-top: 20px;
+
+    font-size: clamp(2.8rem, 6vw, 6rem);
+
+    line-height: 0.95;
+
+    letter-spacing: -0.06em;
+}
+
+
+.next-grid {
+    display: grid;
+
+    grid-template-columns: repeat(2, 1fr);
+
+    margin-top: 80px;
+
+    border-top: 1px solid var(--line);
+}
+
+
+.next-grid div {
+    min-height: 180px;
+
+    padding: 30px;
+
+    border-bottom: 1px solid var(--line);
+
+    border-right: 1px solid var(--line);
+
+    transition: background 0.3s ease; /* MOTION */
+}
+
+
+.next-grid div:nth-child(even) {
+    border-right: none;
+}
+
+
+.next-grid span {
+    color: var(--accent);
+
+    font-size: 0.65rem;
+}
+
+
+.next-grid h3 {
+    margin-top: 55px;
+
+    font-size: 1.25rem;
+
+    transition: transform 0.5s var(--ease-out); /* MOTION */
+}
+
+
+/* =========================================================
+   DISCLAIMER
+========================================================= */
+
+.disclaimer-section {
+    max-width: 1000px;
+
+    margin: auto;
+
+    padding: 100px 6%;
+
+    display: grid;
+
+    grid-template-columns: 50px 1fr;
+
+    gap: 25px;
+
+    color: #777780;
+}
+
+
+.disclaimer-mark {
+    color: var(--accent);
+
+    font-size: 2rem;
+}
+
+
+.disclaimer-section p:not(.section-label) {
+    margin-top: 15px;
+
+    font-size: 0.82rem;
+}
+
+
+/* =========================================================
+   CTA
+========================================================= */
+
+.lab-cta {
+    padding: 150px 6%;
+
+    text-align: center;
+
+    border-top: 1px solid var(--line);
+
+    background:
+        radial-gradient(
+            circle at center,
+            rgba(155,108,255,0.09),
+            transparent 45%
+        );
+}
+
+
+.lab-cta h2 {
+    max-width: 900px;
+
+    margin: 20px auto 0;
+
+    font-size: clamp(3rem, 7vw, 7rem);
+
+    line-height: 0.9;
+
+    letter-spacing: -0.07em;
+}
+
+
+.lab-cta h2 span {
+    display: block;
+
+    color: #686870;
+}
+
+
+.lab-cta > p:not(.section-label) {
+    max-width: 600px;
+
+    margin: 30px auto;
+
+    color: var(--muted);
+}
+
+
+.cta-buttons {
+    display: flex;
+
+    justify-content: center;
+
+    flex-wrap: wrap;
+
+    gap: 12px;
+
+    margin-top: 35px;
+}
+
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+.lab-footer {
+    padding: 28px 6%;
+
+    border-top: 1px solid var(--line);
+
+    display: flex;
+
+    justify-content: space-between;
+
+    color: #5d5d65;
+
+    font-size: 0.62rem;
+
+    letter-spacing: 0.12em;
+}
+
+
+/* =========================================================
+   MOTION
+   =========================================================
+   1.  Keyframes
+   2.  Hero diagram — signal loop around the payment system
+   3.  PayResolve pipeline
+   4.  Product logic architecture
+   5.  Research icons
+   6.  Hover interactions
+   7.  Pausing / starting diagrams by scroll position
+   8.  Reduced motion
+
+   Hero animations run on load. The two pipelines and the icons
+   start when they scroll into view (JS adds .is-live), so you
+   see Detect → Reconcile → Classify → Explain from the beginning.
+   ========================================================= */
+
+
+/* ---------- 1. KEYFRAMES ---------- */
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+}
+
+/* entrance keyframes spell out the full transform because the
+   rings and core are centred with translate(-50%, -50%) */
+@keyframes ringIn {
+    from { opacity: 0; transform: translate(-50%, -50%) scale(0.6); }
+}
+
+@keyframes coreIn {
+    from { opacity: 0; transform: translate(-50%, -50%) scale(0.4); }
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+@keyframes ripple {
+    0%   { transform: scale(1);   opacity: 0.55; }
+    100% { transform: scale(2.5); opacity: 0; }
+}
+
+@keyframes breathe {
+    from {
+        box-shadow:
+            0 0 40px rgba(155, 108, 255, 0.10),
+            inset 0 0 40px rgba(155, 108, 255, 0.06);
+    }
+    to {
+        box-shadow:
+            0 0 90px rgba(155, 108, 255, 0.32),
+            inset 0 0 50px rgba(155, 108, 255, 0.14);
+    }
+}
+
+@keyframes glowPulse {
+    from { opacity: 0.7; scale: 0.9; }
+    to   { opacity: 1;   scale: 1.2; }
+}
+
+@keyframes float {
+    from { translate: 0 -5px; }
+    to   { translate: 0 6px; }
+}
+
+/* a node lights up as the signal reaches it */
+@keyframes nodePulse {
+    0%, 2% {
+        border-color: #35353c;
+        background: rgba(12, 12, 15, 0.94);
+        color: #cfcfd4;
+        box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+    }
+    5%, 20% {
+        border-color: rgba(155, 108, 255, 0.9);
+        background: rgba(155, 108, 255, 0.16);
+        color: #ffffff;
+        box-shadow:
+            0 15px 35px rgba(0, 0, 0, 0.3),
+            0 0 34px rgba(155, 108, 255, 0.4);
+    }
+    26%, 100% {
+        border-color: #35353c;
+        background: rgba(12, 12, 15, 0.94);
+        color: #cfcfd4;
+        box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+    }
+}
+
+@keyframes dotBreathe {
+    0%, 100% {
+        box-shadow:
+            0 0 0 5px rgba(155, 108, 255, 0.08),
+            0 0 20px rgba(155, 108, 255, 0.8);
+    }
+    50% {
+        box-shadow:
+            0 0 0 10px rgba(155, 108, 255, 0),
+            0 0 28px rgba(155, 108, 255, 1);
+    }
+}
+
+@keyframes dotPulse {
+    0%        { box-shadow: 0 0 0 0 rgba(155, 108, 255, 0.6); }
+    70%, 100% { box-shadow: 0 0 0 8px rgba(155, 108, 255, 0); }
+}
+
+/* pipeline step: --rest-* hold each step's normal look */
+@keyframes stepActive {
+    0%, 3% {
+        border-color: var(--rest-border);
+        background: var(--rest-bg);
+        box-shadow: 0 0 0 rgba(155, 108, 255, 0);
+    }
+    8%, 24% {
+        border-color: rgba(155, 108, 255, 0.9);
+        background: rgba(155, 108, 255, 0.13);
+        box-shadow: 0 0 30px rgba(155, 108, 255, 0.25);
+    }
+    32%, 100% {
+        border-color: var(--rest-border);
+        background: var(--rest-bg);
+        box-shadow: 0 0 0 rgba(155, 108, 255, 0);
+    }
+}
+
+@keyframes logicActive {
+    0%, 3% {
+        border-color: var(--line);
+        background: #101014;
+        box-shadow: 0 0 0 rgba(155, 108, 255, 0);
+    }
+    8%, 24% {
+        border-color: rgba(155, 108, 255, 0.7);
+        background: #151220;
+        box-shadow: 0 20px 44px -22px rgba(155, 108, 255, 0.45);
+    }
+    32%, 100% {
+        border-color: var(--line);
+        background: #101014;
+        box-shadow: 0 0 0 rgba(155, 108, 255, 0);
+    }
+}
+
+@keyframes stepBar {
+    0%   { transform: scaleX(0); opacity: 1; }
+    24%  { transform: scaleX(1); opacity: 1; }
+    30%  { transform: scaleX(1); opacity: 0; }
+    100% { transform: scaleX(0); opacity: 0; }
+}
+
+@keyframes arrowRun {
+    0%   { color: #55555d;       translate: 0 0; }
+    6%   { color: var(--accent); translate: var(--nudge); }
+    14%  { color: #55555d;       translate: 0 0; }
+    100% { color: #55555d;       translate: 0 0; }
+}
+
+@keyframes tick {
+    0%, 3%   { color: #777780; }
+    8%, 30%  { color: #e4dcff; }
+    38%, 100% { color: #777780; }
+}
+
+@keyframes iconSlide {
+    from { translate: -7px 0; }
+    to   { translate: 7px 0; }
+}
+
+@keyframes iconSpin {
+    to { rotate: 360deg; }
+}
+
+@keyframes iconPulse {
+    0%, 100% { scale: 1;   text-shadow: 0 0 0 rgba(155, 108, 255, 0); }
+    50%      { scale: 1.2; text-shadow: 0 0 18px rgba(155, 108, 255, 0.9); }
+}
+
+@keyframes iconFade {
+    from { opacity: 0.4; }
+    to   { opacity: 1; }
+}
+
+
+/* ---------- 2. HERO DIAGRAM ---------- */
+/* One signal travels clockwise around the middle ring on a 12s loop:
+   Transaction → Reconciliation → Incident → AI Insight.
+   Each node lights up as the signal reaches it. */
+
+.status-dot {
+    animation: dotBreathe 2.6s ease-in-out infinite;
+}
+
+.system-glow {
+    animation: glowPulse 6s ease-in-out infinite alternate;
+}
+
+/* rings draw in */
+
+.orbit {
+    animation: ringIn 1.2s var(--ease-out) backwards;
+}
+
+.orbit-one   { animation-delay: 0.25s; border-color: transparent; } /* dashed track below replaces this line */
+.orbit-two   { animation-delay: 0.45s; }
+.orbit-three { animation-delay: 0.65s; }
+
+/* each ring carries a rotating track with a glowing dot */
+
+.orbit-track {
+    position: absolute;
+    inset: -1px;
+    border-radius: 50%;
+    pointer-events: none;
+    will-change: transform;
+
+    animation:
+        fadeIn 1s ease 1.2s backwards,
+        spin var(--spin, 20s) linear 1.5s infinite;
+    animation-direction: normal, var(--dir, normal);
+}
+
+.orbit-track i {
+    position: absolute;
+    top: -3.5px;
+    left: 50%;
+    width: 7px;
+    height: 7px;
+    margin-left: -3.5px;
+    border-radius: 50%;
+
+    background: #c9b0ff;
+    box-shadow: 0 0 14px 3px rgba(155, 108, 255, 0.7);
+}
+
+/* inner ring: dashed, slow, counter-clockwise */
+.orbit-one .orbit-track {
+    --spin: 22s;
+    --dir: reverse;
+    border: 1px dashed rgba(155, 108, 255, 0.35);
+}
+
+.orbit-one .orbit-track i {
+    opacity: 0.55;
+    width: 5px;
+    height: 5px;
+    margin-left: -2.5px;
+    top: -3px;
+}
+
+/* middle ring: the main signal, with a fading trail */
+.orbit-two .orbit-track {
+    --spin: 12s;
+
+    background: conic-gradient(
+        from 0deg,
+        transparent 0deg 292deg,
+        rgba(155, 108, 255, 0.85) 360deg
+    );
+    -webkit-mask: radial-gradient(farthest-side, transparent calc(100% - 2px), #000 calc(100% - 2px));
+            mask: radial-gradient(farthest-side, transparent calc(100% - 2px), #000 calc(100% - 2px));
+}
+
+.orbit-two .orbit-track i {
+    /* the mask would hide the dot, so it is drawn by the track's own child
+       outside the masked area — see .orbit-two .signal below */
+    display: none;
+}
+
+/* outer ring: slow, clockwise, dim */
+.orbit-three .orbit-track {
+    --spin: 30s;
+}
+
+.orbit-three .orbit-track i {
+    opacity: 0.5;
+}
+
+/* the main signal dot sits on its own rotating layer so the trail's
+   mask does not clip it */
+.signal {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 70%;
+    height: 70%;
+    margin: -35% 0 0 -35%;
+    border-radius: 50%;
+    pointer-events: none;
+
+    animation:
+        fadeIn 1s ease 1.2s backwards,
+        spin 12s linear 1.5s infinite;
+}
+
+.signal i {
+    position: absolute;
+    top: -4.5px;
+    left: 50%;
+    width: 9px;
+    height: 9px;
+    margin-left: -4.5px;
+    border-radius: 50%;
+
+    background: #ffffff;
+    box-shadow:
+        0 0 16px 4px rgba(155, 108, 255, 0.9),
+        0 0 40px 10px rgba(155, 108, 255, 0.35);
+}
+
+/* core breathes and sends out ripples */
+
+.system-core {
+    animation:
+        coreIn 1s cubic-bezier(0.2, 0.9, 0.3, 1.15) 0.15s backwards,
+        breathe 4.5s ease-in-out 1.2s infinite alternate;
+}
+
+.system-core::before,
+.system-core::after {
+    content: "";
+    position: absolute;
+    inset: -1px;
+    border-radius: 50%;
+    border: 1px solid rgba(155, 108, 255, 0.5);
+    pointer-events: none;
+
+    animation: ripple 4.5s ease-out 1.4s infinite backwards;
+}
+
+.system-core::after {
+    animation-delay: 3.65s;
+}
+
+/* nodes fade in, drift gently, and pulse when the signal arrives */
+
+.system-node {
+    animation:
+        fadeIn 0.9s ease var(--in, 1s) backwards,
+        float var(--float, 7s) ease-in-out var(--offset, 0s) infinite alternate,
+        nodePulse 12s ease-in-out var(--seq, 1.1s) infinite;
+}
+
+.node-transaction    { --in: 1s;    --float: 7s;   --offset: -1s; --seq: 1.1s; }
+.node-reconciliation { --in: 1.15s; --float: 8s;   --offset: -3s; --seq: 4.1s; }
+.node-incident       { --in: 1.3s;  --float: 6.5s; --offset: -2s; --seq: 7.1s; }
+.node-ai             { --in: 1.45s; --float: 7.5s; --offset: -4s; --seq: 10.1s; }
+
+
+/* ---------- 3. PAYRESOLVE PIPELINE ---------- */
+/* When the panel scrolls into view a highlight runs Detect → Reconcile →
+   Classify → Explain on an 8s loop; arrows pass the signal along. */
+
+.flow-step {
+    --rest-border: #2c2c33;
+    --rest-bg: transparent;
+}
+
+.ai-step {
+    --rest-border: rgba(155, 108, 255, 0.55);
+    --rest-bg: rgba(155, 108, 255, 0.06);
+}
+
+.flow-step::before,
+.logic-column::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: var(--accent);
+    transform: scaleX(0);
+    transform-origin: left;
+}
+
+.flow-arrow,
+.logic-connector {
+    --nudge: 8px 0;
+}
+
+/* position in the sequence (steps and the arrow that follows them) */
+.resolve-flow > :nth-child(1), .resolve-flow > :nth-child(2),
+.logic-architecture > :nth-child(1), .logic-architecture > :nth-child(2) { --seq: 0; }
+.resolve-flow > :nth-child(3), .resolve-flow > :nth-child(4),
+.logic-architecture > :nth-child(3), .logic-architecture > :nth-child(4) { --seq: 1; }
+.resolve-flow > :nth-child(5), .resolve-flow > :nth-child(6),
+.logic-architecture > :nth-child(5), .logic-architecture > :nth-child(6) { --seq: 2; }
+.resolve-flow > :nth-child(7),
+.logic-architecture > :nth-child(7) { --seq: 3; }
+
+.resolve-system.is-live .flow-step {
+    animation: stepActive 8s ease-in-out calc(0.4s + var(--seq) * 2s) infinite;
+}
+
+.resolve-system.is-live .flow-step::before {
+    animation: stepBar 8s ease-in-out calc(0.4s + var(--seq) * 2s) infinite;
+}
+
+.resolve-system.is-live .flow-arrow {
+    animation: arrowRun 8s ease-in-out calc(1.7s + var(--seq) * 2s) infinite backwards;
+}
+
+/* live indicator in the panel header */
+
+.resolve-header span:last-child::before {
+    content: "";
+    display: inline-block;
+    width: 6px;
+    height: 6px;
+    margin-right: 10px;
+    border-radius: 50%;
+    vertical-align: middle;
+    background: var(--accent);
+}
+
+.resolve-system.is-live .resolve-header span:last-child::before {
+    animation: dotPulse 2s ease-out infinite;
+}
+
+/* principles under the pipeline light up one after another */
+
+.resolve-system.is-live .resolve-bottom span {
+    animation: tick 6s ease-in-out infinite;
+}
+
+.resolve-system.is-live .resolve-bottom span:nth-child(2) { animation-delay: 2s; }
+.resolve-system.is-live .resolve-bottom span:nth-child(3) { animation-delay: 4s; }
+
+
+/* ---------- 4. PRODUCT LOGIC ARCHITECTURE ---------- */
+
+.logic-architecture.is-live .logic-column {
+    animation: logicActive 8s ease-in-out calc(0.4s + var(--seq) * 2s) infinite;
+}
+
+.logic-architecture.is-live .logic-column::before {
+    animation: stepBar 8s ease-in-out calc(0.4s + var(--seq) * 2s) infinite;
+}
+
+.logic-architecture.is-live .logic-connector {
+    animation: arrowRun 8s ease-in-out calc(1.7s + var(--seq) * 2s) infinite backwards;
+}
+
+
+/* ---------- 5. RESEARCH ICONS ---------- */
+
+.research-grid.is-live .research-card:nth-child(1) .research-icon {
+    animation: iconSlide 2.6s ease-in-out infinite alternate;
+}
+
+.research-grid.is-live .research-card:nth-child(2) .research-icon {
+    animation: iconSpin 9s linear infinite reverse;
+}
+
+.research-grid.is-live .research-card:nth-child(3) .research-icon {
+    animation: iconPulse 3.2s ease-in-out infinite;
+}
+
+.research-grid.is-live .research-card:nth-child(4) .research-icon {
+    animation: iconFade 2.4s ease-in-out infinite alternate;
+}
+
+
+/* ---------- 6. HOVER INTERACTIONS ---------- */
+
+.button-primary:hover span,
+.back-link:hover span {
+    transform: translate(3px, -3px);
+}
+
+.button-outline:hover span {
+    transform: translateX(4px);
+}
+
+.research-line {
+    transform: scaleX(0.35);
+    transform-origin: left;
+    transition:
+        transform 0.7s var(--ease-out),
+        opacity 0.4s ease;
+}
+
+.research-card:hover .research-line {
+    transform: scaleX(1);
+    opacity: 1;
+}
+
+.next-grid div:hover {
+    background: rgba(155, 108, 255, 0.04);
+}
+
+.next-grid div:hover h3 {
+    transform: translateX(12px);
+}
+
+
+/* ---------- 7. PAUSE WHEN OFF-SCREEN ---------- */
+
+.is-offscreen,
+.is-offscreen::before,
+.is-offscreen::after,
+.is-offscreen *,
+.is-offscreen *::before,
+.is-offscreen *::after {
+    animation-play-state: paused !important;
+}
+
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media (max-width: 1000px) {
+
+    .hero-grid,
+    .featured-inner {
+        grid-template-columns: 1fr;
+    }
+
+
+    .payment-system {
+        margin-top: 30px;
+    }
+
+
+    .research-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+
+    .research-card:nth-child(2) {
+        border-right: none;
+    }
+
+
+    .research-card:nth-child(1),
+    .research-card:nth-child(2) {
+        border-bottom: 1px solid var(--line);
+    }
+
+
+    .principles-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+
+    .principle:nth-child(2) {
+        border-right: none;
+    }
+
+
+    .principle:nth-child(1),
+    .principle:nth-child(2) {
+        border-bottom: 1px solid var(--line);
+    }
+
+
+    .logic-architecture {
+        grid-template-columns: 1fr;
+        gap: 12px;
+    }
+
+
+    .logic-connector {
+        rotate: 0deg;          /* MOTION: stacked layout, so ↓ points the right way */
+        --nudge: 0 6px;
+        min-height: 30px;
+    }
+
+
+    .resolve-flow {
+        grid-template-columns: 1fr;
+    }
+
+
+    .flow-arrow {
+        transform: rotate(90deg);
+        text-align: center;
+        --nudge: 0 8px;         /* MOTION: nudge downward when stacked */
+    }
+
+}
+
+
+@media (max-width: 700px) {
+
+    .lab-nav {
+        padding: 22px 5%;
+    }
+
+
+    .lab-nav-center {
+        display: none;
+    }
+
+
+    .fintech-hero,
+    .research-section,
+    .featured-project,
+    .logic-section,
+    .principles-section,
+    .next-section {
+        padding-left: 5%;
+        padding-right: 5%;
+    }
+
+
+    .hero-copy h1 {
+        font-size: clamp(3rem, 15vw, 5rem);
+    }
+
+
+    .payment-system {
+        width: 100%;
+    }
+
+
+    .system-core {
+        width: 140px;
+        height: 140px;
+    }
+
+
+    .system-node {
+        font-size: 0.5rem;
+    }
+
+
+    .thesis-section {
+        grid-template-columns: 1fr;
+        padding: 100px 5%;
+        gap: 10px;
+    }
+
+
+    .research-grid {
+        grid-template-columns: 1fr;
+    }
+
+
+    .research-card,
+    .research-card:nth-child(2) {
+        border-right: none;
+        border-bottom: 1px solid var(--line);
+    }
+
+
+    .research-card:last-child {
+        border-bottom: none;
+    }
+
+
+    .principles-grid {
+        grid-template-columns: 1fr;
+    }
+
+
+    .principle,
+    .principle:nth-child(2) {
+        border-right: none;
+        border-bottom: 1px solid var(--line);
+    }
+
+
+    .principle:last-child {
+        border-bottom: none;
+    }
+
+
+    .next-grid {
+        grid-template-columns: 1fr;
+    }
+
+
+    .next-grid div,
+    .next-grid div:nth-child(even) {
+        border-right: none;
+    }
+
+
+    .disclaimer-section {
+        grid-template-columns: 1fr;
+        padding-left: 5%;
+        padding-right: 5%;
+    }
+
+
+    .lab-footer {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+}
+
+
+/* ---------- 8. REDUCED MOTION ---------- */
+/* Anyone who has asked their device for less motion gets the
+   still design. */
+
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+        animation: none !important;
+        transition: none !important;
+        scroll-behavior: auto !important;
+    }
+
+}

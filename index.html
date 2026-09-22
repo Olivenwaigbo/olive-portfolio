@@ -39,6 +39,149 @@
         rel="stylesheet"
     >
 
+    <!-- =========================================================
+         PAYRESOLVE PROJECT CARD
+         Styles for the new card's visual. You can move this block
+         into css/style.css whenever you like.
+    ========================================================== -->
+
+    <style>
+
+        .project-visual-payresolve {
+            background:
+                radial-gradient(
+                    circle at 72% 28%,
+                    rgba(138, 92, 255, 0.38),
+                    transparent 55%
+                ),
+                #15111f;
+            color: #ffffff;
+        }
+
+        .project-visual-payresolve .project-number,
+        .project-visual-payresolve .project-type {
+            color: rgba(255, 255, 255, 0.72);
+        }
+
+        .payresolve-graphic {
+            position: relative;
+            min-height: 190px;
+        }
+
+        .pr-orbit {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            width: 150px;
+            height: 150px;
+            margin: -75px 0 0 -75px;
+        }
+
+        .pr-ring,
+        .pr-ring-inner {
+            position: absolute;
+            border-radius: 50%;
+        }
+
+        .pr-ring {
+            inset: 0;
+            border: 1px solid rgba(183, 156, 255, 0.35);
+        }
+
+        .pr-ring-inner {
+            inset: 26px;
+            border: 1px dashed rgba(183, 156, 255, 0.3);
+        }
+
+        .pr-track {
+            position: absolute;
+            inset: 0;
+            animation: pr-spin 8s linear infinite;
+        }
+
+        .pr-track i {
+            position: absolute;
+            top: -4px;
+            left: 50%;
+            width: 8px;
+            height: 8px;
+            margin-left: -4px;
+            border-radius: 50%;
+            background: #ffffff;
+            box-shadow: 0 0 12px 3px rgba(138, 92, 255, 0.85);
+        }
+
+        .pr-core {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            width: 58px;
+            height: 58px;
+            margin: -29px 0 0 -29px;
+            border-radius: 50%;
+            border: 1px solid rgba(183, 156, 255, 0.6);
+            background: rgba(138, 92, 255, 0.18);
+
+            display: grid;
+            place-items: center;
+
+            font-size: 24px;
+            font-weight: 300;
+            line-height: 1;
+            color: #ffffff;
+
+            animation: pr-glow 3.6s ease-in-out infinite alternate;
+        }
+
+        /* four stages: detect, reconcile, classify, explain */
+        .pr-node {
+            position: absolute;
+            width: 9px;
+            height: 9px;
+            border: 1px solid rgba(183, 156, 255, 0.7);
+            background: #15111f;
+            animation: pr-node 8s ease-in-out infinite;
+        }
+
+        .pr-node-1 { top: -5px;    left: 50%; margin-left: -4.5px; }
+        .pr-node-2 { right: -5px;  top: 50%;  margin-top: -4.5px;  animation-delay: 2s; }
+        .pr-node-3 { bottom: -5px; left: 50%; margin-left: -4.5px; animation-delay: 4s; }
+        .pr-node-4 { left: -5px;   top: 50%;  margin-top: -4.5px;  animation-delay: 6s; }
+
+        @keyframes pr-spin {
+            to { transform: rotate(360deg); }
+        }
+
+        @keyframes pr-glow {
+            from { box-shadow: 0 0 18px rgba(138, 92, 255, 0.2); }
+            to   { box-shadow: 0 0 42px rgba(138, 92, 255, 0.55); }
+        }
+
+        @keyframes pr-node {
+            0%, 2% {
+                background: #15111f;
+                box-shadow: none;
+            }
+            6%, 18% {
+                background: #b79cff;
+                box-shadow: 0 0 12px rgba(183, 156, 255, 0.9);
+            }
+            26%, 100% {
+                background: #15111f;
+                box-shadow: none;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .pr-track,
+            .pr-core,
+            .pr-node {
+                animation: none;
+            }
+        }
+
+    </style>
+
 </head>
 
 
@@ -270,7 +413,7 @@
 
 
 
-            <!-- CENTRAL AVIATION SYSTEM -->
+            <!-- CENTRAL INNOVATION LABS -->
 
             <div class="exploration-center">
 
@@ -290,19 +433,19 @@
 
                     <div class="plane-icon">
 
-                        ✈
+                        ◎
 
                     </div>
 
 
                     <h2>
 
-                        Aviation
+                        Innovation
 
                         <br>
 
                         <span>
-                            & Aerospace
+                            Labs
                         </span>
 
                     </h2>
@@ -311,8 +454,8 @@
                     <p>
 
                         Exploring how technology, data and AI can
-                        solve real problems across the aviation
-                        ecosystem.
+                        solve real problems in aviation, payments
+                        and beyond.
 
                     </p>
 
@@ -355,11 +498,11 @@
         <div class="stat-card">
 
             <strong>
-                3
+                4
             </strong>
 
             <span>
-                Aviation Products Built
+                Lab Products Built
             </span>
 
         </div>
@@ -576,7 +719,7 @@
 
 
                 <!-- =================================================
-                     CLICKABLE AVIATION LAB STORY
+                     CLICKABLE INNOVATION LABS STORY
                 ================================================== -->
 
                 <div class="story-ending">
@@ -596,21 +739,22 @@
 
 
                             <strong>
-                                And now I'm taking that curiosity into aviation.
+                                And now I'm taking that curiosity into new industries.
                             </strong>
 
 
                             <p>
 
-                                My Aviation Innovation Lab is where I explore
-                                real industry problems through product thinking,
-                                data and AI.
+                                My Innovation Labs are where I explore real
+                                industry problems through product thinking,
+                                data and AI — starting with aviation and
+                                payments.
 
                             </p>
 
 
                             <span class="lab-story-cta">
-                                Explore the Aviation Innovation Lab →
+                                Explore the Innovation Labs →
                             </span>
 
 
@@ -1184,7 +1328,7 @@
 
                 <h2>
 
-                    Before aviation,
+                    Before the labs,
 
                     <span>
                         there was this.
@@ -1363,7 +1507,7 @@
 
 
                 <strong>
-                    Aviation & Aerospace ✈
+                    Aviation ✈ · Payments ₦ · More to come
                 </strong>
 
             </div>
@@ -1382,7 +1526,7 @@
 
 
 <!-- =========================================================
-     PROJECTS — ONLY THE 3 AVIATION PROJECTS
+     PROJECTS — PRODUCTS BUILT IN THE INNOVATION LABS
 ========================================================= -->
 
 <section
@@ -1410,10 +1554,10 @@
 
                 <h2>
 
-                    Three problems.
+                    Real problems.
 
                     <span>
-                        Three products.
+                        Working products.
                     </span>
 
 
@@ -1431,7 +1575,7 @@
 
             <p>
 
-                My Aviation Innovation Lab is where I turn industry
+                My Innovation Labs are where I turn industry
                 questions into working product concepts using
                 product thinking, data, AI and rapid prototyping.
 
@@ -1804,6 +1948,127 @@
             </article>
 
 
+
+            <!-- =================================================
+                 PAYRESOLVE
+            ================================================== -->
+
+            <article class="project-card">
+
+
+                <div class="project-visual project-visual-payresolve">
+
+
+                    <span class="project-number">
+                        04
+                    </span>
+
+
+                    <div class="project-graphic payresolve-graphic">
+
+
+                        <div class="pr-orbit">
+
+                            <div class="pr-ring"></div>
+
+                            <div class="pr-ring-inner"></div>
+
+                            <div class="pr-track"><i></i></div>
+
+                            <span class="pr-node pr-node-1"></span>
+                            <span class="pr-node pr-node-2"></span>
+                            <span class="pr-node pr-node-3"></span>
+                            <span class="pr-node pr-node-4"></span>
+
+                            <div class="pr-core">
+                                ₦
+                            </div>
+
+                        </div>
+
+
+                    </div>
+
+
+                    <span class="project-type">
+                        FINTECH · AI · PAYMENTS
+                    </span>
+
+
+                </div>
+
+
+
+                <div class="project-content">
+
+
+                    <span class="project-label">
+                        FINTECH / 04
+                    </span>
+
+
+                    <h3>
+                        PayResolve
+                    </h3>
+
+
+                    <p class="project-tagline">
+                        Payment Failure & Reconciliation Intelligence
+                    </p>
+
+
+                    <p>
+
+                        An experimental payment operations intelligence
+                        platform that helps teams investigate transaction
+                        failures, anomalies and reconciliation exceptions,
+                        with AI explaining the evidence rather than
+                        replacing human judgment.
+
+                    </p>
+
+
+                    <div class="project-tech">
+
+                        <span>
+                            Python
+                        </span>
+
+                        <span>
+                            FastAPI
+                        </span>
+
+                        <span>
+                            Streamlit
+                        </span>
+
+                        <span>
+                            Groq AI
+                        </span>
+
+                    </div>
+
+
+                    <a
+                        href="projects/payresolve.html"
+                        class="project-link"
+                    >
+
+                        View Case Study
+
+                        <span>
+                            ↗
+                        </span>
+
+                    </a>
+
+
+                </div>
+
+
+            </article>
+
+
         </div>
 
     </div>
@@ -1997,12 +2262,78 @@
 
 
 <!-- =========================================================
+     INNOVATION LABS — GROUP HEADING
+     Add each new lab as its own banner section below.
+========================================================= -->
+
+<section
+    class="section labs-intro-section"
+    id="innovation-lab"
+>
+
+    <div class="container">
+
+
+        <div class="section-heading">
+
+
+            <span class="section-number">
+                07
+            </span>
+
+
+            <div>
+
+                <span class="section-kicker">
+                    INNOVATION LABS
+                </span>
+
+
+                <h2>
+
+                    Curiosity,
+
+                    <span>
+                        turned into products.
+                    </span>
+
+                </h2>
+
+
+            </div>
+
+
+        </div>
+
+
+
+        <div class="projects-intro">
+
+            <p>
+
+                Each lab is a personal product space where I explore
+                a real industry problem through product thinking, data
+                and AI. Two are open so far, aviation and payments,
+                and more will follow.
+
+            </p>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================================
      AVIATION INNOVATION LAB
 ========================================================= -->
 
 <section
     class="section lab-section"
-    id="innovation-lab"
+    id="aviation-lab"
 >
 
     <div class="container">
@@ -2024,10 +2355,10 @@
 
                 <h2>
 
-                    Curiosity,
+                    Exploring aviation,
 
                     <span>
-                        turned into products.
+                        through data and AI.
                     </span>
 
                 </h2>
@@ -2070,7 +2401,98 @@
 
 </section>
 
+<!-- =========================================================
+     FINTECH & PAYMENTS LAB
+========================================================= -->
 
+<section
+    class="section lab-section fintech-lab-section"
+    id="fintech-lab"
+>
+
+    <div class="container">
+
+        <div class="lab-banner fintech-lab-banner">
+
+            <div class="fintech-orbit-decoration"></div>
+
+            <div class="lab-content">
+
+                <span class="lab-kicker">
+                    OLIVE FINTECH & PAYMENTS LAB
+                </span>
+
+                <h2>
+
+                    Exploring payments,
+
+                    <span>
+                        through intelligence.
+                    </span>
+
+                </h2>
+
+                <p>
+
+                    A product exploration into payment operations,
+                    transaction intelligence, reconciliation and
+                    AI-assisted investigation.
+
+                </p>
+
+                <div class="fintech-lab-actions">
+
+                    <a
+                        href="labs/fintech.html"
+                        class="button button-light"
+                    >
+
+                        Enter the Lab
+
+                        <span>
+                            ↗
+                        </span>
+
+                    </a>
+
+                    <a
+                        href="https://payresolve.streamlit.app"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="button button-outline-light"
+                    >
+
+                        Launch PayResolve
+
+                        <span>
+                            ↗
+                        </span>
+
+                    </a>
+
+                </div>
+
+            </div>
+
+            <div class="fintech-symbol">
+
+                <div class="fintech-symbol-ring"></div>
+
+                <div class="fintech-symbol-center">
+                    ₦
+                </div>
+
+                <span class="fintech-node fintech-node-one"></span>
+                <span class="fintech-node fintech-node-two"></span>
+                <span class="fintech-node fintech-node-three"></span>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
 
 <!-- =========================================================
      CAPABILITIES
@@ -2085,7 +2507,7 @@
 
 
             <span class="section-number">
-                07
+                08
             </span>
 
 
@@ -2279,8 +2701,8 @@
 
                     I'm interested in product opportunities,
                     research collaborations, digital transformation,
-                    AI products and conversations around aviation
-                    technology.
+                    AI products and conversations around aviation,
+                    fintech and emerging technology.
 
                 </p>
 
@@ -2410,7 +2832,7 @@
 
 <!-- =========================================================
      STAT COUNT-UP
-     Animates the "5+", "3", "CPM", "AI" quick-stat numbers
+     Animates the "5+", "4", "CPM", "AI" quick-stat numbers
      when they scroll into view.
 ========================================================= -->
 
