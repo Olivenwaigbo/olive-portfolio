@@ -1,1631 +1,2509 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>PayResolve | Olive Chika Nwaigbo</title>
-
-    <meta
-        name="description"
-        content="PayResolve — a payment operations intelligence platform for investigating transaction failures, anomalies and reconciliation exceptions."
-    >
-
-    <link rel="stylesheet" href="../css/style.css">
-
-    <style>
-        /* =====================================================
-           PAYRESOLVE CASE STUDY
-        ===================================================== */
-
-        .pr-hero {
-            background: #181818;
-            color: #fff;
-            padding: 150px 0 110px;
-        }
-
-        .pr-hero-inner {
-            width: min(1180px, calc(100% - 48px));
-            margin: auto;
-        }
-
-        .pr-kicker {
-            color: #a88cff;
-            font-size: 11px;
-            font-weight: 700;
-            letter-spacing: .16em;
-        }
-
-        .pr-hero h1 {
-            max-width: 900px;
-            margin: 25px 0;
-
-            font-size: clamp(58px, 9vw, 120px);
-            line-height: .88;
-            letter-spacing: -.06em;
-        }
-
-        .pr-hero h1 span {
-            color: #aaa5a2;
-        }
-
-        .pr-hero-description {
-            max-width: 700px;
-            color: #aaa6a3;
-            font-size: 18px;
-            line-height: 1.7;
-        }
-
-        .pr-hero-actions {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 12px;
-            margin-top: 35px;
-        }
-
-        .pr-button {
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            padding: 14px 20px;
-            font-size: 12px;
-            font-weight: 700;
-            transition: .25s ease;
-        }
-
-        .pr-button:hover {
-            transform: translateY(-2px);
-        }
-
-        .pr-button-primary {
-            background: #fff;
-            color: #171717;
-        }
-
-        .pr-button-secondary {
-            border: 1px solid rgba(255,255,255,.25);
-            color: #fff;
-        }
-
-        .pr-meta {
-            width: min(1180px, calc(100% - 48px));
-            margin: 0 auto;
-
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-
-            border-top: 1px solid rgba(255,255,255,.15);
-            margin-top: 70px;
-            padding-top: 25px;
-        }
-
-        .pr-meta-item {
-            display: flex;
-            flex-direction: column;
-            gap: 5px;
-        }
-
-        .pr-meta-item span {
-            color: #777;
-            font-size: 9px;
-            letter-spacing: .14em;
-        }
-
-        .pr-meta-item strong {
-            font-size: 13px;
-            color: #ddd;
-        }
-
-
-        /* GENERAL */
-
-        .pr-section {
-            width: min(1180px, calc(100% - 48px));
-            margin: auto;
-            padding: 110px 0;
-        }
-
-        .pr-section-dark {
-            background: #181818;
-            color: #fff;
-        }
-
-        .pr-full-dark {
-            background: #181818;
-        }
-
-        .pr-section-label {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-
-            margin-bottom: 50px;
-
-            color: #77736f;
-            font-size: 10px;
-            font-weight: 700;
-            letter-spacing: .16em;
-        }
-
-        .pr-section-label span {
-            color: #7c4dff;
-        }
-
-        .pr-grid {
-            display: grid;
-            grid-template-columns: 1.1fr .9fr;
-            gap: 100px;
-        }
-
-        .pr-section h2 {
-            max-width: 850px;
-
-            font-size: clamp(40px, 5vw, 68px);
-            line-height: 1;
-            letter-spacing: -.045em;
-        }
-
-        .pr-section h2 span {
-            color: #7c4dff;
-        }
-
-        .pr-copy {
-            color: #686868;
-            font-size: 16px;
-            line-height: 1.75;
-        }
-
-        .pr-copy p + p {
-            margin-top: 20px;
-        }
-
-
-        /* PROBLEM */
-
-        .pr-problem {
-            background: #f7f6f2;
-        }
-
-        .pr-problem-statement {
-            font-size: clamp(27px, 3.5vw, 43px);
-            line-height: 1.15;
-            letter-spacing: -.035em;
-        }
-
-        .pr-problem-statement strong {
-            color: #7c4dff;
-        }
-
-
-        /* USERS */
-
-        .pr-user-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 1px;
-            background: #ddd;
-            margin-top: 60px;
-        }
-
-        .pr-user-card {
-            background: #f7f6f2;
-            padding: 35px;
-            min-height: 260px;
-        }
-
-        .pr-user-card span {
-            color: #7c4dff;
-            font-size: 10px;
-            font-weight: 700;
-        }
-
-        .pr-user-card h3 {
-            margin-top: 60px;
-            font-size: 22px;
-        }
-
-        .pr-user-card p {
-            margin-top: 10px;
-            color: #686868;
-            font-size: 13px;
-        }
-
-
-        /* HYPOTHESIS */
-
-        .pr-hypothesis {
-            background: #eee8ff;
-        }
-
-        .pr-hypothesis-box {
-            max-width: 950px;
-            padding: 55px;
-
-            border-left: 3px solid #7c4dff;
-            background: rgba(255,255,255,.45);
-        }
-
-        .pr-hypothesis-box p {
-            font-size: clamp(25px, 3vw, 40px);
-            line-height: 1.2;
-            letter-spacing: -.03em;
-        }
-
-
-        /* FLOW */
-
-        .pr-flow {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 1px;
-
-            background: #333;
-            margin-top: 65px;
-        }
-
-        .pr-flow-card {
-            min-height: 300px;
-            padding: 30px;
-            background: #181818;
-        }
-
-        .pr-flow-card span {
-            color: #a88cff;
-            font-size: 10px;
-        }
-
-        .pr-flow-card h3 {
-            margin-top: 75px;
-            font-size: 24px;
-        }
-
-        .pr-flow-card p {
-            margin-top: 12px;
-            color: #999;
-            font-size: 13px;
-            line-height: 1.6;
-        }
-
-
-        /* ARCHITECTURE */
-
-        .pr-architecture {
-            background: #f7f6f2;
-        }
-
-        .pr-architecture-diagram {
-            margin-top: 60px;
-            padding: 45px;
-
-            background: #181818;
-            color: white;
-        }
-
-        .pr-architecture-row {
-            display: grid;
-            grid-template-columns: repeat(5, 1fr);
-            gap: 12px;
-            align-items: center;
-        }
-
-        .pr-architecture-node {
-            min-height: 110px;
-
-            border: 1px solid #383838;
-            background: #202020;
-
-            padding: 20px;
-
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-        }
-
-        .pr-architecture-node span {
-            color: #a88cff;
-            font-size: 9px;
-            letter-spacing: .12em;
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>PayResolve — Olive Chika Nwaigbo</title>
+
+  <meta
+    name="description"
+    content="PayResolve — an experimental payment operations intelligence platform for investigating transaction failures, anomalies and reconciliation exceptions."
+  >
+
+  <link rel="stylesheet" href="../css/style.css">
+
+  <style>
+    :root {
+      --pr-bg: #f7f6f2;
+      --pr-surface: #ffffff;
+      --pr-ink: #171717;
+      --pr-muted: #686868;
+      --pr-line: #deded8;
+      --pr-purple: #7c4dff;
+      --pr-purple-dark: #5930d6;
+      --pr-soft: #eee9ff;
+      --pr-dark: #181818;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      background: var(--pr-bg);
+      color: var(--pr-ink);
+      font-family: Inter, Arial, Helvetica, sans-serif;
+    }
+
+    a {
+      color: inherit;
+    }
+
+    /* =========================
+       NAVIGATION
+    ========================= */
+
+    .pr-nav {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      background: rgba(247, 246, 242, 0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--pr-line);
+    }
+
+    .pr-nav-inner {
+      max-width: 1180px;
+      margin: auto;
+      padding: 18px 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .pr-logo {
+      font-weight: 900;
+      letter-spacing: -0.05em;
+      text-decoration: none;
+      font-size: 1.05rem;
+    }
+
+    .pr-nav-right {
+      display: flex;
+      align-items: center;
+      gap: 22px;
+      font-size: 0.86rem;
+    }
+
+    .pr-back {
+      text-decoration: none;
+      color: var(--pr-muted);
+    }
+
+    .pr-back:hover {
+      color: var(--pr-purple);
+    }
+
+    /* =========================
+       GENERAL
+    ========================= */
+
+    .pr-wrap {
+      max-width: 1180px;
+      margin: auto;
+      padding: 0 24px;
+    }
+
+    /* =========================
+       HERO
+    ========================= */
+
+    .pr-hero {
+      padding: 90px 0 70px;
+    }
+
+    .pr-kicker {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      border: 1px solid var(--pr-line);
+      background: var(--pr-surface);
+      border-radius: 999px;
+      padding: 8px 13px;
+      color: var(--pr-muted);
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+
+    .pr-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--pr-purple);
+      box-shadow: 0 0 0 5px var(--pr-soft);
+    }
+
+    .pr-hero-grid {
+      display: grid;
+      grid-template-columns: 1.25fr 0.75fr;
+      gap: 60px;
+      align-items: end;
+      margin-top: 28px;
+    }
+
+    .pr-hero h1 {
+      font-size: clamp(3.4rem, 8vw, 7.4rem);
+      line-height: 0.84;
+      letter-spacing: -0.075em;
+      margin: 0 0 28px;
+      max-width: 800px;
+    }
+
+    .pr-hero h1 span {
+      color: var(--pr-purple);
+    }
+
+    .pr-lead {
+      font-size: clamp(1.05rem, 1.8vw, 1.35rem);
+      line-height: 1.55;
+      color: #4d4d4d;
+      max-width: 680px;
+      margin: 0;
+    }
+
+    /* =========================
+       BUTTONS
+    ========================= */
+
+    .pr-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 30px;
+    }
+
+    .pr-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 46px;
+      padding: 0 19px;
+      border-radius: 999px;
+      text-decoration: none;
+      font-size: 0.88rem;
+      font-weight: 800;
+      border: 1px solid var(--pr-ink);
+      transition:
+        transform 0.2s ease,
+        background 0.2s ease;
+    }
+
+    .pr-btn:hover {
+      transform: translateY(-2px);
+    }
+
+    .pr-btn.primary {
+      background: var(--pr-ink);
+      color: white;
+    }
+
+    .pr-btn.secondary {
+      background: white;
+    }
+
+    /* =========================
+       META
+    ========================= */
+
+    .pr-meta {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      border-top: 1px solid var(--pr-line);
+      margin-top: 28px;
+    }
+
+    .pr-meta div {
+      padding: 16px 0;
+      border-bottom: 1px solid var(--pr-line);
+    }
+
+    .pr-meta div:nth-child(odd) {
+      margin-right: 18px;
+    }
+
+    .pr-meta div:nth-child(even) {
+      padding-left: 18px;
+      border-left: 1px solid var(--pr-line);
+    }
+
+    .pr-meta small {
+      display: block;
+      color: var(--pr-muted);
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 6px;
+    }
+
+    .pr-meta strong {
+      font-size: 0.88rem;
+    }
+
+    /* =========================
+       HERO SYSTEM VISUAL
+    ========================= */
+
+    .pr-system-card {
+      background: var(--pr-dark);
+      color: white;
+      border-radius: 28px;
+      padding: 26px;
+      min-height: 360px;
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .pr-system-card::before {
+      content: "";
+      position: absolute;
+      inset: -35%;
+      background: radial-gradient(
+        circle,
+        rgba(124, 77, 255, 0.32),
+        transparent 55%
+      );
+    }
+
+    .pr-orbit {
+      position: relative;
+      width: 280px;
+      height: 280px;
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      border-radius: 50%;
+    }
+
+    .pr-orbit::before,
+    .pr-orbit::after {
+      content: "";
+      position: absolute;
+      inset: 28px;
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      border-radius: 50%;
+    }
+
+    .pr-orbit::after {
+      inset: 72px;
+      border-color: rgba(124, 77, 255, 0.45);
+    }
+
+    .pr-core {
+      position: absolute;
+      width: 110px;
+      height: 110px;
+      border-radius: 50%;
+      background: var(--pr-purple);
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      font-size: 0.72rem;
+      line-height: 1.2;
+      font-weight: 900;
+      letter-spacing: 0.06em;
+      z-index: 2;
+    }
+
+    .pr-node {
+      position: absolute;
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: 999px;
+      padding: 8px 11px;
+      font-size: 0.62rem;
+      letter-spacing: 0.05em;
+      font-weight: 800;
+      z-index: 3;
+      white-space: nowrap;
+    }
+
+    .pr-node.one {
+      top: 10px;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    .pr-node.two {
+      right: -5px;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+
+    .pr-node.three {
+      bottom: 10px;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    .pr-node.four {
+      left: -16px;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+
+    /* =========================
+       SECTIONS
+    ========================= */
+
+    .pr-section {
+      padding: 80px 0;
+      border-top: 1px solid var(--pr-line);
+    }
+
+    .pr-section-head {
+      display: grid;
+      grid-template-columns: 0.45fr 1fr;
+      gap: 40px;
+      margin-bottom: 42px;
+    }
+
+    .pr-eyebrow {
+      font-size: 0.72rem;
+      font-weight: 900;
+      letter-spacing: 0.12em;
+      color: var(--pr-purple);
+      text-transform: uppercase;
+    }
+
+    .pr-section h2 {
+      margin: 0;
+      font-size: clamp(2.2rem, 5vw, 4.5rem);
+      line-height: 0.95;
+      letter-spacing: -0.06em;
+    }
+
+    .pr-section-intro {
+      color: #555;
+      font-size: 1.05rem;
+      line-height: 1.65;
+      max-width: 690px;
+      margin: 0;
+    }
+
+    /* =========================
+       CARDS
+    ========================= */
+
+    .pr-problem-grid,
+    .pr-build-grid,
+    .pr-principle-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+    }
+
+    .pr-card {
+      background: var(--pr-surface);
+      border: 1px solid var(--pr-line);
+      border-radius: 22px;
+      padding: 25px;
+    }
+
+    .pr-card-number {
+      color: var(--pr-purple);
+      font-size: 0.72rem;
+      font-weight: 900;
+      letter-spacing: 0.08em;
+    }
+
+    .pr-card h3 {
+      font-size: 1.1rem;
+      margin: 34px 0 10px;
+      letter-spacing: -0.02em;
+    }
+
+    .pr-card p {
+      color: var(--pr-muted);
+      line-height: 1.6;
+      font-size: 0.92rem;
+      margin: 0;
+    }
+
+    /* =========================
+       PRODUCT FLOW
+    ========================= */
+
+    .pr-flow {
+      background: var(--pr-dark);
+      color: white;
+      border-radius: 28px;
+      padding: 28px;
+    }
+
+    .pr-flow-row {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 8px;
+      align-items: center;
+    }
+
+    .pr-flow-item {
+      min-height: 120px;
+      border: 1px solid rgba(255, 255, 255, 0.13);
+      background: rgba(255, 255, 255, 0.055);
+      border-radius: 18px;
+      padding: 17px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .pr-flow-item strong {
+      font-size: 0.86rem;
+    }
+
+    .pr-flow-item span {
+      font-size: 0.66rem;
+      color: #aaa;
+      line-height: 1.4;
+    }
+
+    /* =========================
+       EVIDENCE
+    ========================= */
+
+    .pr-evidence {
+      margin-top: 14px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+    }
+
+    .pr-evidence-box {
+      background: var(--pr-soft);
+      border-radius: 22px;
+      padding: 25px;
+    }
+
+    .pr-evidence-box strong {
+      display: block;
+      margin-bottom: 8px;
+      font-size: 0.9rem;
+    }
+
+    .pr-evidence-box p {
+      margin: 0;
+      color: #57505f;
+      line-height: 1.6;
+      font-size: 0.9rem;
+    }
+
+    /* =========================
+       METRICS
+    ========================= */
+
+    .pr-stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+    }
+
+    .pr-stat {
+      background: white;
+      border: 1px solid var(--pr-line);
+      border-radius: 24px;
+      padding: 30px;
+    }
+
+    .pr-stat strong {
+      display: block;
+      font-size: clamp(2.7rem, 6vw, 5rem);
+      line-height: 0.9;
+      letter-spacing: -0.07em;
+    }
+
+    .pr-stat span {
+      display: block;
+      margin-top: 15px;
+      color: var(--pr-muted);
+      font-size: 0.83rem;
+      text-transform: uppercase;
+      letter-spacing: 0.07em;
+      font-weight: 800;
+    }
+
+    .pr-stat small {
+      display: block;
+      margin-top: 10px;
+      color: #888;
+      line-height: 1.4;
+    }
+
+    /* =========================
+       AI SECTION
+    ========================= */
+
+    .pr-ai {
+      display: grid;
+      grid-template-columns: 0.8fr 1.2fr;
+      gap: 18px;
+      align-items: stretch;
+    }
+
+    .pr-ai-dark {
+      background: var(--pr-dark);
+      color: white;
+      border-radius: 26px;
+      padding: 30px;
+      min-height: 310px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .pr-ai-dark::after {
+      content: "AI";
+      position: absolute;
+      right: -18px;
+      bottom: -55px;
+      font-size: 13rem;
+      line-height: 1;
+      color: rgba(124, 77, 255, 0.13);
+      font-weight: 900;
+      letter-spacing: -0.1em;
+    }
+
+    .pr-ai-dark h3 {
+      font-size: 1.5rem;
+      margin: 0 0 12px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .pr-ai-dark p {
+      color: #bcbcbc;
+      line-height: 1.6;
+      position: relative;
+      z-index: 2;
+      max-width: 390px;
+    }
+
+    .pr-ai-list {
+      background: white;
+      border: 1px solid var(--pr-line);
+      border-radius: 26px;
+      padding: 12px 25px;
+    }
+
+    .pr-ai-row {
+      display: grid;
+      grid-template-columns: 34px 1fr;
+      gap: 14px;
+      padding: 20px 0;
+      border-bottom: 1px solid var(--pr-line);
+    }
+
+    .pr-ai-row:last-child {
+      border-bottom: 0;
+    }
+
+    .pr-ai-row b {
+      color: var(--pr-purple);
+      font-size: 0.75rem;
+    }
+
+    .pr-ai-row strong {
+      display: block;
+      font-size: 0.9rem;
+      margin-bottom: 5px;
+    }
+
+    .pr-ai-row span {
+      color: var(--pr-muted);
+      font-size: 0.86rem;
+      line-height: 1.5;
+    }
+
+    /* =========================
+       STACK
+    ========================= */
+
+    .pr-stack {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 9px;
+    }
+
+    .pr-tag {
+      padding: 10px 13px;
+      background: white;
+      border: 1px solid var(--pr-line);
+      border-radius: 999px;
+      font-size: 0.78rem;
+      font-weight: 750;
+    }
+
+    /* =========================
+       LIMITATIONS
+    ========================= */
+
+    .pr-limitations {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+    }
+
+    .pr-limit {
+      padding: 24px;
+      background: white;
+      border: 1px solid var(--pr-line);
+      border-radius: 22px;
+    }
+
+    .pr-limit strong {
+      display: block;
+      margin-bottom: 8px;
+    }
+
+    .pr-limit p {
+      margin: 0;
+      color: var(--pr-muted);
+      line-height: 1.55;
+      font-size: 0.9rem;
+    }
+
+    /* =========================
+       CTA
+    ========================= */
+
+    .pr-cta {
+      padding: 85px 0;
+      background: var(--pr-dark);
+      color: white;
+      text-align: center;
+      margin-top: 20px;
+    }
+
+    .pr-cta h2 {
+      margin: 0 auto 18px;
+      max-width: 800px;
+      font-size: clamp(2.6rem, 6vw, 5.7rem);
+      line-height: 0.92;
+      letter-spacing: -0.07em;
+    }
+
+    .pr-cta p {
+      color: #aaa;
+      max-width: 570px;
+      margin: 0 auto;
+      line-height: 1.6;
+    }
+
+    .pr-cta .pr-actions {
+      justify-content: center;
+    }
+
+    .pr-cta .pr-btn.primary {
+      background: var(--pr-purple);
+      border-color: var(--pr-purple);
+    }
+
+    .pr-cta .pr-btn.secondary {
+      background: transparent;
+      color: white;
+      border-color: #555;
+    }
+
+    /* =========================
+       FOOTER
+    ========================= */
+
+    .pr-footer {
+      padding: 25px 24px;
+      background: var(--pr-dark);
+      color: #888;
+      border-top: 1px solid #303030;
+      text-align: center;
+      font-size: 0.75rem;
+    }
+
+    /* =========================
+       RESPONSIVE
+    ========================= */
+
+    @media (max-width: 850px) {
+      .pr-hero-grid,
+      .pr-section-head,
+      .pr-ai {
+        grid-template-columns: 1fr;
+      }
+
+      .pr-hero {
+        padding-top: 60px;
+      }
+
+      .pr-system-card {
+        min-height: 320px;
+      }
+
+      .pr-problem-grid,
+      .pr-build-grid,
+      .pr-principle-grid,
+      .pr-limitations {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .pr-flow-row {
+        grid-template-columns: 1fr;
+      }
+
+      .pr-flow-item {
+        min-height: 95px;
+      }
+
+      .pr-stats {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .pr-stat:last-child {
+        grid-column: 1 / -1;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .pr-nav-right {
+        gap: 10px;
+      }
+
+      .pr-nav-right .pr-back {
+        display: none;
+      }
+
+      .pr-hero h1 {
+        font-size: 3.8rem;
+      }
+
+      .pr-problem-grid,
+      .pr-build-grid,
+      .pr-principle-grid,
+      .pr-limitations,
+      .pr-stats,
+      .pr-evidence {
+        grid-template-columns: 1fr;
+      }
+
+      .pr-stat:last-child {
+        grid-column: auto;
+      }
+
+      .pr-section {
+        padding: 60px 0;
+      }
+
+      .pr-section-head {
+        gap: 18px;
+      }
+
+      .pr-orbit {
+        width: 235px;
+        height: 235px;
+      }
+
+      .pr-meta {
+        grid-template-columns: 1fr;
+      }
+
+      .pr-meta div:nth-child(even) {
+        padding-left: 0;
+        border-left: 0;
+      }
+    }
+  </style>
+
+
+  <!-- =========================================================
+       MOTION LAYER
+       Everything below is additive: your original CSS above is
+       untouched. This block adds the moving hero diagram, the
+       pipeline highlight, scroll reveals, hover states and a
+       couple of small design touches (underline draw on section
+       labels, a gradient sheen on "Resolve", a glow behind the
+       CTA). Reduced-motion visitors get the still design.
+  ========================================================== -->
+
+  <style id="pr-motion">
+
+    .pr-progress {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 3px;
+      z-index: 50;
+      pointer-events: none;
+
+      background: linear-gradient(90deg, var(--pr-purple), #b79cff);
+      transform: scaleX(0);
+      transform-origin: left;
+    }
+
+    @keyframes pr-fade {
+      from { opacity: 0; transform: translateY(24px); }
+    }
+
+    @keyframes pr-spin {
+      to { transform: rotate(360deg); }
+    }
+
+    @keyframes pr-ripple {
+      0%   { transform: scale(1);   opacity: 0.5; }
+      100% { transform: scale(1.8); opacity: 0; }
+    }
+
+    @keyframes pr-breathe {
+      from { box-shadow: 0 0 30px rgba(124, 77, 255, 0.25); }
+      to   { box-shadow: 0 0 60px rgba(124, 77, 255, 0.55); }
+    }
+
+    @keyframes pr-node-pulse {
+      0%, 4% {
+        background: rgba(255, 255, 255, 0.08);
+        border-color: rgba(255, 255, 255, 0.2);
+        box-shadow: none;
+      }
+      10%, 26% {
+        background: rgba(124, 77, 255, 0.38);
+        border-color: #b79cff;
+        box-shadow: 0 0 20px rgba(124, 77, 255, 0.55);
+      }
+      32%, 100% {
+        background: rgba(255, 255, 255, 0.08);
+        border-color: rgba(255, 255, 255, 0.2);
+        box-shadow: none;
+      }
+    }
+
+    @keyframes pr-step {
+      0%, 4% {
+        border-color: rgba(255, 255, 255, 0.13);
+        background: rgba(255, 255, 255, 0.055);
+        box-shadow: none;
+      }
+      10%, 26% {
+        border-color: rgba(124, 77, 255, 0.6);
+        background: rgba(124, 77, 255, 0.16);
+        box-shadow: 0 14px 30px -14px rgba(124, 77, 255, 0.6);
+      }
+      32%, 100% {
+        border-color: rgba(255, 255, 255, 0.13);
+        background: rgba(255, 255, 255, 0.055);
+        box-shadow: none;
+      }
+    }
+
+    @keyframes pr-bar {
+      0%   { transform: scaleX(0); opacity: 1; }
+      30%  { transform: scaleX(1); opacity: 1; }
+      38%  { transform: scaleX(1); opacity: 0; }
+      100% { transform: scaleX(0); opacity: 0; }
+    }
+
+    @keyframes pr-dotpulse {
+      0% {
+        box-shadow: 0 0 0 5px var(--pr-soft), 0 0 0 0 rgba(124, 77, 255, 0.5);
+      }
+      70%, 100% {
+        box-shadow: 0 0 0 5px var(--pr-soft), 0 0 0 9px rgba(124, 77, 255, 0);
+      }
+    }
+
+    @keyframes pr-watermark {
+      from { opacity: 0.10; }
+      to   { opacity: 0.19; }
+    }
+
+    @keyframes pr-sheen {
+      from { background-position: 100% 0; }
+      to   { background-position: 0 0; }
+    }
+
+    @keyframes pr-ctaglow {
+      from { transform: scale(0.85); opacity: 0.7; }
+      to   { transform: scale(1.15); opacity: 1; }
+    }
+
+    /* ---------- kicker dot ---------- */
+
+    .pr-dot {
+      animation: pr-dotpulse 2.4s ease-out infinite;
+    }
+
+    /* ---------- hero title sheen ---------- */
+
+    @supports (-webkit-background-clip: text) or (background-clip: text) {
+      .pr-hero h1 span {
+        background: linear-gradient(100deg, var(--pr-purple) 25%, #b79cff 45%, var(--pr-purple) 65%);
+        background-size: 250% 100%;
+        -webkit-background-clip: text;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+        color: transparent;
+        animation: pr-sheen 6s linear infinite;
+      }
+    }
+
+    /* ---------- hero diagram ---------- */
+
+    .pr-orbit {
+      animation: pr-fade 0.9s ease backwards;
+    }
+
+    .pr-core {
+      animation: pr-breathe 4s ease-in-out infinite alternate;
+    }
+
+    .pr-core::before,
+    .pr-core::after {
+      content: "";
+      position: absolute;
+      inset: -1px;
+      border-radius: 50%;
+      border: 1px solid rgba(124, 77, 255, 0.5);
+      pointer-events: none;
+      animation: pr-ripple 4s ease-out infinite backwards;
+    }
+
+    .pr-core::after {
+      animation-delay: 2s;
+    }
+
+    .pr-signal {
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      pointer-events: none;
+      animation: pr-spin 12s linear infinite;
+    }
+
+    .pr-signal::before {
+      content: "";
+      position: absolute;
+      top: -4px;
+      left: 50%;
+      width: 8px;
+      height: 8px;
+      margin-left: -4px;
+      border-radius: 50%;
+      background: #ffffff;
+      box-shadow:
+        0 0 14px 4px rgba(124, 77, 255, 0.9),
+        0 0 32px 10px rgba(124, 77, 255, 0.35);
+    }
+
+    .pr-node {
+      /* MOTION: sized so the longest label, "RECONCILIATION",
+         sits on a single line instead of wrapping into a tall
+         two-line block that can crowd or clip against the core
+         as it travels around the ring. white-space stays as a
+         safety net only. */
+      max-width: 106px;
+      padding: 7px 10px;
+      font-size: 0.56rem;
+      letter-spacing: 0.03em;
+      line-height: 1.2;
+      border-radius: 14px;
+      white-space: normal;
+      text-align: center;
+    }
+
+    /* Fallback position (used only where offset-path isn't
+       supported — see the @supports block below, which is where
+       the actual moving layout lives) */
+    .pr-node.one   { animation-delay: 0.2s; }
+    .pr-node.two   { animation-delay: 3.2s; }
+    .pr-node.three { animation-delay: 6.2s; }
+    .pr-node.four  { animation-delay: 9.2s; }
+
+    @keyframes pr-orbit-move {
+      to { offset-distance: 100%; }
+    }
+
+    /* Browsers that support CSS motion paths get the labels
+       actually travelling around the ring, centred on the path
+       at every point — which is what keeps "RECONCILIATION" from
+       ever cutting across the core the way a fixed, right-anchored
+       pill did. Browsers that don't support it keep the original
+       static top/right/bottom/left positions above. */
+    @supports (offset-path: circle(50% at 50% 50%)) {
+
+      .pr-node.one,
+      .pr-node.two,
+      .pr-node.three,
+      .pr-node.four {
+        top: 50%;
+        left: 50%;
+        right: auto;
+        bottom: auto;
+
+        offset-path: circle(122px at 50% 50%);
+        offset-rotate: 0deg;
+        transform: translate(-50%, -50%);
+
+        animation:
+          pr-orbit-move 46s linear infinite,
+          pr-node-pulse 12s ease-in-out infinite;
+      }
+
+      .pr-node.one   { animation-delay: 0s,     0.2s; }
+      .pr-node.two   { animation-delay: -11.5s, 3.2s; }
+      .pr-node.three { animation-delay: -23s,   6.2s; }
+      .pr-node.four  { animation-delay: -34.5s, 9.2s; }
+
+    }
+
+    /* ---------- pipeline ---------- */
+
+    .pr-flow-item {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .pr-flow-item::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      background: var(--pr-purple);
+      transform: scaleX(0);
+      transform-origin: left;
+    }
+
+    .pr-flow.is-live .pr-flow-item {
+      animation: pr-step 10s ease-in-out infinite;
+    }
+
+    .pr-flow.is-live .pr-flow-item::before {
+      animation: pr-bar 10s ease-in-out infinite;
+    }
+
+    .pr-flow.is-live .pr-flow-item:nth-child(1),
+    .pr-flow.is-live .pr-flow-item:nth-child(1)::before { animation-delay: 0s; }
+
+    .pr-flow.is-live .pr-flow-item:nth-child(2),
+    .pr-flow.is-live .pr-flow-item:nth-child(2)::before { animation-delay: 2s; }
+
+    .pr-flow.is-live .pr-flow-item:nth-child(3),
+    .pr-flow.is-live .pr-flow-item:nth-child(3)::before { animation-delay: 4s; }
+
+    .pr-flow.is-live .pr-flow-item:nth-child(4),
+    .pr-flow.is-live .pr-flow-item:nth-child(4)::before { animation-delay: 6s; }
+
+    .pr-flow.is-live .pr-flow-item:nth-child(5),
+    .pr-flow.is-live .pr-flow-item:nth-child(5)::before { animation-delay: 8s; }
+
+    /* ---------- scroll reveals ---------- */
+
+    .pr-js [data-reveal]:not(.is-visible),
+    .pr-js [data-stagger]:not(.is-visible) > * {
+      opacity: 0;
+    }
+
+    .pr-js [data-reveal].is-visible {
+      animation: pr-fade 0.8s var(--pr-ease, ease) backwards;
+    }
+
+    .pr-js [data-stagger].is-visible > * {
+      animation: pr-fade 0.8s ease calc(var(--i, 0) * 90ms) backwards;
+    }
+
+    /* underline draw beneath each section eyebrow */
+
+    .pr-section-head .pr-eyebrow {
+      position: relative;
+      display: inline-block;
+      padding-bottom: 11px;
+    }
+
+    .pr-section-head .pr-eyebrow::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 100%;
+      height: 1px;
+      background: var(--pr-line);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 1.1s cubic-bezier(0.2, 0.7, 0.2, 1) 0.15s;
+    }
+
+    .pr-section-head.is-visible .pr-eyebrow::after {
+      transform: scaleX(1);
+    }
+
+    /* ---------- hover interactions ---------- */
+
+    .pr-card,
+    .pr-stat,
+    .pr-limit {
+      transition: transform 0.35s var(--pr-ease, ease), box-shadow 0.35s ease;
+    }
+
+    .pr-card:hover,
+    .pr-limit:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 20px 40px -26px rgba(23, 23, 23, 0.22);
+    }
+
+    .pr-stat:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 22px 44px -26px rgba(124, 77, 255, 0.35);
+      border-color: var(--pr-purple);
+    }
+
+    .pr-tag {
+      transition: transform 0.25s ease, border-color 0.25s ease, color 0.25s ease;
+    }
+
+    .pr-tag:hover {
+      transform: translateY(-2px);
+      border-color: var(--pr-purple);
+      color: var(--pr-purple-dark);
+    }
+
+    .pr-ai-row {
+      transition: background 0.3s ease;
+    }
+
+    .pr-ai-row:hover {
+      background: var(--pr-soft);
+    }
+
+    .pr-ai-dark::after {
+      animation: pr-watermark 5s ease-in-out infinite alternate;
+    }
+
+    .pr-evidence-box {
+      transition: transform 0.35s ease;
+    }
+
+    .pr-evidence-box:hover {
+      transform: translateY(-3px);
+    }
+
+    /* ---------- CTA glow ---------- */
+
+    .pr-cta {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .pr-cta::before {
+      content: "";
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 640px;
+      height: 640px;
+      margin: -320px 0 0 -320px;
+      border-radius: 50%;
+      pointer-events: none;
+      background: radial-gradient(circle, rgba(124, 77, 255, 0.32), transparent 60%);
+      animation: pr-ctaglow 7s ease-in-out infinite alternate;
+    }
+
+    .pr-cta .pr-wrap {
+      position: relative;
+      z-index: 1;
+    }
+
+    /* ---------- pause off-screen loops ---------- */
+
+    .is-offscreen,
+    .is-offscreen::before,
+    .is-offscreen::after,
+    .is-offscreen *,
+    .is-offscreen *::before,
+    .is-offscreen *::after {
+      animation-play-state: paused !important;
+    }
+
+    /* ---------- reduced motion ---------- */
+
+    @media (max-width: 600px) {
+
+      .pr-node {
+        max-width: 80px;
+        font-size: 0.5rem;
+        padding: 6px 8px;
+        letter-spacing: 0.02em;
+      }
+
+      @supports (offset-path: circle(50% at 50% 50%)) {
+        .pr-node.one,
+        .pr-node.two,
+        .pr-node.three,
+        .pr-node.four {
+          offset-path: circle(96px at 50% 50%);
+        }
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+
+      *, *::before, *::after {
+        animation: none !important;
+        transition: none !important;
+        scroll-behavior: auto !important;
+      }
+
+      .pr-js [data-reveal]:not(.is-visible),
+      .pr-js [data-stagger]:not(.is-visible) > * {
+        opacity: 1 !important;
+      }
+
+      .pr-section-head .pr-eyebrow::after {
+        transform: scaleX(1);
+      }
+
+      .pr-progress {
+        display: none;
+      }
+
+    }
+
+  </style>
 
-        .pr-architecture-node strong {
-            margin-top: 8px;
-            font-size: 13px;
-        }
-
-        .pr-architecture-arrow {
-            color: #a88cff;
-            text-align: center;
-        }
-
-
-        /* TECH STACK */
-
-        .pr-stack {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-            margin-top: 45px;
-        }
-
-        .pr-tech {
-            padding: 12px 16px;
-
-            border: 1px solid #ddd;
-            background: #fff;
-
-            font-size: 12px;
-            font-weight: 600;
-        }
-
-
-        /* DECISIONS */
-
-        .pr-decision-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 1px;
-            background: #333;
-            margin-top: 60px;
-        }
-
-        .pr-decision {
-            padding: 40px;
-            min-height: 270px;
-            background: #181818;
-        }
-
-        .pr-decision span {
-            color: #a88cff;
-            font-size: 10px;
-        }
-
-        .pr-decision h3 {
-            margin-top: 55px;
-            font-size: 23px;
-        }
-
-        .pr-decision p {
-            margin-top: 12px;
-            color: #999;
-            font-size: 14px;
-        }
-
-
-        /* RESULTS */
-
-        .pr-results {
-            background: #f7f6f2;
-        }
-
-        .pr-stat-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 1px;
-            background: #ddd;
-            margin-top: 60px;
-        }
-
-        .pr-stat {
-            background: #fff;
-            padding: 35px;
-            min-height: 190px;
-        }
-
-        .pr-stat strong {
-            display: block;
-            font-size: 38px;
-            letter-spacing: -.04em;
-        }
-
-        .pr-stat span {
-            display: block;
-            margin-top: 10px;
-            color: #686868;
-            font-size: 12px;
-        }
-
-
-        /* AI */
-
-        .pr-ai {
-            background: #181818;
-            color: white;
-        }
-
-        .pr-ai-box {
-            margin-top: 60px;
-            padding: 45px;
-
-            background: #202020;
-            border: 1px solid #333;
-        }
-
-        .pr-ai-box-header {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-
-            color: #a88cff;
-
-            font-size: 10px;
-            font-weight: 700;
-            letter-spacing: .13em;
-        }
-
-        .pr-ai-box-header span {
-            width: 7px;
-            height: 7px;
-            background: #a88cff;
-            border-radius: 50%;
-        }
-
-        .pr-ai-box h3 {
-            margin: 25px 0 15px;
-            font-size: 27px;
-        }
-
-        .pr-ai-box p {
-            max-width: 750px;
-            color: #aaa;
-            line-height: 1.7;
-        }
-
-        .pr-ai-rules {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 15px;
-            margin-top: 35px;
-        }
-
-        .pr-ai-rule {
-            padding: 20px;
-            border: 1px solid #333;
-        }
-
-        .pr-ai-rule strong {
-            display: block;
-            color: #ddd;
-            font-size: 13px;
-        }
-
-        .pr-ai-rule span {
-            display: block;
-            margin-top: 8px;
-            color: #777;
-            font-size: 11px;
-        }
-
-
-        /* WHAT I BUILT */
-
-        .pr-built-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 20px;
-            margin-top: 60px;
-        }
-
-        .pr-built-item {
-            padding: 30px;
-            border: 1px solid #ddd;
-            background: white;
-        }
-
-        .pr-built-item span {
-            color: #7c4dff;
-            font-size: 10px;
-        }
-
-        .pr-built-item h3 {
-            margin-top: 20px;
-            font-size: 20px;
-        }
-
-        .pr-built-item p {
-            margin-top: 10px;
-            color: #686868;
-            font-size: 13px;
-        }
-
-
-        /* LIMITATIONS */
-
-        .pr-limitations {
-            background: #eee8ff;
-        }
-
-        .pr-limitations-list {
-            margin-top: 50px;
-            border-top: 1px solid #d3c8ed;
-        }
-
-        .pr-limitation {
-            display: grid;
-            grid-template-columns: 80px 1fr;
-            gap: 25px;
-
-            padding: 25px 0;
-
-            border-bottom: 1px solid #d3c8ed;
-        }
-
-        .pr-limitation span {
-            color: #7c4dff;
-            font-size: 10px;
-            font-weight: 700;
-        }
-
-        .pr-limitation p {
-            color: #59555e;
-        }
-
-
-        /* CTA */
-
-        .pr-final-cta {
-            background: #181818;
-            color: white;
-            text-align: center;
-            padding: 150px 24px;
-        }
-
-        .pr-final-cta h2 {
-            max-width: 850px;
-            margin: 20px auto;
-
-            font-size: clamp(48px, 7vw, 85px);
-            line-height: .95;
-            letter-spacing: -.055em;
-        }
-
-        .pr-final-cta h2 span {
-            color: #a88cff;
-        }
-
-        .pr-final-cta p {
-            max-width: 600px;
-            margin: 0 auto 30px;
-
-            color: #999;
-        }
-
-        .pr-final-actions {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 12px;
-        }
-
-
-        /* RESPONSIVE */
-
-        @media (max-width: 900px) {
-
-            .pr-grid {
-                grid-template-columns: 1fr;
-                gap: 45px;
-            }
-
-            .pr-meta {
-                grid-template-columns: repeat(2, 1fr);
-                gap: 25px;
-            }
-
-            .pr-user-grid,
-            .pr-stat-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-
-            .pr-flow {
-                grid-template-columns: repeat(2, 1fr);
-            }
-
-            .pr-architecture-row {
-                grid-template-columns: 1fr;
-            }
-
-            .pr-architecture-arrow {
-                transform: rotate(90deg);
-            }
-
-            .pr-ai-rules {
-                grid-template-columns: 1fr;
-            }
-
-        }
-
-
-        @media (max-width: 600px) {
-
-            .pr-section {
-                width: calc(100% - 30px);
-                padding: 80px 0;
-            }
-
-            .pr-hero {
-                padding: 125px 0 80px;
-            }
-
-            .pr-hero-inner,
-            .pr-meta {
-                width: calc(100% - 30px);
-            }
-
-            .pr-hero h1 {
-                font-size: 60px;
-            }
-
-            .pr-hero-actions {
-                flex-direction: column;
-                align-items: stretch;
-            }
-
-            .pr-button {
-                justify-content: center;
-            }
-
-            .pr-meta {
-                grid-template-columns: 1fr 1fr;
-            }
-
-            .pr-user-grid,
-            .pr-flow,
-            .pr-stat-grid,
-            .pr-built-grid,
-            .pr-decision-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .pr-hypothesis-box,
-            .pr-ai-box,
-            .pr-architecture-diagram {
-                padding: 25px;
-            }
-
-            .pr-limitation {
-                grid-template-columns: 45px 1fr;
-            }
-
-        }
-    </style>
 </head>
-
 
 <body>
 
-    <!-- =====================================================
+  <!-- MOTION: thin progress bar along the top of the page -->
+  <div class="pr-progress" aria-hidden="true"></div>
+
+  <!-- NAVIGATION -->
+  <nav class="pr-nav">
+    <div class="pr-nav-inner">
+
+      <a href="../index.html" class="pr-logo">
+        OLIVE.
+      </a>
+
+      <div class="pr-nav-right">
+        <a href="../labs/fintech.html" class="pr-back">
+          Fintech & Payments Lab
+        </a>
+
+        <a href="../index.html" class="pr-back">
+          Back to Portfolio ↗
+        </a>
+      </div>
+
+    </div>
+  </nav>
+
+
+  <main>
+
+    <!-- ==========================================
          HERO
-    ====================================================== -->
+    =========================================== -->
 
-    <section class="pr-hero">
+    <section class="pr-hero" data-pause>
 
-        <div class="pr-hero-inner">
-
-            <span class="pr-kicker">
-                FINTECH & PAYMENTS · PRODUCT CASE STUDY
-            </span>
-
-            <h1>
-                Pay<span>Resolve</span>
-            </h1>
-
-            <p class="pr-hero-description">
-                An experimental payment operations intelligence platform
-                for investigating transaction failures, anomalies and
-                reconciliation exceptions.
-            </p>
-
-            <div class="pr-hero-actions">
-
-                <a
-                    href="https://payresolve.streamlit.app/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    class="pr-button pr-button-primary"
-                >
-                    Open Live Prototype ↗
-                </a>
-
-                <a
-                    href="https://github.com/Olivenwaigbo/payresolve"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    class="pr-button pr-button-secondary"
-                >
-                    View GitHub ↗
-                </a>
-
-            </div>
-
-        </div>
-
-
-        <div class="pr-meta">
-
-            <div class="pr-meta-item">
-                <span>ROLE</span>
-                <strong>Product · Data · AI</strong>
-            </div>
-
-            <div class="pr-meta-item">
-                <span>DOMAIN</span>
-                <strong>Fintech & Payments</strong>
-            </div>
-
-            <div class="pr-meta-item">
-                <span>DATA</span>
-                <strong>Synthetic Payment Data</strong>
-            </div>
-
-            <div class="pr-meta-item">
-                <span>STATUS</span>
-                <strong>Live Prototype</strong>
-            </div>
-
-        </div>
-
-    </section>
-
-
-    <!-- =====================================================
-         OVERVIEW
-    ====================================================== -->
-
-    <section class="pr-section pr-problem">
-
-        <div class="pr-section-label">
-            <span>01</span>
-            OVERVIEW
-        </div>
-
-        <div class="pr-grid">
-
-            <h2>
-                Making payment
-                operations easier to
-                <span>investigate.</span>
-            </h2>
-
-            <div class="pr-copy">
-
-                <p>
-                    Payment transactions move through multiple states and
-                    systems. When something goes wrong, the transaction
-                    record may not clearly explain what happened.
-                </p>
-
-                <p>
-                    A transaction can fail, remain pending, reverse after
-                    success, experience a provider timeout, or have
-                    inconsistent records across payment events.
-                </p>
-
-                <p>
-                    PayResolve explores how a product can bring these
-                    signals together into one investigation workflow.
-                </p>
-
-            </div>
-
-        </div>
-
-    </section>
-
-
-    <!-- =====================================================
-         PROBLEM
-    ====================================================== -->
-
-    <section class="pr-section">
-
-        <div class="pr-section-label">
-            <span>02</span>
-            THE PROBLEM
-        </div>
-
-        <div class="pr-problem-statement">
-
-            When a payment has an unclear outcome,
-            operations teams need to answer:
-
-            <strong>
-                What happened? What evidence do we have?
-                What should be investigated next?
-            </strong>
-
-        </div>
-
-    </section>
-
-
-    <!-- =====================================================
-         USERS
-    ====================================================== -->
-
-    <section class="pr-section">
-
-        <div class="pr-section-label">
-            <span>03</span>
-            USERS
-        </div>
-
-        <h2>
-            Designed around the
-            <span>people investigating</span>
-            payment issues.
-        </h2>
-
-
-        <div class="pr-user-grid">
-
-            <article class="pr-user-card">
-
-                <span>01</span>
-
-                <h3>
-                    Payment Operations Analyst
-                </h3>
-
-                <p>
-                    Investigates failed, pending, reversed and inconsistent
-                    transactions and determines the appropriate next step.
-                </p>
-
-            </article>
-
-
-            <article class="pr-user-card">
-
-                <span>02</span>
-
-                <h3>
-                    Product Manager
-                </h3>
-
-                <p>
-                    Uses operational patterns and incident data to identify
-                    recurring payment problems and product opportunities.
-                </p>
-
-            </article>
-
-
-            <article class="pr-user-card">
-
-                <span>03</span>
-
-                <h3>
-                    Engineering / Technical Operations
-                </h3>
-
-                <p>
-                    Investigates provider errors, missing events, system
-                    inconsistencies and technical payment incidents.
-                </p>
-
-            </article>
-
-        </div>
-
-    </section>
-
-
-    <!-- =====================================================
-         HYPOTHESIS
-    ====================================================== -->
-
-    <section class="pr-section pr-hypothesis">
-
-        <div class="pr-section-label">
-            <span>04</span>
-            PRODUCT HYPOTHESIS
-        </div>
-
-        <div class="pr-hypothesis-box">
-
-            <p>
-                If payment teams can see transaction state,
-                event history, reconciliation results,
-                anomaly signals and evidence-based AI explanations
-                in one workflow, they can investigate exceptions
-                more systematically.
-            </p>
-
-        </div>
-
-    </section>
-
-
-    <!-- =====================================================
-         HOW IT WORKS
-    ====================================================== -->
-
-    <section class="pr-full-dark">
-
-        <div class="pr-section pr-section-dark">
-
-            <div class="pr-section-label">
-                <span>05</span>
-                HOW PAYRESOLVE WORKS
-            </div>
-
-            <h2>
-                From transaction data
-                to an
-                <span>investigation.</span>
-            </h2>
-
-
-            <div class="pr-flow">
-
-                <div class="pr-flow-card">
-
-                    <span>01</span>
-
-                    <h3>
-                        Detect
-                    </h3>
-
-                    <p>
-                        Transactions and payment events are analyzed for
-                        reconciliation exceptions, duplicates and unusual
-                        patterns.
-                    </p>
-
-                </div>
-
-
-                <div class="pr-flow-card">
-
-                    <span>02</span>
-
-                    <h3>
-                        Reconcile
-                    </h3>
-
-                    <p>
-                        The reconciliation engine compares transaction
-                        states with recorded payment events.
-                    </p>
-
-                </div>
-
-
-                <div class="pr-flow-card">
-
-                    <span>03</span>
-
-                    <h3>
-                        Classify
-                    </h3>
-
-                    <p>
-                        Exceptions are grouped into incident categories
-                        and assigned investigation priorities.
-                    </p>
-
-                </div>
-
-
-                <div class="pr-flow-card">
-
-                    <span>04</span>
-
-                    <h3>
-                        Explain
-                    </h3>
-
-                    <p>
-                        The AI layer summarizes the available evidence
-                        and proposes an operational next step.
-                    </p>
-
-                </div>
-
-            </div>
-
-        </div>
-
-    </section>
-
-
-    <!-- =====================================================
-         ARCHITECTURE
-    ====================================================== -->
-
-    <section class="pr-section pr-architecture">
-
-        <div class="pr-section-label">
-            <span>06</span>
-            SYSTEM ARCHITECTURE
-        </div>
-
-        <h2>
-            A layered approach to
-            <span>payment intelligence.</span>
-        </h2>
-
-
-        <div class="pr-architecture-diagram">
-
-            <div class="pr-architecture-row">
-
-                <div class="pr-architecture-node">
-                    <span>01</span>
-                    <strong>Transaction Data</strong>
-                </div>
-
-                <div class="pr-architecture-arrow">
-                    →
-                </div>
-
-                <div class="pr-architecture-node">
-                    <span>02</span>
-                    <strong>Reconciliation</strong>
-                </div>
-
-                <div class="pr-architecture-arrow">
-                    →
-                </div>
-
-                <div class="pr-architecture-node">
-                    <span>03</span>
-                    <strong>Incident Classification</strong>
-                </div>
-
-            </div>
-
-
-            <div class="pr-architecture-row" style="margin-top:15px;">
-
-                <div class="pr-architecture-node">
-                    <span>04</span>
-                    <strong>Anomaly Detection</strong>
-                </div>
-
-                <div class="pr-architecture-arrow">
-                    →
-                </div>
-
-                <div class="pr-architecture-node">
-                    <span>05</span>
-                    <strong>Evidence Layer</strong>
-                </div>
-
-                <div class="pr-architecture-arrow">
-                    →
-                </div>
-
-                <div class="pr-architecture-node">
-                    <span>06</span>
-                    <strong>AI Investigation</strong>
-                </div>
-
-            </div>
-
-        </div>
-
-
-        <div class="pr-stack">
-
-            <span class="pr-tech">Python</span>
-            <span class="pr-tech">Pandas</span>
-            <span class="pr-tech">NumPy</span>
-            <span class="pr-tech">Scikit-learn</span>
-            <span class="pr-tech">Streamlit</span>
-            <span class="pr-tech">FastAPI</span>
-            <span class="pr-tech">Groq</span>
-            <span class="pr-tech">Llama 3.3</span>
-            <span class="pr-tech">CSV Data Pipeline</span>
-
-        </div>
-
-    </section>
-
-
-    <!-- =====================================================
-         PRODUCT DECISIONS
-    ====================================================== -->
-
-    <section class="pr-full-dark">
-
-        <div class="pr-section pr-section-dark">
-
-            <div class="pr-section-label">
-                <span>07</span>
-                PRODUCT DECISIONS
-            </div>
-
-            <h2>
-                Designing for
-                <span>trust.</span>
-            </h2>
-
-
-            <div class="pr-decision-grid">
-
-                <article class="pr-decision">
-
-                    <span>01</span>
-
-                    <h3>
-                        Evidence First
-                    </h3>
-
-                    <p>
-                        The system establishes transaction facts before
-                        asking AI to explain them.
-                    </p>
-
-                </article>
-
-
-                <article class="pr-decision">
-
-                    <span>02</span>
-
-                    <h3>
-                        Human in the Loop
-                    </h3>
-
-                    <p>
-                        AI provides investigation support rather than
-                        making autonomous financial decisions.
-                    </p>
-
-                </article>
-
-
-                <article class="pr-decision">
-
-                    <span>03</span>
-
-                    <h3>
-                        Traceability
-                    </h3>
-
-                    <p>
-                        Investigation output remains connected to the
-                        underlying transaction and event evidence.
-                    </p>
-
-                </article>
-
-
-                <article class="pr-decision">
-
-                    <span>04</span>
-
-                    <h3>
-                        Privacy by Design
-                    </h3>
-
-                    <p>
-                        The prototype uses synthetic transactions and does
-                        not process real customer payment information.
-                    </p>
-
-                </article>
-
-            </div>
-
-        </div>
-
-    </section>
-
-
-    <!-- =====================================================
-         DATA + ANALYTICS
-    ====================================================== -->
-
-    <section class="pr-section pr-results">
-
-        <div class="pr-section-label">
-            <span>08</span>
-            PROTOTYPE DATA
-        </div>
-
-        <h2>
-            Building against
-            <span>realistic failure scenarios.</span>
-        </h2>
-
-
-        <div class="pr-copy" style="margin-top:35px; max-width:720px;">
-
-            <p>
-                To make the prototype useful for testing investigation
-                workflows, PayResolve uses synthetic payment transactions
-                and deliberately injects operational scenarios.
-            </p>
-
-        </div>
-
-
-        <div class="pr-stat-grid">
-
-            <div class="pr-stat">
-                <strong>10,020</strong>
-                <span>Test transactions</span>
-            </div>
-
-            <div class="pr-stat">
-                <strong>1,524</strong>
-                <span>Reconciliation exceptions</span>
-            </div>
-
-            <div class="pr-stat">
-                <strong>501</strong>
-                <span>Detected anomalies</span>
-            </div>
-
-            <div class="pr-stat">
-                <strong>5</strong>
-                <span>AI investigation calls during development testing</span>
-            </div>
-
-        </div>
-
-
-        <div class="pr-copy" style="margin-top:30px;">
-
-            <p>
-                Test scenarios include missing settlements, status conflicts,
-                missing events, provider timeouts, potential duplicate
-                payments and debit-without-settlement cases.
-            </p>
-
-        </div>
-
-    </section>
-
-
-    <!-- =====================================================
-         AI
-    ====================================================== -->
-
-    <section class="pr-full-dark">
-
-        <div class="pr-section pr-ai">
-
-            <div class="pr-section-label">
-                <span>09</span>
-                AI INVESTIGATION
-            </div>
-
-            <h2>
-                AI as an
-                <span>explanation layer.</span>
-            </h2>
-
-
-            <div class="pr-ai-box">
-
-                <div class="pr-ai-box-header">
-                    <span></span>
-                    EVIDENCE-BASED AI
-                </div>
-
-                <h3>
-                    The AI does not determine what happened.
-                    The evidence does.
-                </h3>
-
-                <p>
-                    PayResolve first assembles structured transaction,
-                    event, reconciliation, incident and anomaly evidence.
-                    The AI model then uses that evidence to generate an
-                    investigation summary and operational next step.
-                </p>
-
-
-                <div class="pr-ai-rules">
-
-                    <div class="pr-ai-rule">
-                        <strong>Use available evidence</strong>
-                        <span>No unsupported facts.</span>
-                    </div>
-
-                    <div class="pr-ai-rule">
-                        <strong>State what is unknown</strong>
-                        <span>Missing evidence remains unknown.</span>
-                    </div>
-
-                    <div class="pr-ai-rule">
-                        <strong>No autonomous decisions</strong>
-                        <span>Human review remains required.</span>
-                    </div>
-
-                </div>
-
-            </div>
-
-        </div>
-
-    </section>
-
-
-    <!-- =====================================================
-         WHAT I BUILT
-    ====================================================== -->
-
-    <section class="pr-section">
-
-        <div class="pr-section-label">
-            <span>10</span>
-            WHAT I BUILT
-        </div>
-
-        <h2>
-            From product idea
-            to <span>working prototype.</span>
-        </h2>
-
-
-        <div class="pr-built-grid">
-
-            <article class="pr-built-item">
-
-                <span>01</span>
-
-                <h3>
-                    Product Definition
-                </h3>
-
-                <p>
-                    Defined the problem, target users, MVP scope,
-                    non-goals, product principles and success measures.
-                </p>
-
-            </article>
-
-
-            <article class="pr-built-item">
-
-                <span>02</span>
-
-                <h3>
-                    Synthetic Data Pipeline
-                </h3>
-
-                <p>
-                    Generated transaction and payment-event data and
-                    created controlled failure scenarios for testing.
-                </p>
-
-            </article>
-
-
-            <article class="pr-built-item">
-
-                <span>03</span>
-
-                <h3>
-                    Reconciliation Engine
-                </h3>
-
-                <p>
-                    Built rule-based checks for missing events,
-                    settlement mismatches, status conflicts, timeouts,
-                    reversals and potential duplicates.
-                </p>
-
-            </article>
-
-
-            <article class="pr-built-item">
-
-                <span>04</span>
-
-                <h3>
-                    Incident Classification
-                </h3>
-
-                <p>
-                    Classified exceptions into operational incident
-                    categories and assigned investigation priorities.
-                </p>
-
-            </article>
-
-
-            <article class="pr-built-item">
-
-                <span>05</span>
-
-                <h3>
-                    Anomaly Detection
-                </h3>
-
-                <p>
-                    Implemented Isolation Forest anomaly detection using
-                    transaction and event-level features.
-                </p>
-
-            </article>
-
-
-            <article class="pr-built-item">
-
-                <span>06</span>
-
-                <h3>
-                    AI Investigation
-                </h3>
-
-                <p>
-                    Integrated Groq-powered LLM investigation with
-                    evidence-first prompting and explicit uncertainty.
-                </p>
-
-            </article>
-
-
-            <article class="pr-built-item">
-
-                <span>07</span>
-
-                <h3>
-                    Streamlit Product Interface
-                </h3>
-
-                <p>
-                    Built and deployed an interactive dashboard for
-                    monitoring, filtering and investigating transactions.
-                </p>
-
-            </article>
-
-
-            <article class="pr-built-item">
-
-                <span>08</span>
-
-                <h3>
-                    API Layer
-                </h3>
-
-                <p>
-                    Developed FastAPI endpoints for transactions,
-                    incidents, anomalies, timelines and AI investigations.
-                </p>
-
-            </article>
-
-        </div>
-
-    </section>
-
-
-    <!-- =====================================================
-         LIMITATIONS
-    ====================================================== -->
-
-    <section class="pr-section pr-limitations">
-
-        <div class="pr-section-label">
-            <span>11</span>
-            LIMITATIONS
-        </div>
-
-        <h2>
-            What this prototype
-            <span>does not claim.</span>
-        </h2>
-
-
-        <div class="pr-limitations-list">
-
-            <div class="pr-limitation">
-
-                <span>01</span>
-
-                <p>
-                    PayResolve is not a payment processor and does not
-                    move real money.
-                </p>
-
-            </div>
-
-
-            <div class="pr-limitation">
-
-                <span>02</span>
-
-                <p>
-                    The prototype uses synthetic data rather than real
-                    customer payment records.
-                </p>
-
-            </div>
-
-
-            <div class="pr-limitation">
-
-                <span>03</span>
-
-                <p>
-                    AI-generated explanations are decision-support output
-                    and require human review.
-                </p>
-
-            </div>
-
-
-            <div class="pr-limitation">
-
-                <span>04</span>
-
-                <p>
-                    The anomaly model is an experimental prototype and
-                    should not be treated as a production fraud-detection
-                    system.
-                </p>
-
-            </div>
-
-
-            <div class="pr-limitation">
-
-                <span>05</span>
-
-                <p>
-                    The current architecture is designed to demonstrate
-                    product and technical concepts rather than production
-                    financial infrastructure.
-                </p>
-
-            </div>
-
-        </div>
-
-    </section>
-
-
-    <!-- =====================================================
-         FINAL CTA
-    ====================================================== -->
-
-    <section class="pr-final-cta">
+      <div class="pr-wrap">
 
         <span class="pr-kicker">
-            LIVE PROTOTYPE
+          <span class="pr-dot"></span>
+          Live Experimental Prototype
         </span>
 
+
+        <div class="pr-hero-grid">
+
+          <div>
+
+            <h1>
+              Pay<span>Resolve</span>
+            </h1>
+
+            <p class="pr-lead">
+              Payment failures shouldn't require guesswork.
+              PayResolve is an experimental payment operations intelligence
+              platform for investigating transaction failures, anomalies
+              and reconciliation exceptions.
+            </p>
+
+
+            <div class="pr-actions">
+
+              <a
+                href="https://payresolve.streamlit.app/"
+                target="_blank"
+                rel="noopener"
+                class="pr-btn primary"
+              >
+                Open Live Prototype ↗
+              </a>
+
+              <a
+                href="https://github.com/Olivenwaigbo/payresolve"
+                target="_blank"
+                rel="noopener"
+                class="pr-btn secondary"
+              >
+                View GitHub ↗
+              </a>
+
+            </div>
+
+
+            <div class="pr-meta">
+
+              <div>
+                <small>Role</small>
+                <strong>Product · Data · AI</strong>
+              </div>
+
+              <div>
+                <small>Domain</small>
+                <strong>Fintech & Payments</strong>
+              </div>
+
+              <div>
+                <small>Data</small>
+                <strong>Synthetic Payment Data</strong>
+              </div>
+
+              <div>
+                <small>Status</small>
+                <strong>Live Prototype</strong>
+              </div>
+
+            </div>
+
+          </div>
+
+
+          <!-- HERO VISUAL -->
+
+          <div class="pr-system-card">
+
+            <div class="pr-orbit">
+
+              <!-- MOTION: signal travelling around the orbit -->
+              <span class="pr-signal" aria-hidden="true"></span>
+
+              <div class="pr-core">
+                PAYMENT<br>
+                INTELLIGENCE
+              </div>
+
+              <span class="pr-node one">
+                TRANSACTION
+              </span>
+
+              <span class="pr-node two">
+                RECONCILIATION
+              </span>
+
+              <span class="pr-node three">
+                INCIDENT
+              </span>
+
+              <span class="pr-node four">
+                AI INSIGHT
+              </span>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+
+    <!-- ==========================================
+         01 PROBLEM
+    =========================================== -->
+
+    <section class="pr-section" id="problem">
+
+      <div class="pr-wrap">
+
+        <div class="pr-section-head" data-reveal>
+
+          <span class="pr-eyebrow">
+            01 / The Problem
+          </span>
+
+          <div>
+
+            <h2>
+              When a payment has no clear story.
+            </h2>
+
+            <p
+              class="pr-section-intro"
+              style="margin-top:22px;"
+            >
+              Payment transactions can move through several states and
+              systems. When those records disagree, operations teams may
+              have to manually piece together what happened before
+              deciding what needs attention.
+            </p>
+
+          </div>
+
+        </div>
+
+
+        <div class="pr-problem-grid" data-stagger>
+
+          <article class="pr-card">
+
+            <span class="pr-card-number">
+              01
+            </span>
+
+            <h3>
+              State conflicts
+            </h3>
+
+            <p>
+              A transaction record can disagree with the events
+              recorded around it.
+            </p>
+
+          </article>
+
+
+          <article class="pr-card">
+
+            <span class="pr-card-number">
+              02
+            </span>
+
+            <h3>
+              Reconciliation gaps
+            </h3>
+
+            <p>
+              Missing settlements, reversals or events can make
+              transaction outcomes unclear.
+            </p>
+
+          </article>
+
+
+          <article class="pr-card">
+
+            <span class="pr-card-number">
+              03
+            </span>
+
+            <h3>
+              Investigation overhead
+            </h3>
+
+            <p>
+              Teams need evidence and context before they can
+              determine what requires attention.
+            </p>
+
+          </article>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+
+    <!-- ==========================================
+         02 PRODUCT CONCEPT
+    =========================================== -->
+
+    <section class="pr-section">
+
+      <div class="pr-wrap">
+
+        <div class="pr-section-head" data-reveal>
+
+          <span class="pr-eyebrow">
+            02 / Product Concept
+          </span>
+
+          <div>
+
+            <h2>
+              Turn transaction data into an investigation workflow.
+            </h2>
+
+            <p
+              class="pr-section-intro"
+              style="margin-top:22px;"
+            >
+              PayResolve combines deterministic reconciliation rules,
+              incident classification, anomaly detection and an AI
+              explanation layer into one operational workflow.
+            </p>
+
+          </div>
+
+        </div>
+
+
+        <div class="pr-flow" data-pause>
+
+          <div class="pr-flow-row">
+
+            <div class="pr-flow-item">
+
+              <strong>
+                01 · Transaction Data
+              </strong>
+
+              <span>
+                Records and event history form the evidence base.
+              </span>
+
+            </div>
+
+
+            <div class="pr-flow-item">
+
+              <strong>
+                02 · Reconcile
+              </strong>
+
+              <span>
+                Rules identify mismatches and exceptions.
+              </span>
+
+            </div>
+
+
+            <div class="pr-flow-item">
+
+              <strong>
+                03 · Classify
+              </strong>
+
+              <span>
+                Exceptions become operational incident categories.
+              </span>
+
+            </div>
+
+
+            <div class="pr-flow-item">
+
+              <strong>
+                04 · Detect
+              </strong>
+
+              <span>
+                Anomaly detection surfaces unusual records.
+              </span>
+
+            </div>
+
+
+            <div class="pr-flow-item">
+
+              <strong>
+                05 · Explain
+              </strong>
+
+              <span>
+                AI summarizes evidence and what remains unknown.
+              </span>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+
+    <!-- ==========================================
+         03 WHAT I BUILT
+    =========================================== -->
+
+    <section class="pr-section">
+
+      <div class="pr-wrap">
+
+        <div class="pr-section-head" data-reveal>
+
+          <span class="pr-eyebrow">
+            03 / What I Built
+          </span>
+
+          <div>
+
+            <h2>
+              From product definition to working prototype.
+            </h2>
+
+            <p
+              class="pr-section-intro"
+              style="margin-top:22px;"
+            >
+              I designed the product workflow, generated synthetic
+              payment data, built the investigation logic and turned
+              the outputs into an interactive operations interface.
+            </p>
+
+          </div>
+
+        </div>
+
+
+        <div class="pr-build-grid" data-stagger>
+
+          <article class="pr-card">
+
+            <span class="pr-card-number">
+              01
+            </span>
+
+            <h3>
+              Reconciliation Engine
+            </h3>
+
+            <p>
+              Checks transaction and event records for missing or
+              conflicting states, settlements, reversals and other
+              exceptions.
+            </p>
+
+          </article>
+
+
+          <article class="pr-card">
+
+            <span class="pr-card-number">
+              02
+            </span>
+
+            <h3>
+              Incident Classification
+            </h3>
+
+            <p>
+              Maps detected exceptions into operational categories
+              and investigation priorities.
+            </p>
+
+          </article>
+
+
+          <article class="pr-card">
+
+            <span class="pr-card-number">
+              03
+            </span>
+
+            <h3>
+              Anomaly Detection
+            </h3>
+
+            <p>
+              Uses Isolation Forest to identify transaction records
+              that differ from expected patterns.
+            </p>
+
+          </article>
+
+
+          <article class="pr-card">
+
+            <span class="pr-card-number">
+              04
+            </span>
+
+            <h3>
+              AI Investigation
+            </h3>
+
+            <p>
+              Uses the evidence layer to generate a structured
+              explanation without making autonomous financial decisions.
+            </p>
+
+          </article>
+
+
+          <article class="pr-card">
+
+            <span class="pr-card-number">
+              05
+            </span>
+
+            <h3>
+              Operations Dashboard
+            </h3>
+
+            <p>
+              Provides overview metrics, incident analysis,
+              anomaly analysis, transaction investigation and timelines.
+            </p>
+
+          </article>
+
+
+          <article class="pr-card">
+
+            <span class="pr-card-number">
+              06
+            </span>
+
+            <h3>
+              API Layer
+            </h3>
+
+            <p>
+              FastAPI endpoints expose summaries, transactions,
+              incidents, anomalies, timelines and AI investigations.
+            </p>
+
+          </article>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+
+    <!-- ==========================================
+         04 PROTOTYPE DATA
+    =========================================== -->
+
+    <section class="pr-section">
+
+      <div class="pr-wrap">
+
+        <div class="pr-section-head" data-reveal>
+
+          <span class="pr-eyebrow">
+            04 / Prototype Data
+          </span>
+
+          <div>
+
+            <h2>
+              The prototype is grounded in synthetic evidence.
+            </h2>
+
+            <p
+              class="pr-section-intro"
+              style="margin-top:22px;"
+            >
+              The test dataset contains intentionally injected
+              operational scenarios so the investigation workflow
+              can be evaluated without using real customer or
+              financial data.
+            </p>
+
+          </div>
+
+        </div>
+
+
+        <div class="pr-stats" data-stagger>
+
+          <div class="pr-stat">
+
+            <strong data-count="10020">
+              10,020
+            </strong>
+
+            <span>
+              Test transactions
+            </span>
+
+            <small>
+              Generated payment records used to test the
+              investigation workflow.
+            </small>
+
+          </div>
+
+
+          <div class="pr-stat">
+
+            <strong data-count="1524">
+              1,524
+            </strong>
+
+            <span>
+              Reconciliation exceptions
+            </span>
+
+            <small>
+              Records identified by the deterministic
+              reconciliation layer.
+            </small>
+
+          </div>
+
+
+          <div class="pr-stat">
+
+            <strong data-count="501">
+              501
+            </strong>
+
+            <span>
+              Detected anomalies
+            </span>
+
+            <small>
+              Records flagged by the experimental anomaly
+              detection model.
+            </small>
+
+          </div>
+
+        </div>
+
+
+        <div class="pr-evidence" data-stagger>
+
+          <div class="pr-evidence-box">
+
+            <strong>
+              Injected scenarios
+            </strong>
+
+            <p>
+              Missing settlements · Status conflicts · Missing events ·
+              Provider timeouts · Potential duplicate payments ·
+              Debit without settlement.
+            </p>
+
+          </div>
+
+
+          <div class="pr-evidence-box">
+
+            <strong>
+              Important boundary
+            </strong>
+
+            <p>
+              The dataset is synthetic. PayResolve does not process
+              real money, connect to real banks or investigate real
+              customer transactions.
+            </p>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+
+    <!-- ==========================================
+         05 AI INVESTIGATION
+    =========================================== -->
+
+    <section class="pr-section">
+
+      <div class="pr-wrap">
+
+        <div class="pr-section-head" data-reveal>
+
+          <span class="pr-eyebrow">
+            05 / AI Investigation
+          </span>
+
+          <div>
+
+            <h2>
+              AI explains the evidence. It doesn't invent the story.
+            </h2>
+
+            <p
+              class="pr-section-intro"
+              style="margin-top:22px;"
+            >
+              The deterministic engine establishes the facts first.
+              The AI layer then uses that evidence to structure an
+              investigation summary and identify what remains unknown.
+            </p>
+
+          </div>
+
+        </div>
+
+
+        <div class="pr-ai">
+
+          <div class="pr-ai-dark" data-reveal>
+
+            <h3>
+              Evidence First
+            </h3>
+
+            <p>
+              The investigation prompt is deliberately constrained
+              to the available transaction, event, reconciliation
+              and anomaly evidence.
+            </p>
+
+          </div>
+
+
+          <div class="pr-ai-list" data-stagger>
+
+            <div class="pr-ai-row">
+
+              <b>
+                01
+              </b>
+
+              <div>
+
+                <strong>
+                  Investigation Summary
+                </strong>
+
+                <span>
+                  Summarizes the transaction outcome using the
+                  available evidence.
+                </span>
+
+              </div>
+
+            </div>
+
+
+            <div class="pr-ai-row">
+
+              <b>
+                02
+              </b>
+
+              <div>
+
+                <strong>
+                  Evidence
+                </strong>
+
+                <span>
+                  Surfaces the recorded transaction, event and
+                  classification evidence.
+                </span>
+
+              </div>
+
+            </div>
+
+
+            <div class="pr-ai-row">
+
+              <b>
+                03
+              </b>
+
+              <div>
+
+                <strong>
+                  What Is Unknown
+                </strong>
+
+                <span>
+                  Explicitly identifies information that the evidence
+                  does not establish.
+                </span>
+
+              </div>
+
+            </div>
+
+
+            <div class="pr-ai-row">
+
+              <b>
+                04
+              </b>
+
+              <div>
+
+                <strong>
+                  Recommended Next Step
+                </strong>
+
+                <span>
+                  Suggests operational investigation steps rather
+                  than autonomous financial actions.
+                </span>
+
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+
+    <!-- ==========================================
+         06 PRODUCT DECISIONS
+    =========================================== -->
+
+    <section class="pr-section">
+
+      <div class="pr-wrap">
+
+        <div class="pr-section-head" data-reveal>
+
+          <span class="pr-eyebrow">
+            06 / Product Decisions
+          </span>
+
+          <div>
+
+            <h2>
+              Designed around operational trust.
+            </h2>
+
+          </div>
+
+        </div>
+
+
+        <div class="pr-principle-grid" data-stagger>
+
+          <article class="pr-card">
+
+            <span class="pr-card-number">
+              01
+            </span>
+
+            <h3>
+              Evidence First
+            </h3>
+
+            <p>
+              Facts are established before AI is asked to explain them.
+            </p>
+
+          </article>
+
+
+          <article class="pr-card">
+
+            <span class="pr-card-number">
+              02
+            </span>
+
+            <h3>
+              Human in the Loop
+            </h3>
+
+            <p>
+              The system supports investigation rather than replacing
+              operational judgment.
+            </p>
+
+          </article>
+
+
+          <article class="pr-card">
+
+            <span class="pr-card-number">
+              03
+            </span>
+
+            <h3>
+              Traceability
+            </h3>
+
+            <p>
+              Investigations remain connected to the transaction and
+              event evidence behind them.
+            </p>
+
+          </article>
+
+
+          <article class="pr-card">
+
+            <span class="pr-card-number">
+              04
+            </span>
+
+            <h3>
+              Privacy by Design
+            </h3>
+
+            <p>
+              The prototype uses synthetic data and avoids real
+              customer payment information.
+            </p>
+
+          </article>
+
+
+          <article class="pr-card">
+
+            <span class="pr-card-number">
+              05
+            </span>
+
+            <h3>
+              Operational Reliability
+            </h3>
+
+            <p>
+              Exceptions are categorized so teams can understand
+              what requires attention and who may own it.
+            </p>
+
+          </article>
+
+
+          <article class="pr-card">
+
+            <span class="pr-card-number">
+              06
+            </span>
+
+            <h3>
+              Explainable Experimentation
+            </h3>
+
+            <p>
+              Experimental models are presented as signals for
+              investigation, not unquestionable conclusions.
+            </p>
+
+          </article>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+
+    <!-- ==========================================
+         07 TECHNICAL STACK
+    =========================================== -->
+
+    <section class="pr-section">
+
+      <div class="pr-wrap">
+
+        <div class="pr-section-head" data-reveal>
+
+          <span class="pr-eyebrow">
+            07 / Technical Stack
+          </span>
+
+          <div>
+
+            <h2>
+              Built as a product experiment.
+            </h2>
+
+            <p
+              class="pr-section-intro"
+              style="margin-top:22px;"
+            >
+              The prototype combines data processing, machine learning,
+              API design, an interactive interface and a constrained
+              generative AI layer.
+            </p>
+
+          </div>
+
+        </div>
+
+
+        <div class="pr-stack" data-stagger>
+
+          <span class="pr-tag">Python</span>
+          <span class="pr-tag">Pandas</span>
+          <span class="pr-tag">NumPy</span>
+          <span class="pr-tag">Scikit-learn</span>
+          <span class="pr-tag">Streamlit</span>
+          <span class="pr-tag">FastAPI</span>
+          <span class="pr-tag">Groq</span>
+          <span class="pr-tag">Llama 3.3</span>
+          <span class="pr-tag">CSV Data Pipeline</span>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+
+    <!-- ==========================================
+         08 LIMITATIONS
+    =========================================== -->
+
+    <section class="pr-section">
+
+      <div class="pr-wrap">
+
+        <div class="pr-section-head" data-reveal>
+
+          <span class="pr-eyebrow">
+            08 / Limitations
+          </span>
+
+          <div>
+
+            <h2>
+              A prototype, not production financial infrastructure.
+            </h2>
+
+          </div>
+
+        </div>
+
+
+        <div class="pr-limitations" data-stagger>
+
+          <article class="pr-limit">
+
+            <strong>
+              Synthetic data
+            </strong>
+
+            <p>
+              No real customer, bank or payment-provider data is used.
+            </p>
+
+          </article>
+
+
+          <article class="pr-limit">
+
+            <strong>
+              Experimental model
+            </strong>
+
+            <p>
+              The anomaly detector demonstrates an approach and
+              requires further validation before production use.
+            </p>
+
+          </article>
+
+
+          <article class="pr-limit">
+
+            <strong>
+              Human review
+            </strong>
+
+            <p>
+              AI-generated explanations are decision-support outputs
+              and require human review.
+            </p>
+
+          </article>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+
+    <!-- ==========================================
+         FINAL CTA
+    =========================================== -->
+
+    <section class="pr-cta">
+
+      <div class="pr-wrap" data-reveal>
+
         <h2>
-            See PayResolve
-            <span>in action.</span>
+          See the investigation workflow in action.
         </h2>
 
         <p>
-            Explore the working prototype and investigate synthetic
-            payment transactions, exceptions, anomalies and
-            evidence-based AI explanations.
+          Explore the live prototype or return to the
+          Fintech & Payments Lab to see the broader product
+          thinking behind PayResolve.
         </p>
 
 
-        <div class="pr-final-actions">
+        <div class="pr-actions">
 
-            <a
-                href="https://payresolve.streamlit.app/"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="pr-button pr-button-primary"
-            >
-                Open PayResolve ↗
-            </a>
+          <a
+            href="https://payresolve.streamlit.app/"
+            target="_blank"
+            rel="noopener"
+            class="pr-btn primary"
+          >
+            Open PayResolve ↗
+          </a>
 
-            <a
-                href="../index.html"
-                class="pr-button pr-button-secondary"
-            >
-                Back to Portfolio
-            </a>
+          <a
+            href="../labs/fintech.html"
+            class="pr-btn secondary"
+          >
+            Fintech & Payments Lab
+          </a>
 
         </div>
 
+      </div>
+
     </section>
 
+  </main>
+
+
+  <footer class="pr-footer">
+
+    PayResolve · An experimental Product · Data · AI project
+    by Olive Chika Nwaigbo
+
+  </footer>
+
+
+  <!-- =========================================================
+       MOTION SCRIPT
+       - scroll progress bar
+       - reveal-on-scroll for [data-reveal] / [data-stagger]
+       - the pipeline highlight only runs while .pr-flow is on screen
+       - stat numbers count up once, the first time they're seen
+       - hero + pipeline loops pause while off screen
+  ========================================================== -->
+
+  <script>
+  (function () {
+
+    document.documentElement.classList.add('pr-js');
+
+    var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    var bar = document.querySelector('.pr-progress');
+
+    function updateProgress() {
+      if (!bar) return;
+      var max = document.documentElement.scrollHeight - window.innerHeight;
+      var progress = max > 0 ? window.scrollY / max : 0;
+      bar.style.transform = 'scaleX(' + Math.min(Math.max(progress, 0), 1) + ')';
+    }
+
+    var ticking = false;
+    window.addEventListener('scroll', function () {
+      if (!ticking) {
+        ticking = true;
+        requestAnimationFrame(function () { updateProgress(); ticking = false; });
+      }
+    }, { passive: true });
+    updateProgress();
+
+    function formatCount(el, value) {
+      return Math.round(value).toLocaleString('en-US') + (el.dataset.suffix || '');
+    }
+
+    /* Reduced motion, or no IntersectionObserver: show the finished page */
+    if (reduce || !('IntersectionObserver' in window)) {
+      document.querySelectorAll('[data-reveal], [data-stagger]')
+        .forEach(function (el) { el.classList.add('is-visible'); });
+      document.querySelectorAll('.pr-flow')
+        .forEach(function (el) { el.classList.add('is-live'); });
+      document.querySelectorAll('[data-count]')
+        .forEach(function (el) { el.textContent = formatCount(el, parseFloat(el.dataset.count)); });
+      return;
+    }
+
+    document.querySelectorAll('[data-stagger]').forEach(function (group) {
+      Array.prototype.forEach.call(group.children, function (child, i) {
+        child.style.setProperty('--i', i);
+      });
+    });
+
+    var revealer = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (!entry.isIntersecting) return;
+        entry.target.classList.add('is-visible');
+        revealer.unobserve(entry.target);
+      });
+    }, { threshold: 0.15, rootMargin: '0px 0px -6% 0px' });
+
+    document.querySelectorAll('[data-reveal], [data-stagger]')
+      .forEach(function (el) { revealer.observe(el); });
+
+    var liveObserver = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        entry.target.classList.toggle('is-live', entry.isIntersecting);
+      });
+    }, { rootMargin: '-10% 0px -10% 0px' });
+
+    document.querySelectorAll('.pr-flow')
+      .forEach(function (el) { liveObserver.observe(el); });
+
+    var pauseObserver = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        entry.target.classList.toggle('is-offscreen', !entry.isIntersecting);
+      });
+    }, { threshold: 0 });
+
+    document.querySelectorAll('[data-pause]')
+      .forEach(function (el) { pauseObserver.observe(el); });
+
+    function countUp(el) {
+      var target = parseFloat(el.dataset.count);
+      var duration = 1400;
+      var start = null;
+
+      function step(timestamp) {
+        if (start === null) start = timestamp;
+        var t = Math.min((timestamp - start) / duration, 1);
+        var eased = 1 - Math.pow(1 - t, 3);
+        el.textContent = formatCount(el, target * eased);
+        if (t < 1) requestAnimationFrame(step);
+        else el.textContent = formatCount(el, target);
+      }
+
+      requestAnimationFrame(step);
+    }
+
+    var counter = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (!entry.isIntersecting) return;
+        countUp(entry.target);
+        counter.unobserve(entry.target);
+      });
+    }, { threshold: 0.6 });
+
+    document.querySelectorAll('[data-count]')
+      .forEach(function (el) { counter.observe(el); });
+
+  })();
+  </script>
 
 </body>
 </html>

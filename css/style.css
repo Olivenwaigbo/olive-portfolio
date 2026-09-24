@@ -617,590 +617,362 @@ p {
 
 
 /* =========================================================
-   EXPLORATION VISUAL
+   EXPLORATION VISUAL — ALIGNED HERO ORBIT
+   ---------------------------------------------------------
+   The orbit labels use fixed anchor points instead of
+   offset-path travel. This keeps every label aligned to
+   the orbit while preserving subtle motion.
    ========================================================= */
 
 .exploration-visual {
     position: relative;
-
     width: 500px;
     height: 500px;
-
     max-width: 100%;
-
     margin: 0 auto;
-
     will-change: transform;
-
-    transition:
-        transform .6s var(--motion-ease);
+    transition: transform .6s var(--motion-ease);
 }
 
+/* Main orbit */
 .exploration-orbit {
     position: absolute;
-
-    width: 390px;
-    height: 390px;
-
+    width: 400px;
+    height: 400px;
     left: 50%;
     top: 50%;
-
-    transform:
-        translate(-50%, -50%);
-
-    border:
-        1px dashed
-        rgba(124, 77, 255, .32);
-
+    transform: translate(-50%, -50%);
+    border: 1px dashed rgba(124, 77, 255, .28);
     border-radius: 50%;
-
-    animation:
-        orbitRotate
-        25s
-        linear
-        infinite,
-        orbitBreathe
-        6s
-        ease-in-out
-        infinite;
+    animation: orbitBreathe 6s ease-in-out infinite;
 }
 
 .exploration-orbit::before,
 .exploration-orbit::after {
     content: "";
-
     position: absolute;
-
     border-radius: 50%;
+    pointer-events: none;
 }
 
 .exploration-orbit::before {
     inset: 32px;
-
-    border:
-        1px solid
-        rgba(124, 77, 255, .12);
+    border: 1px solid rgba(124, 77, 255, .11);
 }
 
 .exploration-orbit::after {
     inset: 72px;
-
-    border:
-        1px solid
-        rgba(124, 77, 255, .08);
+    border: 1px solid rgba(124, 77, 255, .07);
 }
 
-@keyframes orbitRotate {
+@keyframes orbitBreathe {
+    0%, 100% { opacity: .72; }
+    50% { opacity: 1; }
+}
+
+/* Central laboratory */
+.exploration-center {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 270px;
+    height: 270px;
+    transform: translate(-50%, -50%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background:
+        radial-gradient(
+            circle at 50% 43%,
+            #ffffff 0%,
+            #faf9ff 62%,
+            #eee9ff 100%
+        );
+    box-shadow:
+        0 25px 70px rgba(124, 77, 255, .13),
+        inset 0 0 0 1px rgba(124, 77, 255, .09);
+    animation: heroCenterFloat 5s ease-in-out infinite;
+}
+
+@keyframes heroCenterFloat {
+    0%, 100% {
+        transform: translate(-50%, -50%) translateY(0);
+    }
+
+    50% {
+        transform: translate(-50%, -50%) translateY(-7px);
+    }
+}
+
+.center-ring {
+    position: absolute;
+    inset: 13px;
+    border: 1px solid rgba(124, 77, 255, .12);
+    border-radius: 50%;
+    animation: centerRingPulse 4s ease-in-out infinite;
+}
+
+@keyframes centerRingPulse {
+    0%, 100% {
+        transform: scale(1);
+        opacity: .65;
+    }
+
+    50% {
+        transform: scale(1.045);
+        opacity: 1;
+    }
+}
+
+/* Precisely aligned center content */
+.exploration-content {
+    position: relative;
+    z-index: 2;
+    width: 78%;
+    max-width: 205px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    text-align: center;
+    gap: 0;
+
+    /* Move the complete stack down together so the
+       label, icon, title and description stay perfectly aligned. */
+    transform: translateY(12px);
+}
+
+.exploration-label {
+    display: block;
+    width: 100%;
+    margin: 0 0 12px;
+    font-size: 9px;
+    font-weight: 800;
+    line-height: 1;
+    letter-spacing: 1.6px;
+    color: var(--accent);
+    text-align: center;
+}
+
+.plane-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 38px;
+    height: 32px;
+    margin: 0 0 9px;
+    flex: 0 0 32px;
+}
+
+.plane-icon svg {
+    display: block;
+    width: 29px;
+    height: 29px;
+}
+
+.exploration-content h2 {
+    width: 100%;
+    margin: 0 0 14px;
+    font-size: 29px;
+    line-height: .94;
+    letter-spacing: -1.6px;
+    text-align: center;
+}
+
+.exploration-content h2 span {
+    display: block;
+    margin-top: 1px;
+    color: var(--accent);
+}
+
+.exploration-content p {
+    width: 100%;
+    max-width: 195px;
+    margin: 0 auto;
+    color: var(--muted);
+    font-size: 11px;
+    line-height: 1.55;
+    text-align: center;
+}
+
+/* Orbit labels — fixed anchors keep the copy aligned */
+.industry-orbit {
+    position: absolute;
+    z-index: 5;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 10px 14px;
+    background: rgba(255, 255, 255, .96);
+    border: 1px solid var(--line);
+    border-radius: 999px;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, .07);
+    font-size: 10px;
+    font-weight: 700;
+    line-height: 1.2;
+    white-space: nowrap;
+    transform: translateZ(0);
+    animation:
+        floatIndustry 5s ease-in-out infinite,
+        orbitHighlightCycle 10s ease-in-out infinite;
+    transition:
+        transform .35s var(--motion-ease),
+        border-color .35s ease,
+        box-shadow .35s ease;
+}
+
+.industry-orbit:hover {
+    transform: translateY(-3px) scale(1.04);
+    box-shadow: 0 15px 35px rgba(124, 77, 255, .14);
+    animation-play-state: paused;
+}
+
+.orbit-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex: 0 0 auto;
+    color: var(--accent);
+}
+
+/* =========================================================
+   ORBITING INDUSTRY LABELS
+   ---------------------------------------------------------
+   All six labels travel around the same circular path.
+   The labels remain horizontal/upright while orbiting.
+   ========================================================= */
+
+.industry-orbit {
+    position: absolute;
+    z-index: 5;
+    left: 50%;
+    top: 50%;
+    right: auto;
+    bottom: auto;
+
+    transform:
+        translate(-50%, -50%)
+        rotate(0deg)
+        translateY(-200px)
+        rotate(0deg);
+
+    animation: industryOrbit 28.8s linear infinite;
+    will-change: transform;
+}
+
+/* Six evenly distributed positions around the orbit */
+.orbit-agriculture {
+    animation-delay: 0s;
+}
+
+.orbit-public {
+    animation-delay: -4.8s;
+}
+
+.orbit-data {
+    animation-delay: -9.6s;
+}
+
+.orbit-telecom {
+    animation-delay: -14.4s;
+}
+
+.orbit-aviation {
+    animation-delay: -19.2s;
+}
+
+.orbit-fintech {
+    animation-delay: -24s;
+}
+
+@keyframes industryOrbit {
     from {
         transform:
             translate(-50%, -50%)
+            rotate(0deg)
+            translateY(-200px)
             rotate(0deg);
     }
 
     to {
         transform:
             translate(-50%, -50%)
-            rotate(360deg);
+            rotate(360deg)
+            translateY(-200px)
+            rotate(-360deg);
     }
-}
-
-@keyframes orbitBreathe {
-    0%,
-    100% {
-        opacity: .7;
-    }
-
-    50% {
-        opacity: 1;
-    }
-}
-
-.exploration-center {
-    position: absolute;
-
-    left: 50%;
-    top: 50%;
-
-    width: 260px;
-    height: 260px;
-
-    transform:
-        translate(-50%, -50%);
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    border-radius: 50%;
-
-    background:
-        radial-gradient(
-            circle at 50% 45%,
-            #ffffff 0%,
-            #faf9ff 60%,
-            #eee9ff 100%
-        );
-
-    box-shadow:
-        0 25px 70px
-        rgba(124, 77, 255, .14),
-
-        inset 0 0 0 1px
-        rgba(124, 77, 255, .08);
-
-    animation:
-        heroCenterFloat
-        5s
-        ease-in-out
-        infinite;
-}
-
-@keyframes heroCenterFloat {
-    0%,
-    100% {
-        transform:
-            translate(-50%, -50%)
-            translateY(0);
-    }
-
-    50% {
-        transform:
-            translate(-50%, -50%)
-            translateY(-9px);
-    }
-}
-
-.center-ring {
-    position: absolute;
-
-    inset: 13px;
-
-    border:
-        1px solid
-        rgba(124, 77, 255, .12);
-
-    border-radius: 50%;
-
-    animation:
-        centerRingPulse
-        4s
-        ease-in-out
-        infinite;
-}
-
-@keyframes centerRingPulse {
-    0%,
-    100% {
-        transform: scale(1);
-        opacity: .65;
-    }
-
-    50% {
-        transform: scale(1.055);
-        opacity: 1;
-    }
-}
-
-.exploration-content {
-    position: relative;
-
-    z-index: 2;
-
-    width: 80%;
-
-    text-align: center;
-}
-
-.exploration-label {
-    display: block;
-
-    margin-bottom: 8px;
-
-    font-size: 9px;
-    font-weight: 800;
-
-    letter-spacing: 1.5px;
-
-    color: var(--accent);
-}
-
-.plane-icon {
-    display: inline-block;
-
-    margin-bottom: 5px;
-
-    font-size: 26px;
-
-    offset-path: circle(16px at center);
-    offset-rotate: 0deg;
-
-    animation:
-        planeFloat
-        3.5s
-        ease-in-out
-        infinite,
-        planeOrbit
-        5s
-        linear
-        infinite;
-}
-
-@keyframes planeFloat {
-    0%,
-    100% {
-        transform:
-            translateY(0)
-            rotate(-2deg);
-    }
-
-    50% {
-        transform:
-            translateY(-9px)
-            rotate(4deg);
-    }
-}
-
-@keyframes planeOrbit {
-    from {
-        offset-distance: 0%;
-    }
-
-    to {
-        offset-distance: 100%;
-    }
-}
-
-.exploration-content h2 {
-    font-size: 28px;
-
-    line-height: 1;
-
-    letter-spacing: -1.5px;
-
-    margin-bottom: 10px;
-}
-
-.exploration-content h2 span {
-    color: var(--accent);
-}
-
-.exploration-content p {
-    color: var(--muted);
-
-    font-size: 11px;
-
-    line-height: 1.5;
-}
-
-.industry-orbit {
-    position: absolute;
-
-    top: 0;
-    left: 0;
-
-    z-index: 5;
-
-    display: flex;
-    align-items: center;
-
-    gap: 8px;
-
-    padding: 10px 13px;
-
-    background: var(--white);
-
-    border:
-        1px solid
-        var(--line);
-
-    border-radius: 999px;
-
-    box-shadow:
-        0 12px 30px
-        rgba(0, 0, 0, .07);
-
-    font-size: 10px;
-    font-weight: 700;
-
-    white-space: nowrap;
-
-    offset-path: circle(195px at 250px 250px);
-    offset-rotate: 0deg;
-
-    animation:
-        floatIndustry
-        5s
-        ease-in-out
-        infinite,
-        orbitLabelTravel
-        42s
-        linear
-        infinite,
-        orbitHighlightCycle
-        10s
-        ease-in-out
-        infinite;
-
-    transition:
-        scale .35s var(--motion-ease),
-        box-shadow .35s ease;
 }
 
 .industry-orbit:hover {
-    scale: 1.06;
-
-    box-shadow:
-        0 15px 35px
-        rgba(124, 77, 255, .14);
-
     animation-play-state: paused;
+    box-shadow: 0 15px 35px rgba(124, 77, 255, .18);
 }
 
-.orbit-icon {
-    color: var(--accent);
-}
+/* =========================================================
+   END ORBITING INDUSTRY LABELS
+   ========================================================= */
 
-.orbit-telecom {
-    animation-delay:
-        -.5s,
-        0s,
-        0s;
-}
-
-.orbit-public {
-    animation-delay:
-        -1.5s,
-        -10.5s,
-        -2.5s;
-}
-
-.orbit-agriculture {
-    animation-delay:
-        -2.5s,
-        -21s,
-        -5s;
-}
-
-.orbit-data {
-    animation-delay:
-        -3.5s,
-        -31.5s,
-        -7.5s;
-}
-
-/* Fallback for browsers without offset-path support:
-   labels sit in their original fixed spots and just bob/glow */
-@supports not (offset-path: circle(1px)) {
-
-    .industry-orbit {
-        top: auto;
-        left: auto;
-
-        offset-path: none;
-    }
-
-    .orbit-telecom {
-        top: 28px;
-        left: 50%;
-
-        transform:
-            translateX(-50%);
-    }
-
-    .orbit-public {
-        right: -3px;
-        top: 47%;
-    }
-
-    .orbit-agriculture {
-        bottom: 38px;
-        left: 50%;
-
-        transform:
-            translateX(-50%);
-    }
-
-    .orbit-data {
-        left: -20px;
-        top: 43%;
-    }
-
-}
-
-@keyframes floatIndustry {
-    0%,
-    100% {
-        margin-top: 0;
-    }
-
-    50% {
-        margin-top: -8px;
-    }
-}
-
-@keyframes orbitLabelTravel {
-    from {
-        offset-distance: 0%;
-    }
-
-    to {
-        offset-distance: 100%;
-    }
-}
-
-@keyframes orbitHighlightCycle {
-    0%,
-    92%,
-    100% {
-        border-color: var(--line);
-
-        box-shadow:
-            0 12px 30px
-            rgba(0, 0, 0, .07);
-    }
-
-    4%,
-    20% {
-        border-color:
-            rgba(124, 77, 255, .5);
-
-        box-shadow:
-            0 15px 35px
-            rgba(124, 77, 255, .25);
-    }
-}
-
+/* Orbit dots */
 .orbit-dot {
     position: absolute;
-
     top: 0;
     left: 0;
-
     width: 7px;
     height: 7px;
-
     border-radius: 50%;
-
     background: var(--accent);
-
-    box-shadow:
-        0 0 0 5px
-        rgba(124, 77, 255, .08);
-
-    offset-path: circle(195px at 250px 250px);
-    offset-rotate: 0deg;
-
+    box-shadow: 0 0 0 5px rgba(124, 77, 255, .08);
     animation:
-        orbitTravel
-        16s
-        linear
-        infinite,
-        dotPulse
-        2.5s
-        ease-in-out
-        infinite;
+        orbitTravel 16s linear infinite,
+        dotPulse 2.5s ease-in-out infinite;
 }
 
 .orbit-dot-one {
-    animation-delay:
-        0s,
-        0s;
+    offset-path: circle(200px at 250px 250px);
+    offset-rotate: 0deg;
+    animation-delay: 0s, 0s;
 }
 
 .orbit-dot-two {
-    animation-delay:
-        -4s,
-        -.6s;
+    offset-path: circle(200px at 250px 250px);
+    offset-rotate: 0deg;
+    animation-delay: -4s, -.6s;
 }
 
 .orbit-dot-three {
-    animation-delay:
-        -8s,
-        -1.2s;
+    offset-path: circle(200px at 250px 250px);
+    offset-rotate: 0deg;
+    animation-delay: -8s, -1.2s;
 }
 
 .orbit-dot-four {
-    animation-delay:
-        -12s,
-        -1.8s;
-}
-
-/* Fallback for browsers without offset-path support:
-   dots keep their original fixed positions and just pulse */
-@supports not (offset-path: circle(1px)) {
-
-    .orbit-dot {
-        top: auto;
-        left: auto;
-
-        offset-path: none;
-
-        animation:
-            dotPulse
-            2.5s
-            ease-in-out
-            infinite;
-    }
-
-    .orbit-dot-one {
-        top: 18%;
-        right: 18%;
-
-        animation-delay: 0s;
-    }
-
-    .orbit-dot-two {
-        top: 72%;
-        right: 15%;
-
-        animation-delay: -.6s;
-    }
-
-    .orbit-dot-three {
-        left: 17%;
-        bottom: 18%;
-
-        animation-delay: -1.2s;
-    }
-
-    .orbit-dot-four {
-        top: 24%;
-        left: 15%;
-
-        animation-delay: -1.8s;
-    }
-
+    offset-path: circle(200px at 250px 250px);
+    offset-rotate: 0deg;
+    animation-delay: -12s, -1.8s;
 }
 
 @keyframes orbitTravel {
-    from {
-        offset-distance: 0%;
-    }
-
-    to {
-        offset-distance: 100%;
-    }
+    from { offset-distance: 0%; }
+    to { offset-distance: 100%; }
 }
 
 @keyframes dotPulse {
-    0%,
-    100% {
+    0%, 100% {
         transform: scale(1);
-
-        box-shadow:
-            0 0 0 5px
-            rgba(124, 77, 255, .08);
+        box-shadow: 0 0 0 5px rgba(124, 77, 255, .08);
     }
 
     50% {
         transform: scale(1.55);
-
-        box-shadow:
-            0 0 0 10px
-            rgba(124, 77, 255, .025);
+        box-shadow: 0 0 0 10px rgba(124, 77, 255, .025);
     }
 }
 
+/* =========================================================
+   END ALIGNED EXPLORATION VISUAL
+   ========================================================= */
 
 /* =========================================================
    STATS
@@ -3674,15 +3446,14 @@ p {
 
     .exploration-visual {
         width: 100%;
-
-        height: 400px;
-
+        max-width: 500px;
+        height: 390px;
         margin-top: 45px;
     }
 
     .exploration-orbit {
-        width: 310px;
-        height: 310px;
+        width: 300px;
+        height: 300px;
     }
 
     .exploration-center {
@@ -3690,39 +3461,53 @@ p {
         height: 205px;
     }
 
+    .exploration-content {
+        width: 80%;
+        max-width: 165px;
+        transform: translateY(10px);
+    }
+
+    .exploration-label {
+        font-size: 8px;
+        letter-spacing: 1.3px;
+        margin: 0 0 10px;
+    }
+
+    .plane-icon {
+        width: 32px;
+        height: 28px;
+        margin: 0 0 7px;
+        flex-basis: 28px;
+    }
+
+    .plane-icon svg {
+        width: 25px;
+        height: 25px;
+    }
+
     .exploration-content h2 {
         font-size: 22px;
+        line-height: .94;
+        letter-spacing: -1.2px;
+        margin: 0 0 11px;
     }
 
     .exploration-content p {
+        max-width: 155px;
         font-size: 9px;
+        line-height: 1.5;
     }
 
     .industry-orbit {
         font-size: 8px;
-
-        padding:
-            8px 10px;
+        padding: 8px 10px;
     }
 
     .industry-orbit,
     .orbit-dot {
         offset-path: none;
-
         top: auto;
         left: auto;
-    }
-
-    .industry-orbit {
-        animation:
-            floatIndustry
-            5s
-            ease-in-out
-            infinite,
-            orbitHighlightCycle
-            10s
-            ease-in-out
-            infinite;
     }
 
     .orbit-dot {
@@ -3733,331 +3518,73 @@ p {
             infinite;
     }
 
-    .orbit-telecom {
-        top: 15px;
+    /* Mobile: all industry labels orbit the center */
+    .industry-orbit {
         left: 50%;
-
-        transform:
-            translateX(-50%);
-
-        animation-delay:
-            -.5s,
-            0s;
-    }
-
-    .orbit-public {
-        right: -4px;
-        top: 47%;
-
-        animation-delay:
-            -1.5s,
-            -2.5s;
+        top: 50%;
+        right: auto;
+        bottom: auto;
+        font-size: 8px;
+        padding: 8px 10px;
+        animation-name: industryOrbitMobile;
+        animation-duration: 25.2s;
+        animation-timing-function: linear;
+        animation-iteration-count: infinite;
     }
 
     .orbit-agriculture {
-        bottom: 15px;
-        left: 50%;
+        animation-delay: 0s;
+    }
 
-        transform:
-            translateX(-50%);
-
-        animation-delay:
-            -2.5s,
-            -5s;
+    .orbit-public {
+        animation-delay: -4.2s;
     }
 
     .orbit-data {
-        left: -5px;
-        top: 43%;
-
-        animation-delay:
-            -3.5s,
-            -7.5s;
+        animation-delay: -8.4s;
     }
 
-    .orbit-dot-one {
-        top: 18%;
-        right: 18%;
+    .orbit-telecom {
+        animation-delay: -12.6s;
     }
 
-    .orbit-dot-two {
-        top: 72%;
-        right: 15%;
-
-        animation-delay: -.6s;
+    .orbit-aviation {
+        animation-delay: -16.8s;
     }
 
-    .orbit-dot-three {
-        left: 17%;
-        bottom: 18%;
-
-        animation-delay: -1.2s;
+    .orbit-fintech {
+        animation-delay: -21s;
     }
 
-    .orbit-dot-four {
-        top: 24%;
-        left: 15%;
+    @keyframes industryOrbitMobile {
+        from {
+            transform:
+                translate(-50%, -50%)
+                rotate(0deg)
+                translateY(-150px)
+                rotate(0deg);
+        }
 
-        animation-delay: -1.8s;
-    }
-
-    .stats-grid {
-        grid-template-columns:
-            repeat(2, 1fr);
-    }
-
-    .stat-card {
-        padding: 22px;
-
-        border-bottom:
-            1px solid
-            var(--line);
-    }
-
-    .stat-card:nth-child(2) {
-        border-right: none;
-    }
-
-    .stat-card:nth-child(4) {
-        border-right: none;
-    }
-
-    .section {
-        padding: 85px 0;
-    }
-
-    .section-heading {
-        grid-template-columns:
-            1fr;
-
-        gap: 10px;
-
-        margin-bottom: 45px;
-    }
-
-    .section-heading h2 {
-        font-size: 43px;
-
-        letter-spacing: -2px;
-    }
-
-    .about-grid {
-        grid-template-columns: 1fr;
-
-        gap: 60px;
-    }
-
-    .about-photo-wrap {
-        position: relative;
-
-        top: auto;
-
-        max-width: 420px;
-
-        margin: 0 auto;
-    }
-
-    .photo-nameplate {
-        width:
-            calc(100% - 10px);
-
-        padding: 12px;
-    }
-
-    .photo-nameplate strong {
-        font-size: 8px;
-
-        letter-spacing: .4px;
-    }
-
-    .photo-nameplate span {
-        font-size: 8px;
-    }
-
-    .story-intro p {
-        font-size: 22px;
-    }
-
-    .about-story > p {
-        font-size: 14px;
-    }
-
-    .social-links {
-        flex-wrap: wrap;
-    }
-
-    .experience-intro {
-        margin-left: 0;
-    }
-
-    .experience-item {
-        grid-template-columns:
-            1fr;
-
-        gap: 12px;
-    }
-
-    .experience-top {
-        flex-direction: column;
-    }
-
-    .experience-tag {
-        width: fit-content;
-    }
-
-    .process-flow {
-        grid-template-columns: 1fr;
-
-        gap: 25px;
-    }
-
-    .process-line {
-        width: 1px;
-
-        height: 35px;
-
-        margin: 0 auto;
-    }
-
-    .process-line::after {
-        background:
-            linear-gradient(
-                180deg,
-                transparent,
-                #a889ff,
-                transparent
-            );
-
-        transform:
-            translateY(-110%);
-    }
-
-    .process-active .process-line::after {
-        animation:
-            processLineMobile
-            1.5s
-            ease
-            forwards;
-    }
-
-    @keyframes processLineMobile {
         to {
             transform:
-                translateY(110%);
+                translate(-50%, -50%)
+                rotate(360deg)
+                translateY(-150px)
+                rotate(-360deg);
         }
     }
 
-    .industry-grid {
-        grid-template-columns: 1fr;
+    .industry-orbit:hover {
+        animation-play-state: paused;
+        box-shadow: 0 14px 30px rgba(124, 77, 255, .18);
     }
 
-    .industry-card {
-        min-height: 280px;
-    }
-
-    .aviation-transition {
-        gap: 10px;
-    }
-
-    .aviation-transition > div {
-        white-space: normal;
-    }
-
-    .aviation-transition strong {
-        font-size: 15px;
-    }
-
-    .project-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .project-card:last-child {
-        grid-column: auto;
-
-        max-width: none;
-    }
-
-    .project-visual {
-        height: 270px;
-    }
-
-    .featured-certification {
-        grid-template-columns: 1fr;
-
-        gap: 25px;
-
-        padding: 20px;
-    }
-
-    .featured-cert-image img {
-        height: 220px;
-    }
-
-    .certificate-grid {
-        grid-template-columns:
-            repeat(2, 1fr);
-    }
-
-    .lab-banner {
-        padding:
-            40px 25px;
-
-        min-height: 430px;
-    }
-
-    .lab-content h2 {
-        font-size: 44px;
-    }
-
-    .lab-plane {
-        right: 5%;
-        top: 72%;
-
-        font-size: 80px;
-    }
-
-    .lab-orbit-decoration {
-        width: 330px;
-        height: 330px;
-
-        right: -140px;
-        top: 40px;
-    }
-
-    .capabilities-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .capability {
-        border-right: none;
-    }
-
-    .contact-card {
-        grid-template-columns: 1fr;
-
-        padding:
-            40px 25px;
-    }
-
-    .contact-left h2 {
-        font-size: 45px;
-    }
-
-    .contact-email {
-        font-size: 20px;
-    }
-
-    .footer-inner {
-        flex-direction: column;
-
-        align-items: flex-start;
-
-        padding:
-            30px 0;
-    }
-
-    .footer-inner > p {
-        margin-left: 0;
+    .orbit-dot {
+        animation:
+            dotPulse
+            2.5s
+            ease-in-out
+            infinite;
     }
 }
 
@@ -4096,7 +3623,6 @@ p {
     .exploration-orbit,
     .exploration-center,
     .center-ring,
-    .plane-icon,
     .industry-orbit,
     .orbit-dot,
     .risk-circle,
